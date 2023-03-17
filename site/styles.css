@@ -1,6 +1,11 @@
+@font-face{
+  src: url(fonts/PPNeueMontreal-Bold.otf);
+  font-family: Neue Montreal;
+}
+
 body,
 html {
-	font-family: "Noto Sans", sans-serif;
+	font-family: Neue Montreal;
 	height: 100%;
 	display: grid;
 	background-color: whitesmoke;
@@ -11,6 +16,21 @@ html {
 	width: max-content;
 }
 
+.language img{
+  width: 50px;
+  height: auto;
+  position: fixed;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	border: 0;
+	vertical-align: middle;
+	text-decoration: none;
+	font-size: inherit;
+	font-family: inherit;
+  right: 170px;
+  top: 20px;
+}
 
 /* button styles from Katherine Kato's 3D button: https://codepen.io/kathykato/pen/gOOjgmP */
 
