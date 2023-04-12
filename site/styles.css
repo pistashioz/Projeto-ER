@@ -10,7 +10,7 @@ html {
 	display: grid;
   background-image: url('images/botw08.jpg');
   background-repeat: no-repeat;
-  background-attachment:fixed ;
+  background-attachment:fixed;
 
 }
 
@@ -24,6 +24,7 @@ nav{
   right: 0;
 }
 .containerGeral{
+  z-index: 7;
   background-color: rgba(175, 147, 105, 0.3);
   backdrop-filter: blur(10rem) !important;
   width: 80%;
@@ -238,7 +239,7 @@ button {
 }
 
 #raposa img{
-  z-index: 2;
+  z-index: 6;
   width: 200px;
   height: auto;
   float: right;
@@ -302,13 +303,15 @@ button {
 
 .userName{
   color: rgb(79, 61, 34);
+  padding-top: 30px;
+  padding-left: 10px;
   margin-top: -65px;
   margin-left: 80px;
 }
 
 .comment{
   font-family: Arial, Helvetica, sans-serif;
-  margin-top: 60px;
+  margin-top: 10%;
   margin-left: 40px;
   margin-right: 40px;
   font-size: 15px;
