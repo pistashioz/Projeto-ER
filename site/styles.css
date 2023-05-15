@@ -328,7 +328,7 @@ button {
   margin-top: 10%;
   margin-left: 40px;
   margin-right: 40px;
-  font-size: 15px;
+  font-size: 15px;  
 }
 footer{
   width: 1300px;
@@ -336,9 +336,18 @@ footer{
   margin-left: auto;
   color: white; 
 }
+#recursos{
+  font-size: 20px;
+}
 #colunas{
-  width: 300px;
+  width: 600px;
   display: flex;
   justify-content: space-around;
   font-family: NeueMontreal !important; 
+  font-size: 18px;
+}
+#termosBtn{
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
 }
