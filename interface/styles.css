@@ -17,42 +17,27 @@ ion-icon {
   color: #F4F3FF;
 }
 
-#container{
-    box-shadow: 3px 3px .4em rgba(12, 10, 10, 0.5), -0.2em 0 .3em rgba(215, 215, 212, 0.4);
-    width: 600px;
-    height: 400px;
-    background-color: #AD6545;
-    border-radius: 80px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 #title{
-    margin-top: 50px;
-    font-size: 50px;
-    text-align: center;
-    font-family: Baloo Bhaina;
-    color: #F4F3FF;
-    text-shadow: 2px 5px 2px rgb(131, 57, 11);
+    padding-top: 150px;
+    margin-left: 350px;
+    width: 800px;
+}
+#title img{
+    width: 850px;
+    height: auto;
 }
 #buttons{
-    margin-top: -30px;
-    margin-left: auto;
-    margin-right: auto;
+    float: right;
+    margin-top: -650px;
     display: flex;
     flex-direction: column;
-    width: 300px;
-
-    
+    width: 200px;
 }
 #buttons button{
     margin: 20px;
     border-radius: 30px;
     height: 60px;
     box-shadow: inset;
-
     color: whitesmoke;
     font-size: 20px;
 	padding: 0.25em 2em;
@@ -74,7 +59,7 @@ ion-icon {
 	bottom: 0;
 	background: #D1BD8A;
 	border-radius: inherit;
-	box-shadow: 0 0 0 2px #D1BD8A, 0 0.625em 0 0 #AD6545;
+	box-shadow: 0 0 0 2px #D1BD8A, 0 0.625em 0 0 none;
 	transform: translate3d(0, 0.75em, -1em);
 	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
 }
@@ -83,7 +68,7 @@ ion-icon {
 	transform: translate(0, 0.25em);
 }
 #buttons button:hover::before {
-	box-shadow: 0 0 0 2px #D1BD8A, 0 0.5em 0 0  #AD6545;
+	box-shadow: 0 0 0 2px #D1BD8A, 0 0.5em 0 0  none;
   backdrop-filter: blur(5rem) !important;
 	transform: translate3d(0, 0.5em, -1em);
 }
@@ -95,7 +80,7 @@ ion-icon {
 	box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #D1BD8A;
 	transform: translate3d(0, 0, -1em);
 }
-#continue{
+#logIn{
     font-family: Baloo Bhaina;
 }
 #newGame{
