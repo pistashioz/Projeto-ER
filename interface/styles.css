@@ -1,12 +1,18 @@
+body {
+    background-image: url("img/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 @font-face{
     src: url(fonts/BalooBhaina-Regular.ttf);
     font-family: Baloo Bhaina;
-  }
+}
+
 #container{
     width: 600px;
     height: 400px;
     background-color: #AD6545;
-    border-radius: 20px;
+    border-radius: 80px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -14,19 +20,91 @@
 }
 
 #title{
+    margin-top: 50px;
+    font-size: 50px;
     text-align: center;
     font-family: Baloo Bhaina;
+    color: #F4F3FF;
+    text-shadow: 2px 5px 2px rgb(131, 57, 11);
 }
-
 #buttons{
+    margin-top: -30px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    flex-direction: column;
+    width: 300px;
+
     
+}
+#buttons button{
+    margin: 20px;
+    border-radius: 30px;
+    height: 60px;
+    box-shadow: inset;
+
+    color: whitesmoke;
+    font-size: 20px;
+	padding: 0.25em 2em;
+	background: #B95328;
+	border: 2px solid #B95328;
+	transform-style: preserve-3d;
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+		background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+#buttons button::before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #D1BD8A;
+	border-radius: inherit;
+	box-shadow: 0 0 0 2px #D1BD8A, 0 0.625em 0 0 #AD6545;
+	transform: translate3d(0, 0.75em, -1em);
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#buttons button:hover {
+	background: #B95328;
+	transform: translate(0, 0.25em);
+}
+#buttons button:hover::before {
+	box-shadow: 0 0 0 2px #D1BD8A, 0 0.5em 0 0  #AD6545;
+  backdrop-filter: blur(5rem) !important;
+	transform: translate3d(0, 0.5em, -1em);
+}
+#buttons button:active {
+	background: #B95328;
+	transform: translate(0em, 0.75em);
+}
+#buttons button:active::before {
+	box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #D1BD8A;
+	transform: translate3d(0, 0, -1em);
 }
 #continue{
     font-family: Baloo Bhaina;
 }
 #newGame{
     font-family: Baloo Bhaina;
+}
+#settings{
+    border: 0;
+    background-color: #AD6545;
+    float: right;
+    margin-right: 50px;
+    margin-top: -40px;
+}
+#settings img{
+    width: 50px;
+    height: auto;
+}
+
+#sound{
+    background: none;
+    border: 0;
+    float: right;
 }
