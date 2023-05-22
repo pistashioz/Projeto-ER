@@ -12,7 +12,13 @@ a{
     font-family: Baloo Bhaina;
 }
 
+ion-icon {
+  font-size: 64px;
+  color: #F4F3FF;
+}
+
 #container{
+    box-shadow: 3px 3px .4em rgba(12, 10, 10, 0.5), -0.2em 0 .3em rgba(215, 215, 212, 0.4);
     width: 600px;
     height: 400px;
     background-color: #AD6545;
@@ -110,5 +116,6 @@ a{
 #sound{
     background: none;
     border: 0;
+    margin-right: 20px;
     float: right;
 }

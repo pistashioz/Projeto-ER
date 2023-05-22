@@ -16,7 +16,7 @@ input, textarea, select { font-family:inherit; }
 
 #container{
     width: 600px;
-    height: 500px;
+    height: 750px;
     background-color: #AD6545;
     border-radius: 80px;
     position: fixed;
@@ -34,7 +34,7 @@ input, textarea, select { font-family:inherit; }
     text-shadow: 2px 5px 2px rgb(131, 57, 11);
 }
 
-#user, #pw{
+#user, #pw, #confPw, #mail{
     font-size: 30px;
     font-family: Baloo Bhaina;
     color: #F4F3FF;
@@ -44,7 +44,7 @@ fieldset{
     margin-top: -70px;
     margin-left: 30px;
 }
-#user input, #pw input{
+#user input, #pw input, #confPw input, #mail input{
     border: 0;
     background-color: #C6C9AB;
     color: #AD6545;
@@ -57,7 +57,7 @@ fieldset{
     padding-top: 5px;
     padding-bottom: 5px;
 }
-#user input:focus, #pw input:focus{
+#user input:focus, #pw input:focus, #confPw input:focus, #mail input:focus{
     outline: none;
 }
 #forgotpw{
