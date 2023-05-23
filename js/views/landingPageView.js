@@ -1,4 +1,5 @@
-/*mute/unmute button*/
+/*mute/unmute sound*/
+
 
 var muteBtn = document.getElementById('sound');
 var myTrack = document.getElementById('bgTrack');
@@ -14,3 +15,5 @@ function muteOrUnmute(){
         muteBtn.innerHTML = '<ion-icon name="volume-mute-outline"></ion-icon>'
     }
 }
+
+
