@@ -1,0 +1,353 @@
+@font-face{
+  src: url(fonts/PPNeueMontreal-Bold.otf);
+  font-family: Neue Montreal Bold;
+}
+@font-face{
+  src: url(site/fonts/NeueMontreal-Regular.otf);
+  font-family: NeueMontreal;
+}
+
+body,
+html {
+	font-family: Neue Montreal Bold;
+	height: 100%;
+	display: grid;
+  background-image: url('images/background.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment:scroll;
+
+}
+
+nav{
+  z-index: 8;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.containerGeral{
+  z-index: 7;
+  background-color: rgba(175, 147, 105, 0.3);
+  backdrop-filter: blur(10rem) !important;
+  width: 80%;
+  border-radius: 40px;
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.buttons {
+	width: max-content;
+}
+
+
+button {
+  height: 40px;
+	position: fixed;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	border: 0px;
+	vertical-align: middle;
+	text-decoration: none;
+	font-size: inherit;
+	font-family: inherit;
+  right: 20px;
+  top: 10px;
+}
+
+#swap {
+	color: black;
+	padding: 0.25em 2em;
+	background: whitesmoke;
+	border: 2px solid black;
+	border-radius: 0.75em;
+	transform-style: preserve-3d;
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+		background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#swap::before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: black;
+	border-radius: inherit;
+	box-shadow: 0 0 0 2px black, 0 0.625em 0 0 rgba(255, 255, 255, 0);
+  backdrop-filter: blur(5rem) !important;
+	transform: translate3d(0, 0.75em, -1em);
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+		box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#swap:hover {
+	background: whitesmoke;
+	transform: translate(0, 0.25em);
+}
+#swap:hover::before {
+	box-shadow: 0 0 0 2px black, 0 0.5em 0 0  rgba(255, 255, 255, 0);
+  backdrop-filter: blur(5rem) !important;
+	transform: translate3d(0, 0.5em, -1em);
+}
+#swap:active {
+	background: whitesmoke;
+	transform: translate(0em, 0.75em);
+}
+#swap:active::before {
+	box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 black;
+	transform: translate3d(0, 0, -1em);
+}
+
+.about{
+  position: fixed;
+  top: 10px;
+  left: 300px;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.about p:last-child{
+  margin-left: 20px;
+}
+
+.about a{
+  text-decoration: none;
+  color: black;
+}
+
+.gameInfo{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  color: wheat;
+}
+#gameName{
+  margin-left: 120px;
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+  margin-top: 10px;
+  margin-right: 120px;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:rgb(133, 133, 133);
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #68366C;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #68366C;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #68366C;
+}
+
+.game{
+  width:960px;
+  height: 640px;
+  background-color: rgb(92, 142, 106);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -25px;
+  border-radius: 25px;
+}
+
+.filtros{
+  display: flex;
+  margin-left: 110px;
+  margin-right: 320px;
+  justify-content: space-between;
+}
+
+.filtros h3{
+  background-color: #68366C;
+  border-radius: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top:5px;
+  padding-bottom: 5px;
+  color: wheat;
+}
+
+
+.language img{
+  width: 45px;
+  height: auto;
+  position: fixed;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	border: 0;
+	vertical-align: middle;
+	text-decoration: none;
+	font-size: inherit;
+	font-family: inherit;
+  right: 200px;
+  top: 13 px;
+}
+
+.companyImage img{
+  width: 300px;
+  height: auto;
+  position: fixed;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	border: 0;
+	vertical-align: middle;
+	text-decoration: none;
+	font-size: inherit;
+	font-family: inherit; 
+  top: 5px;
+}
+
+.aboutGame{
+  margin-left: 120px;
+  margin-right: 120px;
+  color: wheat;
+}
+
+#about{
+  font-size: 30px;
+}
+#imgJogo{
+  width:960px;
+  height: 300px;
+  background-color: rgb(92, 142, 106);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -25px;
+  border-radius: 25px;
+}
+#description{
+  font-size: 18px;
+}
+
+#raposa img{
+  z-index: 6;
+  width: 200px;
+  height: auto;
+  float: right;
+  transform: rotate(-20deg);
+}
+#line{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color:black;
+  margin-left: 120px;
+  margin-right: 120px;
+  width: 970px;
+  height: 1.2px;
+}
+#infoJogo{
+  margin-left: 120px;
+}
+.datos{
+  color: #68366C;
+}
+.resp{
+  color: wheat;
+}
+.reviews{
+  background-color: rgb(219, 213, 180);
+  width: 960px;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5dvh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+
+.container{
+  width: 260px;
+  height: 350px;
+  background-color:#86749E;
+  border-radius: 5dvh;
+  flex-wrap: wrap;
+  
+}
+
+#viewMoreReviews{
+  margin-top: 50px;
+  margin-right: 120px;
+  margin-left: 120px;
+  color: #68366C;
+}
+
+.userProfile img{
+  margin-left: -10px;
+  height: 80px;
+  width:80px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
+.userName{
+  color: #68366C;
+  padding-top: 30px;
+  padding-left: 10px;
+  margin-top: -65px;
+  margin-left: 80px;
+}
+
+.comment{
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10%;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 15px;  
+}
+footer{
+  width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  color: white; 
+}
+#recursos{
+  font-size: 20px;
+}
+#colunas{
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+  font-family: NeueMontreal !important; 
+  font-size: 18px;
+}
+#termosBtn{
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+}
