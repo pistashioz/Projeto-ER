@@ -126,3 +126,13 @@ fieldset{
 	box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #F67035;
 	transform: translate3d(0, 0, -1em);
 }
+ion-icon {
+    font-size: 64px;
+    color: #F4F3FF;
+  }
+#sound{
+    background: none;
+    border: 0;
+    margin-right: 20px;
+    float: right;
+}
