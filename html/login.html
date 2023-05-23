@@ -10,6 +10,7 @@
 <body>
     <div id = 'container'>
         <h1 id  ='title'>LOG IN</h1>
+        <!-- form -->
         <fieldset>
             <div id = 'user'>
                 <label for = 'username'>UTILIZADOR</label> 
@@ -20,7 +21,7 @@
                 <input type = 'password' name = 'password' id = 'password' required>
             </div>
         </fieldset>
-
+        <!-- buttons -->
         <button id = 'forgotpw'>ESQUECEU-SE DA PASSWORD?</button>
 
         <div id = 'btnsSubmit'>
@@ -28,5 +29,14 @@
             <button id = 'login'>Log in</button>
         </div>
     </div>
+    <!-- sound -->
+    <audio id = 'bgTrack'  autoplay="true" loop>
+        <source src="/interface/audio/audiobg.mp3" type = "audio/mp3">
+    </audio>
+    <button id = 'sound'><ion-icon name="volume-high-outline"></ion-icon></button>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/js/login.js"></script>
 </body>
 </html>

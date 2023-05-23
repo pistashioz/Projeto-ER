@@ -60,20 +60,12 @@ fieldset{
 #user input:focus, #pw input:focus, #confPw input:focus, #mail input:focus{
     outline: none;
 }
-#forgotpw{
-    font-size: 15px;
-    border: 0;
-    background: none;
-    font-family: Baloo Bhaina;
-    color: #F4F3FF;
-    text-decoration: underline;
-    margin-left: 15px;
-    margin-top: -40px;
-}
 
 #btnsSubmit{
-    width: 480px;
+    width: auto;
     margin: auto;
+    margin-left: 50px;
+    display: flex;
 }
 #btnsSubmit button{
     text-transform: uppercase;
@@ -125,4 +117,14 @@ fieldset{
 #btnsSubmit button:active::before {
 	box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #F67035;
 	transform: translate3d(0, 0, -1em);
+}
+ion-icon {
+    font-size: 64px;
+    color: #F4F3FF;
+  }
+#sound{
+    background: none;
+    border: 0;
+    margin-right: 20px;
+    float: right;
 }
