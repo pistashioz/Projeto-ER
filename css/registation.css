@@ -33,6 +33,12 @@ input, textarea, select { font-family:inherit; }
     color: #F4F3FF;
     text-shadow: 2px 5px 2px rgb(131, 57, 11);
 }
+#confPw p{
+    font-size: 18px;
+    color: red;
+    margin-top: -10px;
+    margin-left: 20px;
+}
 
 #user, #pw, #confPw, #mail{
     font-size: 30px;
@@ -62,6 +68,7 @@ fieldset{
 }
 
 #btnsSubmit{
+    position: static;
     width: auto;
     margin: auto;
     margin-left: 50px;
