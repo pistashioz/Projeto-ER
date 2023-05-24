@@ -3,6 +3,12 @@
     font-family: Baloo Bhaina;
 }
 
+#fade, #modal{
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
 body {
     background-image: url("../src/img/landingPage/bg.png");
     background-repeat: no-repeat;
@@ -16,6 +22,27 @@ a{
     color: #F4F3FF;
 }
 
+#open-modal {
+    background-color: #007bff;
+  }
+  
+#modal-head{
+    background-color: #AD6545;
+    width: 25vh;
+    height: 13dvh;
+    position: fixed;
+    transform: rotate(270deg);
+    left: -7%;
+    text-align: center;
+    border-radius: 2rem;
+    top: 10%;
+}
+#modal-head button{
+    color: whitesmoke;
+    font-size: 3.5dvb;
+    margin-top: 5%;
+    background-color: #AD6545;
+}
 
 ion-icon {
     font-size: 5vw;
@@ -28,7 +55,7 @@ ion-icon {
     float: right;
 }
 
-.modal {
+#modal {
     background-color: #AD6545;
     position: fixed;
     left: 50%;
@@ -276,3 +303,15 @@ ion-icon {
 }
 
 
+
+
+/*modal and fade hide*/
+
+#modal.hide, #fade.hide{
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modal.hide{
+    right: 0;
+}

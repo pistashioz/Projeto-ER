@@ -9,7 +9,12 @@
     
 </head>
 <body>
-    <div class = 'modal'>
+    <button id="open-modal">Abrir</button>
+    <div id = 'fade' class = 'hide'></div>
+    <div id = 'modal' class = 'hide'>
+        <div id = 'modal-head'>
+            <button id = 'modal-profile'>Perfil</button>
+        </div>
         <div class = 'container'>
             <div class="modal-header">
                 <button id = 'close-modal'><ion-icon name="close-outline"></ion-icon></button>
@@ -38,9 +43,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src = '../js/views/perfilView.js'></script>
 </body>
 </html>
