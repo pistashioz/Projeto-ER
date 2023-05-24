@@ -313,5 +313,6 @@ ion-icon {
 }
 
 #modal.hide{
-    right: 0;
+    left: 145%;
+    opacity: 1;
 }
