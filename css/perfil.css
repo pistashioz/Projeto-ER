@@ -343,9 +343,8 @@ ion-icon {
 
 }
 #rules{
-
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 40%;
     transform: translate(-50%, -50%);
     color: whitesmoke;
@@ -353,8 +352,6 @@ ion-icon {
 }
 
 /*rules modal and fade hide*/
-
-
 
 #modalRules.hide{
     left: 140%;
