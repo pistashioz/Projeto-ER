@@ -1,0 +1,278 @@
+@font-face{
+    src: url(../src/fonts/BalooBhaina-Regular.ttf);
+    font-family: Baloo Bhaina;
+}
+
+body {
+    background-image: url("../src/img/landingPage/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*{
+    font-family: Baloo Bhaina;
+}
+a{
+    text-decoration: none;
+    color: #F4F3FF;
+}
+
+
+ion-icon {
+    font-size: 5vw;
+    color: #F4F3FF;
+  }
+#close-modal{
+    background: none;
+    border: 0;
+    margin-right: 2vw;
+    float: right;
+}
+
+.modal {
+    background-color: #AD6545;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-45%, -50%);
+    z-index: 10;
+    width: 95%;
+    max-width: 95%;
+    padding: 1.2rem;
+    border-radius: 3rem;
+    height: 100%;
+}
+.container{
+    background-color: #B87252;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 85%;
+    padding: 1.2rem;
+    border-radius: 3rem;
+    height: 80%;
+}
+
+.modal-body{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+}
+#userInfo{
+    position: fixed;
+    left:50%;
+    top: 10%;
+    font-size: 6dvh;
+    color: whitesmoke;
+    
+}
+
+#userInfo input{
+    border: 0;
+    background-color: #C6C9AB;
+    color: #AD6545;
+    width: 30vw;
+    height: 6vh;
+    padding-top: 1vh;
+    padding-left: 2vw;
+    font-size: 2vw;
+    border-radius: 3vw;
+    margin-left: 1vw;
+}
+#userInfo input:focus{
+    outline: none;
+}
+#btns{
+    position: fixed;
+    left: 50%;
+    top: 80%
+}
+
+#left{
+    position: fixed;
+    left: 20%;
+    top: -5%;
+    transform: translate(-50%, 30%);
+
+    width: 40dvh;
+    height: 50vh;
+}
+
+#profilePic img{
+    width: 50dvh;
+    border-radius: 3rem;
+}
+
+/*buttons*/
+
+
+button {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	border: 0;
+	vertical-align: middle;
+	text-decoration: none;
+	font-size: inherit;
+	font-family: inherit;
+}
+
+#changeAvatar {
+    position: fixed;
+    margin-top: 2vh;
+    left: 25%;
+    width: 30dvh;
+	color: whitesmoke;
+    font-size: 25px;
+	padding: 0.25em 1em;
+    height:8vh;
+	background: #D4A266;
+    box-shadow: inset;
+	border: 2px solid #D4A266;
+	border-radius: 2.5em;
+	transform-style: preserve-3d;
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+		background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+
+#changeAvatar::before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #F67035;
+	border-radius: inherit;
+	box-shadow: 0 0 0 2px #F67035, 0 0.625em 0 0 none;
+	transform: translate3d(0, 0.75em, -1em);
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+		box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#changeAvatar:hover {
+	background: #D4A266;
+	transform: translate(0, 0.25em);
+}
+#changeAvatar:hover::before {
+	box-shadow: 0 0 0 2px #F67035, 0 0.5em 0 0 none;
+	transform: translate3d(0, 0.5em, -1em);
+}
+#changeAvatar:active {
+	background: #D4A266;
+	transform: translate(0em, 0.75em);
+}
+#changeAvatar:active::before {
+	box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #F67035;
+	transform: translate3d(0, 0, -1em);
+}
+
+
+#btns{
+    width: 30vw;
+    margin: auto;
+    margin-left: 3vw;
+    display: block;
+    display: flex;
+    justify-content: space-around;
+}
+#btns button{
+	color: whitesmoke;
+    font-size: 25px;
+	padding: 0.25em 1em;
+    height:8vh;
+    box-shadow: inset;
+	border-radius: 2.5em;
+	transform-style: preserve-3d;
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+		background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#settings{
+	background: #529AC2;
+    border: 2px solid #529AC2;
+}
+#save{
+    background: #53A04C;
+    border: 2px solid #53A04C;
+}
+
+
+#btns button::before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: inherit;
+	transform: translate3d(0, 0.75em, -1em);
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#settings::before{
+    background: #2A6E95;
+    box-shadow: 0 0 0 2px #2A6E95, 0 0.625em 0 0 none;
+}
+#save::before{
+    background: #16680F;
+    box-shadow: 0 0 0 2px #16680F, 0 0.625em 0 0 none;
+}
+#btns button:hover {
+	
+	transform: translate(0, 0.25em);
+}
+#settings:hover{
+    background: #529AC2;
+}
+#save:hover{
+    background: #53A04C;
+}
+#btns button:hover::before {
+  backdrop-filter: blur(5rem) !important;
+	transform: translate3d(0, 0.5em, -1em);
+}
+#settings:hover::before{
+    box-shadow: 0 0 0 2px #2A6E95, 0 0.5em 0 0  none;
+}
+#save:hover::before{
+    box-shadow: 0 0 0 2px #16680F, 0 0.5em 0 0  none;
+}
+#btns button:active {
+	transform: translate(0em, 0.75em);
+}
+#settings:active{
+    background: #529AC2;
+}
+#save:active{
+    background: #53A04C;
+}
+#btns button:active::before {
+	transform: translate3d(0, 0, -1em);
+}
+#settings:active::before{
+    box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #2A6E95;
+}
+#save:active::before{
+    box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #16680F;
+}
+ion-icon {
+    font-size: 5vw;
+    color: #F4F3FF;
+  }
+#sound{
+    background: none;
+    border: 0;
+    margin-right: 2vw;
+    float: right;
+    padding-top: 85vh;
+}
+
+

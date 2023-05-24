@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/perfil.css">
+    
+</head>
+<body>
+    <div class = 'modal'>
+        <div class = 'container'>
+            <div class="modal-header">
+                <button id = 'close-modal'><ion-icon name="close-outline"></ion-icon></button>
+            </div>
+            <div class="modal-body">
+                <div id = 'left'>
+                    <div id = 'profilePic'>
+                        <img src = '../src/img/avatares/fox.svg' alt = 'profilePicture'>
+                    </div>
+                    <button id = 'changeAvatar'>Mudar Avatar</button>
+                </div>
+
+                <div id = 'userInfo'>
+                    <div id = 'user'>
+                        <label for = 'userName'>Utilizador</label>
+                        <input type = 'text' name = 'userName' id = 'userName' placeholder="user" readonly>
+                    </div>
+                    <div id = 'mail'>
+                        <label for = 'email'>E-Mail</label>
+                        <input type = 'text' name = 'email' id = 'email' placeholder="user@gmail.com" readonly>
+                    </div>
+                </div>
+                <div id = 'btns'>
+                    <button id = 'settings'>Editar Conta</button>
+                    <button id = 'save'>Guardar </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
