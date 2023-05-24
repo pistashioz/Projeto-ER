@@ -1,5 +1,5 @@
 body {
-    background-image: url("../src/img/landingPage/bg.png");
+    background-image: url("/src/img/landingPage/bg.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -8,7 +8,7 @@ a{
     color: #F4F3FF;
 }
 @font-face{
-    src: url(../src/fonts/BalooBhaina-Regular.ttf);
+    src: url(/src/fonts/BalooBhaina-Regular.ttf);
     font-family: Baloo Bhaina;
 }
 

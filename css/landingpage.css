@@ -1,5 +1,5 @@
 body {
-    background-image: url("../src/img/landingPage/bg.png");
+    background-image: url("/src/img/landingPage/bg.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -8,38 +8,45 @@ a{
     color: #F4F3FF;
 }
 @font-face{
-    src: url(../src/fonts/BalooBhaina-Regular.ttf);
+    src: url(/src/fonts/BalooBhaina-Regular.ttf);
     font-family: Baloo Bhaina;
 }
 
 ion-icon {
-  font-size: 64px;
-  color: #F4F3FF;
+    font-size: 5vw;
+    color: #F4F3FF;
+  }
+#sound{
+    background: none;
+    border: 0;
+    margin-right: 2vw;
+    float: right;
 }
 
 #title{
-    padding-top: 150px;
-    margin-left: 300px;
-    width: 800px;
+    margin-top: 11.5vh;
+    margin-left: 15vw;
+    margin-right: 15vw;
+
+
 }
 #title img{
-    width: 850px;
+    width: 70vw;
     height: auto;
 }
 #buttons{
     float: right;
-    margin-top: -650px;
     display: flex;
-    flex-direction: column;
-    width: 200px;
+    margin-top: -10vh;
+    width: 15vw;
 }
 #buttons button{
-    margin: 20px;
-    border-radius: 30px;
-    height: 60px;
+    margin: 1vw;
+    border-radius: 3vw;
+    height: 8vh;
     box-shadow: inset;
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 1.5vw;
 	padding: 0.25em 2em;
 	background: #B95328;
 	border: 2px solid #B95328;
@@ -83,24 +90,4 @@ ion-icon {
 #logIn{
     font-family: Baloo Bhaina;
 }
-#newGame{
-    font-family: Baloo Bhaina;
-}
-#settings{
-    border: 0;
-    background-color: #AD6545;
-    float: right;
-    margin-right: 50px;
-    margin-top: -40px;
-}
-#settings img{
-    width: 50px;
-    height: auto;
-}
 
-#sound{
-    background: none;
-    border: 0;
-    margin-right: 20px;
-    float: right;
-}
