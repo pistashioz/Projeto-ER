@@ -1,12 +1,34 @@
-var pass1 = document.querySelector('#password');
-var pass2 = document.querySelector('#cPassword');
-let matchingPass = document.querySelector('p');
-function checkPassword(){
-    matchingPass.innerText = pass1.value == pass2.value ? '' : 'Password não coincidem '
+
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('cPassword');
+
+
+const confirmPasswordError = document.querySelector('#confPw p');
+
+
+const alreadyAccButton = document.getElementById('alreadyAcc');
+const signUpButton = document.getElementById('signUp');
+
+
+function validatePassword() {
+  const password = passwordInput.value;
+  const confirmPassword = confirmPasswordInput.value;
+
+  if (password === confirmPassword) {
+    confirmPasswordError.textContent = ''; 
+    confirmPasswordInput.setCustomValidity(''); 
+    
+ 
+    alreadyAccButton.style.marginTop = '';
+    signUpButton.style.marginTop = '';
+  } else {
+    confirmPasswordError.textContent = 'Passwords do not match'; 
+    confirmPasswordInput.setCustomValidity('Passwords do not match'); 
+    
+    alreadyAccButton.style.marginTop = '-2.5vh';
+    signUpButton.style.marginTop = '-2.5vh';
+  }
 }
 
-pass1.addEventListener('keyup', () => {
-    if (pass2.value.length != 0) checkPassword();
-});
-
-pass2.addEventListener('keyup', checkPassword);
+passwordInput.addEventListener('input', validatePassword);
+confirmPasswordInput.addEventListener('input', validatePassword);
