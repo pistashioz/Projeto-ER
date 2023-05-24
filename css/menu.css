@@ -1,8 +1,54 @@
-<<<<<<< HEAD
 body {
-    background-image: url("../src/img/landingPage/bg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: orange;
+    padding: 0;
+    margin: 0;
+  }
+
+  .container {
+    height: 100vh;
+    float: right;
+  }
+  
+  .regras, .conta, .sair {
+    margin-top: 5vh;
+    width: 4vw;
+    height: 26.5vh;
+    margin-bottom: 10px;
+    background-color: #AD6545;
+    text-align: right;
+    position: relative;
+    border-radius: 2vw 0 0 2vw;
+  }
+  .container{
+    color: black;
+  }
+  .rotate-regras {
+    transform: rotate(270deg);
+    white-space: nowrap;
+    position: relative;
+    top: 9vh;
+    left: -1.3vw;
+    transform-origin:center ;
+    font-family: Baloo Bhaina;
+    font-size: 2vw;
 }
-=======
->>>>>>> bfd6c10105d7334d7245b298adca4697e16dd6f1
+.rotate-conta {
+    transform: rotate(270deg);
+    white-space: nowrap;
+    position: absolute;
+    top:9vh;
+    left: -1.3vh;
+    transform-origin: center;
+    font-family: Baloo Bhaina;
+    font-size: 2vw;
+}
+.rotate-sair {
+    transform: rotate(270deg);
+    white-space: nowrap;
+    position: absolute;
+    top:9vh;
+    left: 1vh;
+    transform-origin: center;
+    font-family: Baloo Bhaina;
+    font-size: 2vw;
+}
