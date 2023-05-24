@@ -309,10 +309,9 @@ ion-icon {
 
 #modal.hide, #fade.hide{
     opacity: 0;
-    pointer-events: none;
 }
 
 #modal.hide{
-    left: 145%;
+    left: 140%;
     opacity: 1;
 }
