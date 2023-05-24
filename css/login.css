@@ -8,7 +8,11 @@ a{
     color: #F4F3FF;
 }
 @font-face{
+<<<<<<< HEAD
     src: url("../src/fonts/BalooBhaina-Regular.ttf");
+=======
+    src: url(../src/fonts/BalooBhaina-Regular.ttf);
+>>>>>>> bfd6c10105d7334d7245b298adca4697e16dd6f1
     font-family: Baloo Bhaina;
 }
 
