@@ -3,7 +3,7 @@
     font-family: Baloo Bhaina;
 }
 
-#fade, #modal{
+#fade, #modalProfile, #modalRules{
     transition: 0.5s;
     opacity: 1;
     pointer-events: all;
@@ -22,8 +22,8 @@ a{
     color: #F4F3FF;
 }
 
-  
-#open-modal{
+/*PROFILE MODAL*/
+#open-modalProfile{
     background-color: #AD6545;
     width: 25vh;
     height: 13dvh;
@@ -43,14 +43,14 @@ ion-icon {
     font-size: 5vw;
     color: #F4F3FF;
   }
-#close-modal{
+#close-modalProfile{
     background: none;
     border: 0;
     margin-right: 2vw;
     float: right;
 }
 
-#modal {
+#modalProfile {
     background-color: #AD6545;
     position: fixed;
     left: 50%;
@@ -90,7 +90,6 @@ ion-icon {
     top: 10%;
     font-size: 6dvh;
     color: whitesmoke;
-    
 }
 
 #userInfo input{
@@ -288,25 +287,76 @@ button {
 ion-icon {
     font-size: 5vw;
     color: #F4F3FF;
-  }
-#sound{
+}
+
+/*profile modal and fade hide*/
+
+#fade.hide{
+    opacity: 0;
+}
+
+#modalProfile.hide{
+    left: 140%;
+    opacity: 1;
+}
+
+
+
+/*RULES MODAL*/
+#modalRules{
+    background-color: #AD6545;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-45%, -50%);
+    z-index: 10;
+    width: 95%;
+    max-width: 95%;
+    padding: 1.2rem;
+    border-radius: 3rem;
+    height: 100%;  
+}
+#open-modalRules{
+    background-color: #AD6545;
+    width: 25vh;
+    height: 13dvh;
+    position: fixed;
+    transform: rotate(270deg);
+    left: -7%;
+    text-align: center;
+    border-radius: 2rem;
+    color: whitesmoke;
+    font-size: 3.5dvb;
+    margin-top: 20%;
+    background-color: #AD6545;
+}
+
+
+#close-modalRules{
     background: none;
     border: 0;
     margin-right: 2vw;
     float: right;
-    padding-top: 85vh;
+}
+#rulesDiv{
+    width: 100%;
+
+}
+#rules{
+
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: whitesmoke;
+    font-size: 6dvh;
 }
 
+/*rules modal and fade hide*/
 
 
 
-/*modal and fade hide*/
-
-#modal.hide, #fade.hide{
-    opacity: 0;
-}
-
-#modal.hide{
+#modalRules.hide{
     left: 140%;
     opacity: 1;
 }

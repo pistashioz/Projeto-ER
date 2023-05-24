@@ -10,11 +10,12 @@
 </head>
 <body>
     <div id = 'fade' class = 'hide'></div>
-    <div id = 'modal' class = 'hide'>
-        <button id = 'open-modal'>Perfil</button>
+    <! -- profile modal -- >
+    <div id = 'modalProfile' class = 'hide'>
+        <button id = 'open-modalProfile'>Perfil</button>
         <div class = 'container'>
             <div class="modal-header">
-                <button id = 'close-modal'><ion-icon name="close-outline"></ion-icon></button>
+                <button id = 'close-modalProfile'><ion-icon name="close-outline"></ion-icon></button>
             </div>
             <div class="modal-body">
                 <div id = 'left'>
@@ -38,6 +39,23 @@
                     <button id = 'settings'>Editar dados</button>
                     <button id = 'save'>Guardar </button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <! -- rule modal -- >
+    <div id = 'modalRules' class = 'hide'>
+        <button id = 'open-modalRules'>Regras</button>
+        <div class = 'container'>
+            <div class="modal-header">
+                <button id = 'close-modalRules'><ion-icon name="close-outline"></ion-icon></button>
+            </div>
+            <div id = 'rulesDiv' class="modal-body">
+                <ul id = 'rules'>
+                    <li>Resolve os desafios antes que seja tarde demais</li>
+                    <li>Pede pistas</li>
+                    <li>Usa as tuas habilidades matemáticas</li>
+                    <li>Divirte-te!</li>
+                </ul>
             </div>
         </div>
     </div>
