@@ -26,6 +26,22 @@ const toggleRModal = () => {
 [openRModalButton, closeRModalButton, fade].forEach((el) => {
   el.addEventListener("click", () => toggleRModal());
 });
+
+
+/*exit modal*/
+
+const openEModalButton = document.querySelector("#open-modalExit");
+const closeEModalButton = document.querySelector("#close-modalExit");
+const Emodal = document.querySelector("#containerExit");
+
+const toggleEModal = () => {
+    [Emodal, fade].forEach((el) => el.classList.toggle("hide"));
+};
+
+[openEModalButton, closeEModalButton, fade].forEach((el) => {
+  el.addEventListener("click", () => toggleEModal());
+});
+
 /*DOM edit and save profile data*/
 
 const editBtn = document.querySelector('#settings');
