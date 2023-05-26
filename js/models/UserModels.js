@@ -17,6 +17,27 @@ export function checkUser(username){
       }
 }
 
+export function login(username,password){
+    const user = users.find((user) => user.username === username && user.password === password);
+    if (user) {
+        sessionStorage.setItem("loggedUserFlor", JSON.stringify(user));
+        return true;
+    } else {
+        return false;
+    }
+}
+
+export function logout(){
+    sessionStorage.removeItem("loggedUserFlor")
+}
+
+export function isLogged(){
+    return sessionStorage.getItem("loggedUserFlor") ? true : false
+}
+
+export function getUserLogged(){
+    return JSON.parse(sessionStorage.getItem("loggedUserFlor"))
+}
 init()
 
 class User{

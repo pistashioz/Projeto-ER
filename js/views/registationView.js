@@ -23,8 +23,8 @@ function validatePassword() {
     signUpButton.style.marginTop = '';
 
   } else {
-    confirmPasswordError.textContent = 'Passwords do not match'; 
-    confirmPasswordInput.setCustomValidity('Passwords do not match'); 
+    confirmPasswordError.textContent = 'As passwords não são iguais'; 
+    confirmPasswordInput.setCustomValidity('As passwords não são iguais'); 
 
     alreadyAccButton.style.marginTop = '-2.5vh';
     signUpButton.style.marginTop = '-2.5vh';
@@ -40,7 +40,6 @@ const userfield = document.querySelector("#username");
 
 function validateUsername() {
   const username = userfield.value;
-  console.warn(username);
   if (User.checkUser(username)) {
     signUpButton.disabled = false;
     confirmPasswordError.textContent = ''; 
@@ -63,8 +62,9 @@ userfield.addEventListener('input', validateUsername);
 //-------------------------------END---------------------------//
 //ADD Acount//
 signUpButton.addEventListener("click", function (){
-  let usename = userfield.value;
+  let username = userfield.value;
   let password = document.querySelector("#password").value;
   let email = document.querySelector("#email").value;
   User.add(username,password,email);
+  //do something....
 });

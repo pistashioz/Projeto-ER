@@ -1,3 +1,5 @@
+import * as User from "../models/UserModels.js";
+
 /*mute/unmute sound*/
 
 
@@ -18,3 +20,16 @@ function muteOrUnmute(){
 
 /*log in*/
 
+document.querySelector("#login").addEventListener("click", function (){
+    const username = document.querySelector("#username").value;
+    const password = document.querySelector("#password").value;
+
+    let resultLogin = User.login(username,password);
+
+    if(resultLogin){
+        window.location.replace("../index.html")
+    } else{
+        alert("CREDENCIAIS ERRADAS")
+    }
+
+});
