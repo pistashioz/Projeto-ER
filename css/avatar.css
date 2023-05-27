@@ -1,7 +1,7 @@
 body {
     background-color: #9892DC;
 }
-
+/*avatar container*/
 .scroll-bg{
     background-color: rgba(104, 97, 181, 0.6);
     width: 50%;
@@ -18,18 +18,19 @@ body {
     overflow: hidden;
     overflow-y: scroll;
 }
-
+/*avatar cards*/
 .card{
     border-radius: 5dvb;
     border: #6861B5;
     margin: 2dvb 0 3dvb 2dvb;
+    background-color: #6861B5;
 }
 .card-img-top{
     border-radius: 5dvb;
     width: 15rem;
     height: auto;
 }
-
+/*scrollbar*/
 
 ::-webkit-scrollbar {
     width: 3dvb;
@@ -47,7 +48,7 @@ body {
     border-radius: 5dvb;
   }
 
-
+/*close icon*/
 ion-icon {
 font-size: 5vw;
 color: #F4F3FF;
@@ -64,3 +65,21 @@ color: #F4F3FF;
     left: 93%;
 }
 
+/*actual avatar*/
+#actualAvatar img{
+    width: 30%;
+    height: auto;
+    align-items: center;
+    position: fixed;
+    top: 15%;
+    left: 10%;
+    border-radius: 5dvb;
+}
+
+/*coins*/
+
+
+.card-img-top:hover{
+    filter: brightness(50%);
+    transition: 0.8s;
+}
