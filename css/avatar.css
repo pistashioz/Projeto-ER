@@ -1,6 +1,15 @@
 body {
     background-color: #9892DC;
 }
+@font-face{
+    src: url("../src/fonts/BalooBhaina-Regular.ttf");
+    font-family: Baloo Bhaina;
+}
+*{
+    font-family: Baloo Bhaina;
+    color: whitesmoke;
+   
+}
 /*avatar container*/
 .scroll-bg{
     background-color: rgba(104, 97, 181, 0.6);
@@ -63,6 +72,12 @@ color: #F4F3FF;
     cursor: pointer;
     z-index: 11;
     left: 93%;
+    top: 1%;
+}
+/*hover*/
+.card-img-top:hover{
+    filter: brightness(50%);
+    transition: 0.8s;
 }
 
 /*actual avatar*/
@@ -78,8 +93,21 @@ color: #F4F3FF;
 
 /*coins*/
 
-
-.card-img-top:hover{
-    filter: brightness(50%);
-    transition: 0.8s;
+#coins{
+    width: 30%;
+    height: 5%;
+    font-size: 4.5vw;
+    display: flex;
+    align-items: center;
+    margin-left: -5vw;
+    margin-top: -2vw;
 }
+#coinImg{
+    width: 18vw;
+    height: auto;
+}
+#amount{
+    margin-left: -5vw;
+    margin-bottom: -0.3vw;
+}
+
