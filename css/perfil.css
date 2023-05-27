@@ -46,12 +46,7 @@ ion-icon {
     font-size: 5vw;
     color: #F4F3FF;
   }
-#close-modalProfile{
-    background: none;
-    border: 0;
-    margin-right: 2vw;
-    float: right;
-}
+
 
 #modalProfile {
     background-color: #AD6545;
@@ -59,7 +54,6 @@ ion-icon {
     left: 50%;
     top: 50%;
     transform: translate(-45%, -50%);
-    z-index: 10;
     width: 95%;
     max-width: 95%;
     padding: 1.2rem;
@@ -312,7 +306,6 @@ ion-icon {
     left: 50%;
     top: 50%;
     transform: translate(-45%, -50%);
-    z-index: 10;
     width: 95%;
     max-width: 95%;
     padding: 1.2rem;
@@ -335,7 +328,7 @@ ion-icon {
 }
 
 
-#close-modalRules{
+.close-modal{
     background: none;
     border: 0;
     margin-right: 2vw;
@@ -378,12 +371,12 @@ ion-icon {
     left: 100%;
     top: 50%;
     transform: translate(-45%, -50%);
-    z-index: 10;
     width: 6%;
     max-width: 6%;
     padding: 1.2rem;
     border-radius: 3rem;
     height: 100%;
+    z-index: 10;
 }
 #open-modalExit{
     background-color: #AD6545;
@@ -411,7 +404,7 @@ ion-icon {
     padding: 1.2rem;
     border-radius: 3rem;
     height: 40%;
-
+    z-index: 11;
 }
 
 #modalExit-body{
