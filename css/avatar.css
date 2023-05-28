@@ -10,6 +10,9 @@ body {
     color: whitesmoke;
    
 }
+button{
+    cursor: pointer;
+}
 /*avatar container*/
 .scroll-bg{
     background-color: rgba(104, 97, 181, 0.6);
@@ -34,10 +37,11 @@ body {
     margin: 2dvb 0 3dvb 2dvb;
     background-color: #6861B5;
 }
-.card-img-top{
+ .brig{
     border-radius: 5dvb;
     width: 15rem;
     height: auto;
+    filter: brightness(50%);
 }
 /*scrollbar*/
 
@@ -75,10 +79,7 @@ color: #F4F3FF;
     top: 1%;
 }
 /*hover*/
-.card-img-top:hover{
-    filter: brightness(50%);
-    transition: 0.8s;
-}
+
 
 /*actual avatar*/
 #actualAvatar img{
@@ -111,3 +112,59 @@ color: #F4F3FF;
     margin-bottom: -0.3vw;
 }
 
+
+/* modal buy */
+
+#modal {
+    background-color: #AD6545;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-45%, -50%);
+    width: 15%;
+    max-width: 15%;
+    padding: 1.2rem;
+    border-radius: 3rem;
+    height: 15%;
+}
+ion-icon {
+    font-size: 5vw;
+    color: #F4F3FF;
+}
+
+.close-modal{
+    background: none;
+    border: 0;
+    margin-right: 2vw;
+    float: right;
+}
+
+.modal-body{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#btns button{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    color: blue;
+}
+
+#modal{
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#modal.hide{
+    left: 100%;
+    opacity: 0;
+}
+
+#avatar1 btn {
+    width: 50%;
+    height: 50%;
+}

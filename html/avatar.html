@@ -19,30 +19,31 @@
     </div>
     <div class="scroll-bg">
         <div class="scroll-div">
-            <div class = "row row-cols-md-2">
+            <div class = "row row-cols-md-2 avatars">
                 <div class = 'col'>
                     <div class="card" style="width: 15rem;">
-                        <img class="card-img-top" src="../src/img/avatares/fox.svg" alt="fox avatar">
+                      <a >
+                        <img id="test" onclick="test();" class="card-img-top brig" src="../src/img/avatares/fox.svg" alt="fox avatar" id = 'fox-avatar'>
+                    </a></div>
+                </div>
+                <div class = 'col'>
+                    <div class="card" style="width: 15rem;">
+                        <img class="card-img-top brig" src="../src/img/avatares/chick.svg" alt="chick avatar" id = 'chick-avatar'>
                     </div>
                 </div>
                 <div class = 'col'>
                     <div class="card" style="width: 15rem;">
-                        <img class="card-img-top" src="../src/img/avatares/chick.svg" alt="chick avatar">
+                        <img class="card-img-top brig" src="../src/img/avatares/frog.svg" alt="frog avatar" id = 'frog-avatar'>
                     </div>
                 </div>
                 <div class = 'col'>
                     <div class="card" style="width: 15rem;">
-                        <img class="card-img-top" src="../src/img/avatares/frog.svg" alt="frog avatar">
+                        <img class="card-img-top brig" src="../src/img/avatares/bunny.svg" alt="bunny avatar" id = 'bunny-avatar'>
                     </div>
                 </div>
                 <div class = 'col'>
                     <div class="card" style="width: 15rem;">
-                        <img class="card-img-top" src="../src/img/avatares/bunny.svg" alt="bunny avatar">
-                    </div>
-                </div>
-                <div class = 'col'>
-                    <div class="card" style="width: 15rem;">
-                        <img class="card-img-top" src="../src/img/avatares/cat.svg" alt="cat avatar">
+                        <img class="card-img-top brig" src="../src/img/avatares/cat.svg" alt="cat avatar" id = 'cat-avatar'>
                     </div>
                 </div>
             </div>
@@ -50,6 +51,15 @@
         </div>
     </div>
 
+    <! -- buy modal -- >
+    <div id = 'modal' class = 'hide'>
+        <div class = 'container'>
+            <button id="modalClose" class = 'close-modal'><ion-icon name="close-outline"></ion-icon></button>
+                <div id = 'btns'>
+                    <button id = 'btnBuy'>COMPRAR</button>
+            </div>
+        </div>
+    </div>
     
     <! -- close button -- >
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
