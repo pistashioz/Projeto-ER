@@ -9,8 +9,9 @@ export function add(username,password,email){
         localStorage.setItem("usersFlor", JSON.stringify(users));
         sessionStorage.setItem("loggedUserFlor", JSON.stringify(username));
 }
-export function checkUser(username){
-    if (users.some((user) => user.username === username)) {
+
+export function checkUser(username, email){
+    if (users.some((user) => user.username === username || user.email === email)) {
         return false
       } else {
         return true
