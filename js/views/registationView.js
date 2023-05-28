@@ -6,8 +6,8 @@ const confirmPasswordInput = document.getElementById('cPassword');
 
 
 const confirmPasswordError = document.querySelector('#confPw p');
-
-
+const confirmMailInputError = document.querySelector('#mail p');
+const confirmUsername = document.querySelector('#user p');
 const alreadyAccButton = document.getElementById('alreadyAcc');
 const signUpButton = document.getElementById('signUp');
 signUpButton.disabled = true;
@@ -15,7 +15,7 @@ function validatePassword() {
   const password = passwordInput.value;
   const confirmPassword = confirmPasswordInput.value;
 
-  if (password === confirmPassword) {
+  if ((password === confirmPassword) ) {
     signUpButton.disabled = false;
     confirmPasswordError.textContent = ''; 
     confirmPasswordInput.setCustomValidity(''); 
@@ -31,9 +31,6 @@ function validatePassword() {
     signUpButton.disabled = true;
   }
 }
-
-passwordInput.addEventListener('input', validatePassword);
-confirmPasswordInput.addEventListener('input', validatePassword);
 //-------------------------------END---------------------------//
 //Live validation of username
 const userfield = document.querySelector("#username");
@@ -41,17 +38,36 @@ const emailField = document.querySelector("#email");
 
 function validateUsername() {
   const username = userfield.value;
-  const email = emailField.value
-  if (User.checkUser(username,email)) {
+  if (User.checkUser(username)) {
     signUpButton.disabled = false;
     confirmPasswordError.textContent = ''; 
     confirmPasswordInput.setCustomValidity(''); 
     alreadyAccButton.style.marginTop = '';
     signUpButton.style.marginTop = '';
+  }
+  else {
+    confirmMailInputError.textContent = 'mail errado'; 
+    confirmMailInputError.setCustomValidity('mail errado');
 
+    alreadyAccButton.style.marginTop = '-2.5vh';
+    signUpButton.style.marginTop = '-2.5vh';
+    signUpButton.disabled = true;
+  }
+}
+
+function validateUsername() {
+  const username = userfield.value;
+   
+  if (User.checkUser(username)) {
+    signUpButton.disabled = false;
+    confirmUsername.textContent = 'nome valido :)'; 
+    confirmUsername.setCustomValidity('nome valido :)'); 
+    alreadyAccButton.style.marginTop = '';
+    signUpButton.style.marginTop = '';
+    
   } else {
-    confirmPasswordError.textContent = 'Utilizador já existe. Verifique o utilizador e email'; 
-    confirmPasswordInput.setCustomValidity('Utilizador já existe. Verifique o utilizador e email');
+    confirmPasswordError.textContent = 'Utilizador já existe'; 
+    confirmPasswordInput.setCustomValidity('Utilizador já existe');
 
     alreadyAccButton.style.marginTop = '-2.5vh';
     signUpButton.style.marginTop = '-2.5vh';
@@ -60,7 +76,6 @@ function validateUsername() {
 }
 
 userfield.addEventListener('input', validateUsername);
-emailField.addEventListener('input', validateUsername);
 
 //-------------------------------END---------------------------//
 //ADD Acount//

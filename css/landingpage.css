@@ -11,7 +11,9 @@ a{
     src: url("../src/fonts/BalooBhaina-Regular.ttf");
     font-family: Baloo Bhaina;
 }
-
+button{
+    cursor: pointer;
+  }
 ion-icon {
     font-size: 5vw;
     color: #F4F3FF;

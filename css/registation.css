@@ -13,7 +13,9 @@ a{
 }
 
 input, textarea, select { font-family:inherit; }
-
+button{
+  cursor: pointer;
+}
 #container{
     width: 50vw;
     height: 98vh;
@@ -39,6 +41,18 @@ input, textarea, select { font-family:inherit; }
     margin-left: 20px;
 }
 
+#mail p{
+  font-size: 18px;
+  color: rgb(167, 0, 0);
+  margin-top: -10px;
+  margin-left: 20px;
+}
+#user p{
+  font-size: 18px;
+  color: rgb(167, 0, 0);
+  margin-top: -10px;
+  margin-left: 20px;
+}
 #user, #pw, #confPw, #mail{
     font-size: 2vw;
     font-family: Baloo Bhaina;

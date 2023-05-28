@@ -13,7 +13,9 @@ a{
 }
 
 input, textarea, select { font-family:inherit; }
-
+button{
+    cursor: pointer;
+  }
 #container{
     width: 50vw;
     height: 80vh;
