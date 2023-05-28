@@ -143,3 +143,56 @@ ion-icon {
     float: right;
     padding-top: 85vh;
 }
+/*Alert necessary for the ussage of a custom alert*/
+#alert-container {
+    z-index: 1;
+    
+    .alert-msg {
+       background: #fff;
+       display: flex;
+       align-items: center;
+       border: 1px solid #ddd;
+       bottom: 25px;
+       box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+       left: 25px;
+       padding: 15px;
+       position: absolute;
+       z-index: 99;
+    }
+
+}
+
+ 
+.slide-in {
+    animation-name: slideIn;
+    animation-duration: 0.8s;
+
+}
+
+@keyframes slideIn {
+ from {
+    transform: translateX(-400px);
+ }
+ 
+ to {
+    transform: translateX(0);
+ }
+}
+
+.slide-out {
+
+    animation-name: slideOut;
+    animation-duration: 0.8s;
+}
+
+@keyframes slideOut {
+ from {
+    transform: translateY(0);
+    opacity: 1;
+ }
+ 
+ to {
+    transform: translateY(80px);
+    opacity: 0;
+ }
+}

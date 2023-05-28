@@ -27,32 +27,21 @@ button{
 }
 
 #title{
-    margin-top: 5vh;
     font-size: 4vw;
     text-align: center;
     font-family: Baloo Bhaina;
     color: #F4F3FF;
     text-shadow: 2px 5px 2px rgb(131, 57, 11);
 }
-#confPw p{
-    font-size: 18px;
-    color: rgb(167, 0, 0);
-    margin-top: -10px;
-    margin-left: 20px;
+
+#user p,#confPw p, #mail p{
+  font-size: 18px;
+  color: rgb(167, 0, 0);
+  margin-top: -10px;
+  margin-left: 20px;
+  position:fixed;
 }
 
-#mail p{
-  font-size: 18px;
-  color: rgb(167, 0, 0);
-  margin-top: -10px;
-  margin-left: 20px;
-}
-#user p{
-  font-size: 18px;
-  color: rgb(167, 0, 0);
-  margin-top: -10px;
-  margin-left: 20px;
-}
 #user, #pw, #confPw, #mail{
     font-size: 2vw;
     font-family: Baloo Bhaina;
@@ -69,7 +58,6 @@ fieldset{
     color: #AD6545;
     width: 40vw;
     height: 6vh;
-    padding-top: 1vh;
     padding-left: 2vw;
     font-size: 2vw;
     border-radius: 3vw;
