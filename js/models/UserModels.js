@@ -75,12 +75,12 @@ export function CustomAlert(message){
 
 init()
 
-class User{
+export class User{
     username = ""
     password = ""
     email = ""
     coins = 0
-    avatarList = []
+    avatarList = ['avatar-fox']
     avatar = ""
 
     constructor(username,password,email,coins=0,avatarList=[],avatar=""){
