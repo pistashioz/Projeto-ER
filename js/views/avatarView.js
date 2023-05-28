@@ -25,8 +25,39 @@ btnBuy.addEvent('click',function(){
 }); */
 
 
-const btnOpen = document.getElementById('test').addEventListener('click',console.log('yoo bro'))
+const openModalButtons = document.querySelectorAll('[data-modal-target]');
+const btns = document.querySelectorAll('.image-button');
+const closeModalButtons = document.querySelectorAll('[data-close-button]');
 
-function test(){
-    btn
+openModalButtons.forEach(button => {
+    button.addEventListener('click', () =>{
+        const modal = document.querySelector(button.dataset.modalTarget);
+        openModal(modal)
+    })
+});
+
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = document.querySelector('.modalBuy')
+      closeModal(modal)
+    })
+  })
+
+function openModal(modal){
+    if (modal == null) return
+    modal.classList.add('active')
+}
+
+function closeModal(modal) {
+    if (modal == null) return
+    modal.classList.remove('active')
+  }
+
+/**/
+
+const buyBtn = document.querySelector('.buy-button');
+buyBtn.addEventListener('click', buyAvatar());
+function buyAvatar(){
+    console.log('aaa')
+    /*avatarSelected.style.removeProperty('backdrop-filter');*/
 }
