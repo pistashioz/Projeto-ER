@@ -47,7 +47,7 @@ closeModalButtons.forEach(button => {
       const modal = document.querySelector('.modalBuy')
       closeModal(modal)
     })
-  })
+  });
 
 
 
@@ -65,14 +65,11 @@ function closeModal(modal) {
     modal.classList.remove('active')
   }
 
-/**/
-if (modal.classList.contains('active')){
-    console.log('!!')
-
-}
+/*buy button*/
 
 function buyAvatar(button){
     const image = button.firstChild;
     image.classList.replace('brig', 'card');
-
-}
+    button.removeAttribute("data-modal-target");
+    closeModal(modal);
+};
