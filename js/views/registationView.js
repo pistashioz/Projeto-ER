@@ -18,64 +18,60 @@ function validatePassword() {
   if ((password === confirmPassword) ) {
     signUpButton.disabled = false;
     confirmPasswordError.textContent = ''; 
-    confirmPasswordInput.setCustomValidity(''); 
-    alreadyAccButton.style.marginTop = '';
-    signUpButton.style.marginTop = '';
 
   } else {
     confirmPasswordError.textContent = 'As passwords não são iguais'; 
-    confirmPasswordInput.setCustomValidity('As passwords não são iguais'); 
-
-    alreadyAccButton.style.marginTop = '-2.5vh';
-    signUpButton.style.marginTop = '-2.5vh';
     signUpButton.disabled = true;
   }
 }
+
+passwordInput.addEventListener('input', validatePassword);
+confirmPasswordInput.addEventListener('input', validatePassword);
+//-------------------------------END---------------------------//
+//Live validation of email
+
+const emailField = document.querySelector("#email");
+
+function validateEmail() {
+  const email = emailField.value;
+  if (!email){
+    confirmMailInputError.textContent = ''; 
+  }else{
+    if (User.checkMail(email)) {
+      signUpButton.disabled = false;
+      confirmMailInputError.textContent = ''; 
+    }
+    else {
+      confirmMailInputError.textContent = 'O email não se encontra no formato correto'; 
+      signUpButton.disabled = true;
+    }
+  }
+}
+
+emailField.addEventListener('input', validateEmail);
 //-------------------------------END---------------------------//
 //Live validation of username
 const userfield = document.querySelector("#username");
-const emailField = document.querySelector("#email");
-
 function validateUsername() {
   const username = userfield.value;
-  if (User.checkUser(username)) {
-    signUpButton.disabled = false;
-    confirmPasswordError.textContent = ''; 
-    confirmPasswordInput.setCustomValidity(''); 
-    alreadyAccButton.style.marginTop = '';
-    signUpButton.style.marginTop = '';
-  }
-  else {
-    confirmMailInputError.textContent = 'mail errado'; 
-    confirmMailInputError.setCustomValidity('mail errado');
+  if (!username){
+    confirmUsername.textContent = ''; 
+  }else{
+    if (User.checkUser(username)) {
+      signUpButton.disabled = false;
+      confirmUsername.textContent = 'nome valido :)';   
 
-    alreadyAccButton.style.marginTop = '-2.5vh';
-    signUpButton.style.marginTop = '-2.5vh';
-    signUpButton.disabled = true;
-  }
-}
+      
+    }else {
+      confirmUsername.textContent = 'Utilizador já existe'; 
+      signUpButton.disabled = true;
 
-function validateUsername() {
-  const username = userfield.value;
-   
-  if (User.checkUser(username)) {
-    signUpButton.disabled = false;
-    confirmUsername.textContent = 'nome valido :)'; 
-    confirmUsername.setCustomValidity('nome valido :)'); 
-    alreadyAccButton.style.marginTop = '';
-    signUpButton.style.marginTop = '';
-    
-  } else {
-    confirmPasswordError.textContent = 'Utilizador já existe'; 
-    confirmPasswordInput.setCustomValidity('Utilizador já existe');
-
-    alreadyAccButton.style.marginTop = '-2.5vh';
-    signUpButton.style.marginTop = '-2.5vh';
-    signUpButton.disabled = true;
+    }
   }
 }
 
 userfield.addEventListener('input', validateUsername);
+
 
 //-------------------------------END---------------------------//
 //ADD Acount//

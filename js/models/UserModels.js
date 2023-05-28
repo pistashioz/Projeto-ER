@@ -17,12 +17,12 @@ export function checkUser(username){
       }
 }
 export function checkMail(userMail){
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userMail.value))
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userMail))
     {
       return (true)
-    }
-      alert("Endereço não valido!")
+    }else{
       return (false)
+    }
 }
 export function login(username,password){
     const user = users.find((user) => user.username === username && user.password === password);
