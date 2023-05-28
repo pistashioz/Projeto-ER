@@ -72,4 +72,13 @@ function buyAvatar(button){
     image.classList.replace('brig', 'card');
     button.removeAttribute("data-modal-target");
     closeModal(modal);
+    /*change avatar profile*/ 
+    button.addEventListener('click', function() {
+        changeAvatar(image)
+    });
 };
+function changeAvatar(image){
+    const defaultAvatar = document.getElementById('defaultAvatar');
+    const source = image.src
+    defaultAvatar.src= source;
+}
