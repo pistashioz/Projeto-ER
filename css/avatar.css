@@ -40,12 +40,16 @@ button:focus{
     margin: 2dvb 0 3dvb 2dvb;
     background-color: rgba(104, 97, 181, 0.1);
 }
- .brig{
+.brig{
     border-radius: 5dvb;
-    width: 15rem;
     height: auto;
+    margin: 2dvb 0 3dvb 2dvb;
     filter: brightness(50%);
 }
+#fox-avatar{
+    filter: brightness(100%)!important;
+}
+
 /*scrollbar*/
 
 ::-webkit-scrollbar {

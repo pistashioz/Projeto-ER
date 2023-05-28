@@ -28,12 +28,18 @@ btnBuy.addEvent('click',function(){
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const btns = document.querySelectorAll('.image-button');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
+const buyBtn = document.getElementById('btnBuy');
 
 openModalButtons.forEach(button => {
     button.addEventListener('click', () =>{
         const modal = document.querySelector(button.dataset.modalTarget);
         openModal(modal)
+        buyBtn.addEventListener('click', function() {
+            buyAvatar(button)
+            console.log('yes')
+        })
     })
+
 });
 
 closeModalButtons.forEach(button => {
@@ -43,21 +49,30 @@ closeModalButtons.forEach(button => {
     })
   })
 
+
+
 function openModal(modal){
-    if (modal == null) return
+    if (modal == null){
+        return
+    } 
     modal.classList.add('active')
 }
 
 function closeModal(modal) {
-    if (modal == null) return
+    if (modal == null) {
+        return
+    } 
     modal.classList.remove('active')
   }
 
 /**/
+if (modal.classList.contains('active')){
+    console.log('!!')
 
-const buyBtn = document.querySelector('.buy-button');
-buyBtn.addEventListener('click', buyAvatar());
-function buyAvatar(){
-    console.log('aaa')
-    /*avatarSelected.style.removeProperty('backdrop-filter');*/
+}
+
+function buyAvatar(button){
+    const image = button.firstChild;
+    image.classList.replace('brig', 'card');
+
 }
