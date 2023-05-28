@@ -85,8 +85,24 @@ color: #F4F3FF;
     left: 93%;
     top: 1%;
 }
-/*hover*/
+/*avatar price*/
 
+.price{
+    display: flex;
+    align-items: center;
+    width: 15vw;
+}
+.coinPrice{
+    width: 30%;
+    margin-top:  -40vh; 
+    z-index: 12;
+    margin-left: 3vw;
+}
+.avatarPrice{
+    margin-top: -38vh;
+    font-size: 3.3vw;
+    z-index: 12;
+}
 
 /*actual avatar*/
 #actualAvatar img{

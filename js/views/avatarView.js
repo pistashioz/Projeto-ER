@@ -69,6 +69,9 @@ function closeModal(modal) {
 
 function buyAvatar(button){
     const image = button.firstChild;
+    const price = button.lastElementChild;
+    console.log(price)
+    price.innerHTML = '';
     image.classList.replace('brig', 'card');
     button.removeAttribute("data-modal-target");
     closeModal(modal);
@@ -77,7 +80,7 @@ function buyAvatar(button){
         changeAvatar(image)
     });
     document.getElementById('fox-avatarBtn').addEventListener('click', function() {
-        changeAvatarFox(image)
+        changeAvatarFox()
     });
 };
 
@@ -89,9 +92,8 @@ function changeAvatar(image){
     defaultAvatar.src= source;
 }
 
-function changeAvatarFox(image){
+function changeAvatarFox(){
     const defaultAvatar = document.getElementById('defaultAvatar');
     const source = document.getElementById('fox-avatar').src
-
     defaultAvatar.src = source
 }
