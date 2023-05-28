@@ -76,9 +76,22 @@ function buyAvatar(button){
     button.addEventListener('click', function() {
         changeAvatar(image)
     });
+    document.getElementById('fox-avatarBtn').addEventListener('click', function() {
+        changeAvatarFox(image)
+    });
 };
+
+
+
 function changeAvatar(image){
     const defaultAvatar = document.getElementById('defaultAvatar');
     const source = image.src
     defaultAvatar.src= source;
+}
+
+function changeAvatarFox(image){
+    const defaultAvatar = document.getElementById('defaultAvatar');
+    const source = document.getElementById('fox-avatar').src
+
+    defaultAvatar.src = source
 }
