@@ -38,7 +38,7 @@ button:focus{
     border-radius: 5dvb;
     border: rgba(104, 97, 181, 0.1);
     margin: 2dvb 0 3dvb 2dvb;
-    background-color: rgba(104, 97, 181, 0.1);
+    background-color: rgba(104, 97, 181, 0);
 }
 .brig{
     border-radius: 5dvb;
