@@ -34,10 +34,11 @@ function validatePassword() {
 //-------------------------------END---------------------------//
 //Live validation of username
 const userfield = document.querySelector("#username");
+const emailField = document.querySelector("#email");
 
-function validateMail(){
-  let userMail = document.querySelector("#email");
-  if (User.checkMail(userMail)){
+function validateUsername() {
+  const username = userfield.value;
+  if (User.checkUser(username)) {
     signUpButton.disabled = false;
     confirmPasswordError.textContent = ''; 
     confirmPasswordInput.setCustomValidity(''); 
@@ -65,8 +66,8 @@ function validateUsername() {
     signUpButton.style.marginTop = '';
     
   } else {
-    confirmUsername.textContent = 'Utilizador já existe'; 
-    confirmUsername.setCustomValidity('Utilizador já existe');
+    confirmPasswordError.textContent = 'Utilizador já existe'; 
+    confirmPasswordInput.setCustomValidity('Utilizador já existe');
 
     alreadyAccButton.style.marginTop = '-2.5vh';
     signUpButton.style.marginTop = '-2.5vh';
@@ -75,42 +76,13 @@ function validateUsername() {
 }
 
 userfield.addEventListener('input', validateUsername);
-signUpButton.addEventListener('click', validateUsername);
-signUpButton.addEventListener('click', validateMail);
-signUpButton.addEventListener('click', validatePassword);
-
 
 //-------------------------------END---------------------------//
 //ADD Acount//
 signUpButton.addEventListener("click", function (){
   let username = userfield.value;
-  let password = document.querySelector("#password").value;
-  let email = document.querySelector("#email").value;
-  User.add(username,password,email);
-  //do something....
+  let password = document.querySelector("#password");
+  let email = emailField.value;
+  User.add(username,password.value,email);
+  window.location.replace("../index.html");
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* document.querySelector('#signUp').addEventListener('click', function(){
-
-}); */

@@ -10,7 +10,7 @@ export function add(username,password,email){
         sessionStorage.setItem("loggedUserFlor", JSON.stringify(username));
 }
 export function checkUser(username){
-    if (users.some((user) => user.username === username )) {
+    if (users.some((user) => user.username === username)) {
         return false
       } else {
         return true
