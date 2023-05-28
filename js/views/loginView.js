@@ -29,7 +29,7 @@ document.querySelector("#login").addEventListener("click", function (){
     if(resultLogin){
         window.location.replace("../index.html")
     } else{
-        alert("CREDENCIAIS ERRADAS")
+        User.CustomAlert("CREDENCIAIS ERRADAS")
     }
 
 });
