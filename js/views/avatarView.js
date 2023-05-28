@@ -19,7 +19,7 @@ btnBuy.addEvent('click',function(){
     } 
     }
     else {
-        console.log('pobrito manito')
+        console.log('no money') 
     }
     
 }); */
