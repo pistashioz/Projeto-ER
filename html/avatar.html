@@ -15,35 +15,55 @@
         <p id = 'amount'>x 15</p>
     </div>
     <div id = 'actualAvatar'>
-        <img src="../src/img/avatares/fox.svg" alt="fox avatar">
+        <img src="../src/img/avatares/fox.svg" alt="avatar" id = 'defaultAvatar'>
     </div>
     <div class="scroll-bg">
         <div class="scroll-div">
             <div class = "row row-cols-md-2 avatars">
                 <div class = 'col'>
                     <div class="card" style="width: 15rem;">
-                      <a >
-                        <img id="test" onclick="test();" class="card-img-top brig" src="../src/img/avatares/fox.svg" alt="fox avatar" id = 'fox-avatar'>
-                    </a></div>
-                </div>
-                <div class = 'col'>
-                    <div class="card" style="width: 15rem;">
-                        <img class="card-img-top brig" src="../src/img/avatares/chick.svg" alt="chick avatar" id = 'chick-avatar'>
+                        <button class = 'image-button' id = 'fox-avatarBtn'><img class="card-img-top brig" src="../src/img/avatares/fox.svg" alt="fox avatar" id = 'fox-avatar'></button>
+
                     </div>
                 </div>
                 <div class = 'col'>
                     <div class="card" style="width: 15rem;">
-                        <img class="card-img-top brig" src="../src/img/avatares/frog.svg" alt="frog avatar" id = 'frog-avatar'>
+                        <button data-modal-target="#modal" class = 'image-button' id = 'chick-avatarBtn'><img class="card-img-top brig" src="../src/img/avatares/chick.svg" alt="chick avatar" id = 'chick-avatar'>
+                        <div class = 'price'>
+                            <img class = 'coinPrice' src="../src/img/coin.png" alt = 'coin'>
+                            <h3 class = 'avatarPrice'>x 5</h3>
+                        </div>
+                        </button>
                     </div>
                 </div>
                 <div class = 'col'>
                     <div class="card" style="width: 15rem;">
-                        <img class="card-img-top brig" src="../src/img/avatares/bunny.svg" alt="bunny avatar" id = 'bunny-avatar'>
+                        <button data-modal-target="#modal" class = 'image-button' id = 'frog-avatarBtn'><img class="card-img-top brig" src="../src/img/avatares/frog.svg" alt="frog avatar" id = 'frog-avatar'>
+                        <div class = 'price'>
+                            <img class = 'coinPrice' src="../src/img/coin.png" alt = 'coin'>
+                            <h3 class = 'avatarPrice'>x 10</h3>
+                        </div>
+                        </button>
                     </div>
                 </div>
                 <div class = 'col'>
                     <div class="card" style="width: 15rem;">
-                        <img class="card-img-top brig" src="../src/img/avatares/cat.svg" alt="cat avatar" id = 'cat-avatar'>
+                        <button data-modal-target="#modal" class = 'image-button' id = 'bunny-avatarBtn'><img class="card-img-top brig" src="../src/img/avatares/bunny.svg" alt="bunny avatar" id = 'bunny-avatar'>
+                        <div class = 'price'>
+                            <img class = 'coinPrice' src="../src/img/coin.png" alt = 'coin'>
+                            <h3 class = 'avatarPrice'>x 15</h3>
+                        </div>
+                    </button>
+                    </div>
+                </div>
+                <div class = 'col'>
+                    <div class="card" style="width: 15rem;">
+                        <button data-modal-target="#modal" class = 'image-button' id = 'cat-avatarBtn'><img class="card-img-top brig" src="../src/img/avatares/cat.svg" alt="cat avatar" id = 'cat-avatar'>
+                        <div class = 'price'>
+                            <img class = 'coinPrice' src="../src/img/coin.png" alt = 'coin'>
+                            <h3 class = 'avatarPrice'>x 40</h3>
+                        </div>
+                    </button>
                     </div>
                 </div>
             </div>
@@ -52,18 +72,35 @@
     </div>
 
     <! -- buy modal -- >
-    <div id = 'modal' class = 'hide'>
+    <div id = 'modal' class = 'modalBuy'>
         <div class = 'container'>
-            <button id="modalClose" class = 'close-modal'><ion-icon name="close-outline"></ion-icon></button>
+            <div class = 'modal-head'>
+                <h1>Comprar</h1>
+            </div>
+            <div class = 'modal-body'>
+                <h3>Tem a certeza que quer comprar o avatar selecionado?</h3>
                 <div id = 'btns'>
-                    <button id = 'btnBuy'>COMPRAR</button>
+                    <button class = 'buy-button' id = 'btnBuy'>Comprar</button>
+                    <button  data-close-button class = 'close-button'id = 'btnExit'>Sair</button>
+                </div> 
             </div>
         </div>
     </div>
-    
-    <! -- close button -- >
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <div id = 'overlay'></div>
+
+   <! -- buy modal -- > 
+    <div id = 'modalNoMoney' class = 'modalNoMoney'>
+        <div class = 'container'>
+            <div class = 'modal-headMoney'>
+                <h1>Moedas insuficientes</h1>
+                <button id="modalMoney" class = 'close-modalMoney'><ion-icon name="close-outline"></ion-icon></button>
+            </div>
+            <div class = 'modal-bodyMoney'>
+                <h3>Completa os desafios para ganhar mais moedas!</h3>
+            </div>
+        </div>
+    </div>
+    <div id = 'overlay'></div>
 
     <! -- bootstrap -- >
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

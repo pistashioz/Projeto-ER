@@ -19,14 +19,81 @@ btnBuy.addEvent('click',function(){
     } 
     }
     else {
-        console.log('pobrito manito')
+        console.log('no money') 
     }
     
 }); */
 
 
-const btnOpen = document.getElementById('test').addEventListener('click',console.log('yoo bro'))
+const openModalButtons = document.querySelectorAll('[data-modal-target]');
+const btns = document.querySelectorAll('.image-button');
+const closeModalButtons = document.querySelectorAll('[data-close-button]');
+const buyBtn = document.getElementById('btnBuy');
 
-function test(){
-    btn
+openModalButtons.forEach(button => {
+    button.addEventListener('click', () =>{
+        const modal = document.querySelector(button.dataset.modalTarget);
+        openModal(modal)
+        buyBtn.addEventListener('click', function() {
+            buyAvatar(button)
+            console.log('yes')
+        })
+    })
+
+});
+
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = document.querySelector('.modalBuy')
+      closeModal(modal)
+    })
+  });
+
+
+
+function openModal(modal){
+    if (modal == null){
+        return
+    } 
+    modal.classList.add('active')
+}
+
+function closeModal(modal) {
+    if (modal == null) {
+        return
+    } 
+    modal.classList.remove('active')
+  }
+
+/*buy button*/
+
+function buyAvatar(button){
+    const image = button.firstChild;
+    const price = button.lastElementChild;
+    console.log(price)
+    price.innerHTML = '';
+    image.classList.replace('brig', 'card');
+    button.removeAttribute("data-modal-target");
+    closeModal(modal);
+    /*change avatar profile*/ 
+    button.addEventListener('click', function() {
+        changeAvatar(image)
+    });
+    document.getElementById('fox-avatarBtn').addEventListener('click', function() {
+        changeAvatarFox()
+    });
+};
+
+
+
+function changeAvatar(image){
+    const defaultAvatar = document.getElementById('defaultAvatar');
+    const source = image.src
+    defaultAvatar.src= source;
+}
+
+function changeAvatarFox(){
+    const defaultAvatar = document.getElementById('defaultAvatar');
+    const source = document.getElementById('fox-avatar').src
+    defaultAvatar.src = source
 }

@@ -13,6 +13,9 @@ body {
 button{
     cursor: pointer;
 }
+button:focus{
+    outline: none;
+}
 /*avatar container*/
 .scroll-bg{
     background-color: rgba(104, 97, 181, 0.6);
@@ -24,7 +27,7 @@ button{
 }
 .scroll-div{
     width: 80%;
-    height: 75%;
+    height: 82%;
     margin: auto;
     margin-top: 12%;
     overflow: hidden;
@@ -33,16 +36,20 @@ button{
 /*avatar cards*/
 .card{
     border-radius: 5dvb;
-    border: #6861B5;
+    border: rgba(104, 97, 181, 0.1);
     margin: 2dvb 0 3dvb 2dvb;
-    background-color: #6861B5;
+    background-color: rgba(104, 97, 181, 0);
 }
- .brig{
+.brig{
     border-radius: 5dvb;
-    width: 15rem;
     height: auto;
+    margin: 2dvb 0 3dvb 2dvb;
     filter: brightness(50%);
 }
+#fox-avatar{
+    filter: brightness(100%)!important;
+}
+
 /*scrollbar*/
 
 ::-webkit-scrollbar {
@@ -69,17 +76,35 @@ color: #F4F3FF;
 
 #closeBtn{
     position: fixed;
-    background: none;
+    background-color: red;
+    width: 10vw;
+    height: 10vh;
     border: 0;
     margin-right: 2vw;
     outline: none;
     cursor: pointer;
     z-index: 11;
-    left: 93%;
-    top: 1%;
+    left: 90%;
+    top: 2%;
 }
-/*hover*/
+/*avatar price*/
 
+.price{
+    display: flex;
+    align-items: center;
+    width: 15vw;
+}
+.coinPrice{
+    width: 30%;
+    margin-top:  -40vh; 
+    z-index: 12;
+    margin-left: 3vw;
+}
+.avatarPrice{
+    margin-top: -38vh;
+    font-size: 3.3vw;
+    z-index: 12;
+}
 
 /*actual avatar*/
 #actualAvatar img{
@@ -100,32 +125,33 @@ color: #F4F3FF;
     font-size: 4.5vw;
     display: flex;
     align-items: center;
-    margin-left: -5vw;
-    margin-top: -2vw;
 }
 #coinImg{
-    width: 18vw;
+    width: 7vw;
     height: auto;
 }
 #amount{
-    margin-left: -5vw;
+    margin-left: 0.5vw;
     margin-bottom: -0.3vw;
 }
 
-
 /* modal buy */
 
-#modal {
-    background-color: #AD6545;
+.modalBuy {
+    background-color: rgba(171, 63, 63, 0.6);
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-45%, -50%);
-    width: 15%;
-    max-width: 15%;
+    transform: translate(-45%, -50%) scale(0);
+    width: 40%;
+    max-width: 40%;
     padding: 1.2rem;
     border-radius: 3rem;
-    height: 15%;
+    height: 50%;
+    transition: 200ms ease-in-out;
+}
+.modalBuy.active{
+    transform: translate(-45%, -50%) scale(1);
 }
 ion-icon {
     font-size: 5vw;
@@ -139,32 +165,198 @@ ion-icon {
     float: right;
 }
 
+
+.modal-head h1{
+    position: fixed;
+    text-align: center;
+    left: 25%;
+    font-size: 5vw
+}
+
+
 .modal-body{
     position: fixed;
     left: 50%;
-    top: 50%;
+    top: 60%;
     transform: translate(-50%, -50%);
+    width: 90%;
+    height: 50%;
+    
 }
-#btns button{
+#btns{
+    width: 80%;
     position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 50%;
-    color: blue;
+    position: fixed;
+    left: 10%;
+    top: 70%;
+    display: flex;
+    justify-content: space-around;
+
 }
 
-#modal{
-    transition: 0.5s;
-    opacity: 1;
-    pointer-events: all;
+
+
+#btns button{
+	color: whitesmoke;
+    font-size: 2.3vw;
+	padding: 0em 1em;
+    height:8vh;
+    box-shadow: inset;
+	border-radius: 2.5em;
+	transform-style: preserve-3d;
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+		background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#btnBuy{
+	background: #E0A968;
+    border: 2px solid #E0A968;
+}
+#btnExit{
+    background: #9D1919;
+    border: 2px solid #9D1919;
 }
 
-#modal.hide{
-    left: 100%;
-    opacity: 0;
+
+#btns button::before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: inherit;
+	transform: translate3d(0, 0.75em, -1em);
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
 }
+#btnBuy::before{
+    background: #F67035;
+    box-shadow: 0 0 0 2px #F67035, 0 0.625em 0 0 none;
+}
+#btnExit::before{
+    background: #5A0000;
+    box-shadow: 0 0 0 2px #5A0000, 0 0.625em 0 0 none;
+}
+#btns button:hover {
+	
+	transform: translate(0, 0.25em);
+}
+#btnBuy:hover{
+    background: #E0A968;
+}
+#btnExit:hover{
+    background: #9D1919;
+}
+#btns button:hover::before {
+  backdrop-filter: blur(5rem) !important;
+	transform: translate3d(0, 0.5em, -1em);
+}
+#btnBuy:hover::before{
+    box-shadow: 0 0 0 2px #F67035, 0 0.5em 0 0  none;
+}
+#btnExit:hover::before{
+    box-shadow: 0 0 0 2px #5A0000, 0 0.5em 0 0  none;
+}
+#btns button:active {
+	transform: translate(0em, 0.75em);
+}
+#btnBuy:active{
+    background: #E0A968;
+}
+#btnExit:active{
+    background: #9D1919;
+}
+#btns button:active::before {
+	transform: translate3d(0, 0, -1em);
+}
+#btnBuy:active::before{
+    box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #F67035;
+}
+#btnExit:active::before{
+    box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #5A0000;
+}
+
+
 
 #avatar1 btn {
     width: 50%;
     height: 50%;
+}
+
+/*avatar-btns*/
+
+.image-button{
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5dvb;
+
+}
+.image-button:focus{
+    outline: none;
+}
+
+/*overlay*/
+#overlay{
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#overlay.active{
+    pointer-events: all;
+}
+/*modalMoney*/
+
+.modalNoMoney{
+    background-color: rgba(171, 63, 63, 0.6);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-45%, -50%) scale(1);
+    width: 40%;
+    max-width: 40%;
+    padding: 1.2rem;
+    border-radius: 3rem;
+    height: 50%;
+    transition: 200ms ease-in-out;
+}
+
+.modal-headMoney h1{
+    position: fixed;
+    text-align: center;
+    left: 0%;
+    font-size: 4.3vw;
+}
+.close-modalMoney{
+    position: fixed;
+    background: none;
+    width: 10vw;
+    height: 10vh;
+    border: 0;
+    margin-right: 2vw;
+    outline: none;
+    cursor: pointer;
+    z-index: 11;
+    left: 90%;
+    top: 2%;
+}
+
+
+
+.modal-bodyMoney{
+    position: fixed;
+    left: 55%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 50%;
+}
+
+.modal-bodyMoney h3{
+    font-size: 2.3vw;
 }
