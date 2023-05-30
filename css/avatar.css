@@ -76,16 +76,14 @@ color: #F4F3FF;
 
 #closeBtn{
     position: fixed;
-    background-color: red;
-    width: 10vw;
-    height: 10vh;
+    background: none;
     border: 0;
     margin-right: 2vw;
     outline: none;
     cursor: pointer;
     z-index: 11;
-    left: 90%;
-    top: 2%;
+    left: 93%;
+    top: 1%;
 }
 /*avatar price*/
 
@@ -359,4 +357,16 @@ ion-icon {
 
 .modal-bodyMoney h3{
     font-size: 2.3vw;
+}
+
+#moneyBtn{
+    position: fixed;
+    background: none;
+    border: 0;
+    margin-right: 2vw;
+    outline: none;
+    cursor: pointer;
+    z-index: 11;
+    left: 93%;
+    top: 1%;
 }
