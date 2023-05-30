@@ -1,56 +1,70 @@
 body {
-    background-color: orange;
-    padding: 0;
-    margin: 0;
-  }
-  button{
-    cursor: pointer;
-  }
-  .container {
-    height: 100vh;
-    float: right;
-  }
-  
-  .regras, .conta, .sair {
-    margin-top: 5vh;
-    width: 4vw;
-    height: 26.5vh;
-    margin-bottom: 10px;
-    background-color: #AD6545;
-    text-align: right;
-    position: relative;
-    border-radius: 2vw 0 0 2vw;
-  }
-  .container{
-    color: black;
-  }
-  .rotate-regras {
-    transform: rotate(270deg);
-    white-space: nowrap;
-    position: relative;
-    top: 9vh;
-    left: -1.3vw;
-    transform-origin:center ;
-    font-family: Baloo Bhaina;
-    font-size: 2vw;
+  background-color: orange;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
+
+.container {
+  height: 100vh;
+  float: right;
+}
+
+.container_after{
+  height: 100vh;
+}
+
+.flyer{
+  height: 100vh;
+  width: 96vw;
+  background-color: red;
+  visibility: hidden;
+
+}
+
+.regras, .conta, .sair {
+  margin-top: 5vh;
+  width: 4vw;
+  height: 26.5vh;
+  margin-bottom: 10px;
+  background-color: #AD6545;
+  text-align: right;
+  position: relative;
+  border-radius: 2vw 0 0 2vw;
+}
+
+.container {
+  color: black;
+}
+
+.rotate-regras {
+  transform: rotate(270deg);
+  position: absolute;
+  top: 9vh;
+  left: -2.5vh;
+  font-family: Baloo Bhaina;
+  font-size: 2vw;
+  cursor: pointer;
+}
+
 .rotate-conta {
-    transform: rotate(270deg);
-    white-space: nowrap;
-    position: absolute;
-    top:9vh;
-    left: -1.3vh;
-    transform-origin: center;
-    font-family: Baloo Bhaina;
-    font-size: 2vw;
+  transform: rotate(270deg);
+  position: absolute;
+  top: 9vh;
+  left: -1.3vh;
+  font-family: Baloo Bhaina;
+  font-size: 2vw;
+  cursor: pointer;
 }
+
 .rotate-sair {
-    transform: rotate(270deg);
-    white-space: nowrap;
-    position: absolute;
-    top:9vh;
-    left: 1vh;
-    transform-origin: center;
-    font-family: Baloo Bhaina;
-    font-size: 2vw;
+  transform: rotate(270deg);
+  position: absolute;
+  top: 9vh;
+  left: 1vh;
+  font-family: Baloo Bhaina;
+  font-size: 2vw;
+  cursor: pointer;
 }
+
+
