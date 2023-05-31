@@ -7,8 +7,7 @@ const fade = document.querySelector("#fade");
 const toggleModal=0;
 const rModal = document.querySelector("#modalRules");
 
-
-modal.addEventListener('click', function(){
+openModalButton.addEventListener('click', function(){
   if(!rModal.classList.contains('hide')){ 
     modal.style.zIndex=12;
     rModal.style.zIndex=10;
@@ -17,19 +16,20 @@ modal.addEventListener('click', function(){
   }
   else {
     modal.classList.toggle('hide');
-      }
+    }
 
 });
 
 closeModalButton.forEach((x) => x.addEventListener('click',[rModal,modal].forEach(y=>y.classList.add('hide'))));
 
-rModal.addEventListener('click', function(){
+document.querySelector('#open-modalRules').addEventListener('click', function(){
   if (rModal.classList.contains('hide') && modal.classList.contains('hide')){
     [rModal,modal].forEach((x) => x.classList.remove('hide'))
     
     cbtn.style.zIndex = 13;
     modal.style.zIndex=10;
     rModal.style.zIndex=13;
+    
   }
   else if (rModal.classList.contains('hide') &&   !(modal.classList.contains('hide'))){
     modal.classList.toggle('hide')
