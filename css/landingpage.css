@@ -23,6 +23,7 @@ ion-icon {
     border: 0;
     margin-right: 2vw;
     float: right;
+    margin-top: 12vh;
 }
 
 #title{
@@ -91,5 +92,7 @@ ion-icon {
 }
 #logIn{
     font-family: Baloo Bhaina;
+    position: fixed;
+    top: 2vh;
 }
 

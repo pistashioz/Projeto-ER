@@ -6,6 +6,8 @@ const modal = document.querySelector("#modalProfile");
 const fade = document.querySelector("#fade");
 const toggleModal=0;
 const rModal = document.querySelector("#modalRules");
+
+
 modal.addEventListener('click', function(){
   if(!rModal.classList.contains('hide')){ 
     modal.style.zIndex=12;
@@ -20,7 +22,6 @@ modal.addEventListener('click', function(){
 });
 
 closeModalButton.forEach((x) => x.addEventListener('click',[rModal,modal].forEach(y=>y.classList.add('hide'))));
-closeModalButton.forEach(x=> x.addEventListener('click',console.log('gogo')))
 
 rModal.addEventListener('click', function(){
   if (rModal.classList.contains('hide') && modal.classList.contains('hide')){
@@ -77,3 +78,45 @@ saveBtn.addEventListener('click', function(){
     document.getElementById('userName').setAttribute('readonly', true);
     document.getElementById('email').setAttribute('readonly', true);
 })  
+
+
+
+/*NO ESTA DEJANDO EDITAR EL AVATAR PORQUE CADA VEZ QUE CLICO EN EL MODAL, COMO TENGO QUE CLICAR EN EL MODAL PARA CERRAR*/ 
+/*
+openModalButton.addEventListener('click', function(){
+  if(!rModal.classList.contains('hide')){ 
+    modal.style.zIndex=12;
+    rModal.style.zIndex=10;
+    document.getElementById('modalPro').style.zIndex =12;
+
+  }
+  else {
+    modal.classList.toggle('hide');
+      }
+
+});
+
+document.querySelector('#open-modalRules').addEventListener('click', function(){
+  if (rModal.classList.contains('hide') && modal.classList.contains('hide')){
+    [rModal,modal].forEach((x) => x.classList.remove('hide'))
+    
+    cbtn.style.zIndex = 13;
+    modal.style.zIndex=10;
+    rModal.style.zIndex=13;
+  }
+  else if (rModal.classList.contains('hide') &&   !(modal.classList.contains('hide'))){
+    modal.classList.toggle('hide')
+    rModal.classList.toggle('hide')
+    rModal.style.zIndex = 12;
+    cbtn.style.zIndex = 13;
+    
+  }
+  else{
+    modal.style.zIndex=10;
+    rModal.style.zIndex = 12;
+    cbtn.style.zIndex = 13;
+    [rModal,modal].forEach((x) => x.classList.add('hide'));
+
+} 
+
+*/

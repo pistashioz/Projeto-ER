@@ -73,20 +73,14 @@ ion-icon {
 font-size: 5vw;
 color: #F4F3FF;
 }
-
-#closeBtn{
-    position: fixed;
-    background-color: red;
-    width: 10vw;
-    height: 10vh;
+.close-modal{
+    background: none;
     border: 0;
     margin-right: 2vw;
-    outline: none;
-    cursor: pointer;
-    z-index: 11;
-    left: 90%;
-    top: 2%;
+    float: right;
+    z-index: 13;
 }
+
 /*avatar price*/
 
 .price{
@@ -158,12 +152,7 @@ ion-icon {
     color: #F4F3FF;
 }
 
-.close-modal{
-    background: none;
-    border: 0;
-    margin-right: 2vw;
-    float: right;
-}
+
 
 
 .modal-head h1{
@@ -359,4 +348,15 @@ ion-icon {
 
 .modal-bodyMoney h3{
     font-size: 2.3vw;
+}
+
+#noMoneyBtn{
+    position: fixed;
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    z-index: 11;
+    left: 80%;
+    top: 1%;
 }
