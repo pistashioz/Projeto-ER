@@ -6,22 +6,27 @@ const modal = document.querySelector("#modalProfile");
 const fade = document.querySelector("#fade");
 const toggleModal=0;
 const rModal = document.querySelector("#modalRules");
-const openModalRulesButton = document.querySelector('#open-modalRules')
-openModalButton.addEventListener('click', function(){
+
+
+
+
+modal.addEventListener('click', function(){
   if(!rModal.classList.contains('hide')){ 
     modal.style.zIndex=12;
     rModal.style.zIndex=10;
     document.getElementById('modalPro').style.zIndex =12;
+
   }
   else {
-    open.classList.toggle('hide');
+    modal.classList.toggle('hide');
       }
 
 });
 
 closeModalButton.forEach((x) => x.addEventListener('click',[rModal,modal].forEach(y=>y.classList.add('hide'))));
+closeModalButton.forEach(x=> x.addEventListener('click',console.log('gogo')))
 
-openModalRulesButton.addEventListener('click', function(){
+rModal.addEventListener('click', function(){
   if (rModal.classList.contains('hide') && modal.classList.contains('hide')){
     [rModal,modal].forEach((x) => x.classList.remove('hide'))
     
@@ -41,6 +46,7 @@ openModalRulesButton.addEventListener('click', function(){
     rModal.style.zIndex = 12;
     cbtn.style.zIndex = 13;
     [rModal,modal].forEach((x) => x.classList.add('hide'));
+
 } 
     
 })
