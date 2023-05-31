@@ -1,11 +1,18 @@
 let users;
-
+let defaultAvatar = []
+let defaultlist = [["fox",true,true],["chick",false,false],["frog",false,false],["bunny",false,false],["cat",false,false]]
 export function init(){
     users = localStorage.usersFlor ? JSON.parse(localStorage.usersFlor) : []
+    for(let i in defaultlist){
+        defaultAvatar.push({})
+        defaultAvatar[i].name = defaultlist[i][0];
+        defaultAvatar[i].InUse = defaultlist[i][1];
+        defaultAvatar[i].Available = defaultlist[i][2];
+    }
 }
 
 export function add(username,password,email){
-        users.push(new User(username, password, email));
+        users.push(new User(username, password, email,15,defaultAvatar));
         localStorage.setItem("usersFlor", JSON.stringify(users));
         sessionStorage.setItem("loggedUserFlor", JSON.stringify(username));
 }
@@ -27,7 +34,7 @@ export function checkMail(userMail){
 export function login(username,password){
     const user = users.find((user) => user.username === username && user.password === password);
     if (user) {
-        sessionStorage.setItem("loggedUserFlor", JSON.stringify(user));
+        sessionStorage.setItem("loggedUserFlor", JSON.stringify(username));
         return true;
     } else {
         return false;
@@ -46,50 +53,53 @@ export function getUserLogged(){
     return JSON.parse(sessionStorage.getItem("loggedUserFlor"))
 }
 
-export function CustomAlert(message){
-    let alerts = document.getElementById("alert-container");
-   
-   if (alerts.childElementCount < 2) {
-      // Create alert box
-      let img = document.createElement("img");
-      img.src = "../src/img/warning.png";
-      let alertBox = document.createElement("div");
-      alertBox.classList.add("alert-msg", "slide-in");
 
-      // Add message to alert box
-      let alertMsg = document.createTextNode(message);
-      alertBox.appendChild(img);
-      alertBox.appendChild(alertMsg);
-      // Add alert box to parent
-      alerts.insertBefore(alertBox, alerts.childNodes[0]);
-      // Remove last alert box
-      setTimeout(function() {
-         alerts.childNodes[0].classList.add("slide-out");
-      }, 2000);
-      setTimeout(function() {
-        alerts.removeChild(alerts.lastChild); 
-     },2700);
-   }
+export function updateAvatar(nome){
+    let avatar = getCurrentAvatar()
+    if(nome !== avatar.name){
+        avatar.InUse = false;
+        let user = users.find((user) => user.username === getUserLogged()).avatarList;
+        let avatarChange = user.find((user) => user.name === nome);
+        avatarChange.InUse = true;
+        updateLocalStorageUser()
+    }
+}
+export function getCoins(){
+    const user = users.find((user) => user.username === getUserLogged());
+    return user.coins
+}
+ 
+export function updateCoins(coins){
+    const user = users.find((user) => user.username === getUserLogged());
+    user.coins = coins;
+    updateLocalStorageUser()
+}
 
-}   
+export function getCurrentAvatar(){
+    let user = users.find((user) => user.username === getUserLogged()).avatarList;
+    return user.find((user) => user.InUse === true);
+}
 
-init()
+export function updateLocalStorageUser(){
+    localStorage.setItem("usersFlor", JSON.stringify(users));
+}
 
+init();
+login("12","12");
+updateCoins(20)
 export class User{
     username = ""
     password = ""
     email = ""
     coins = 0
-    avatarList = ['avatar-fox']
-    avatar = ""
-
-    constructor(username,password,email,coins=0,avatarList=[],avatar=""){
+    avatarList = []
+    
+    constructor(username,password,email,coins,avatarList){
         this.username = username;
         this.password = password;
         this.email = email;
         this.coins = coins;
         this.avatarList = avatarList;
-        this.avatar = avatar;
     }
 }
 
