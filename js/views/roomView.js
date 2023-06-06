@@ -108,6 +108,6 @@ function closeModal(modal) {
 
 function moveRectangle() {
     var rectangle = document.getElementById('step1');
-    rectangle.style.bottom = '23vw';
-    rectangle.style.right = '25.5vw';
+    rectangle.style.bottom = '17.5vw';
+    rectangle.style.right = '25vw';
 }
