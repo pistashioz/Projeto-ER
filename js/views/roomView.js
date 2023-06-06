@@ -105,3 +105,9 @@ function closeModal(modal) {
     } 
     modal.classList.remove('active')
   }
+
+function moveRectangle() {
+    var rectangle = document.getElementById('step1');
+    rectangle.style.bottom = '23vw';
+    rectangle.style.right = '25.5vw';
+}
