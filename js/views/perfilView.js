@@ -77,9 +77,7 @@ editBtn.addEventListener('click', function(){
 saveBtn.addEventListener('click', function(){
     document.getElementById('userName').setAttribute('readonly', true);
     document.getElementById('email').setAttribute('readonly', true);
-})  
-
-
+})
 
 /*NO ESTA DEJANDO EDITAR EL AVATAR PORQUE CADA VEZ QUE CLICO EN EL MODAL, COMO TENGO QUE CLICAR EN EL MODAL PARA CERRAR*/ 
 /*
