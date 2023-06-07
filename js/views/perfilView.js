@@ -120,3 +120,20 @@ document.querySelector('#open-modalRules').addEventListener('click', function(){
 } 
 
 */
+
+/*admin modal*/
+
+
+
+const openAdmin = document.querySelector('#admin')
+openAdmin.addEventListener('click', openModal)
+
+const closeAdmin = document.querySelector('.close-button')
+closeAdmin.addEventListener('click', closeModal)
+function openModal(){
+  document.querySelector('.modalAdmin').style.display = 'block'
+}
+
+function closeModal() {
+  document.querySelector('.modalAdmin').style.display = 'none'
+  }
