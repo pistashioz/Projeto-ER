@@ -162,6 +162,8 @@ wrongAnswer.forEach((el) => el.addEventListener('click', function(){
 }))
 
 const door = document.getElementById('rect').addEventListener('click', function(){
-  alert('is working')
+  document.getElementById('level2').style.display = "block";
+  document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
+  document.getElementById('objectsChall2').style.display = "none";
 })
 
