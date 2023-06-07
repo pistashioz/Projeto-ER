@@ -94,7 +94,7 @@ function closeModal(modal) {
   }
 
 
-/*moving steps functions*/ 
+/*moving steps functions LEVEL 2*/ 
 function moveStep1() {
     var image = document.getElementById('step1');
     image.style.bottom = '17.5vw';
@@ -142,3 +142,26 @@ function changePosition(){
   solvedChall()
   
 }
+
+/*LEVEL 1*/
+
+const rightAnswer = document.querySelector('#op1');
+const wrongAnswer = document.querySelectorAll('.wrongAnswers')
+rightAnswer.addEventListener('click', function(){
+  solvedChall()
+  audioRight.play();
+  document.body.style.backgroundImage = "url(../src/img/rooms/level1/bg2Lvl1.svg)";
+  document.body.style.backgroundPosition =  "botton center";
+  document.getElementById('equation').style.display = "none";
+  document.getElementById('options').style.display = "none";
+  document.getElementById('rect').style.display = "block";
+})
+
+wrongAnswer.forEach((el) => el.addEventListener('click', function(){
+  audioWrong.play();
+}))
+
+const door = document.getElementById('rect').addEventListener('click', function(){
+  alert('is working')
+})
+

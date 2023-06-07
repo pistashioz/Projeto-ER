@@ -136,9 +136,71 @@ ion-icon {
     margin-left: 2vw;
 }
 
+/*LEVEL1*/
+#level1{
+    display: block;
+}
+#rect{
+    display: none;
+    width: 15vw;
+    height: 60vh;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+area{
+    cursor: pointer
+}
+#equation h4{
+    position: fixed;
+    font-size: 4vw;
+    background-color: rgba(114, 105, 98, 0.4);
+    height: 7vh;
+    width: 25vw;
+    text-align: center;
+    max-width: 25vw;
+    border-radius: 2rem;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+#options h3{
+    position: fixed;
+    font-size: 4vw;
+    background-color: #5b5654;
+    width: 22vh;
+    height: 10vh;
+    text-align: center;
+    border-radius: 2rem;
+    padding-top: 1vh;
+    cursor: pointer;
+}
+#op1{
+    left: 4vw;
+    bottom: 49vh;
+}
+#op2{
+    left: 23vw;
+    top: 9vh;
+}
+#op3{
+    right: 23vw;
+    top: 21vh;
+}
+#op4{
+    right: 3vw;
+    top: 51vh;
+}
+#op5{
+    right: 23vw;
+    bottom: 5.3vh; 
+}
+
+
 /*LEVEL2*/
 body{
-    background-image: url("../src/img/rooms/level2/room/bg.svg");
+    background-image: url("../src/img/rooms/level1/bgLvl1.svg");
     display: block; 
     height: 100vh;
     width: 100vw;
@@ -148,6 +210,9 @@ body{
     margin: 0;
     background-position: center center;
 
+}
+#level2{
+    display: none;
 }
 #before{
     display: block;
