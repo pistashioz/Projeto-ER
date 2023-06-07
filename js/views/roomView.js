@@ -137,7 +137,7 @@ function right(){
 }
 function changePosition(){
   var stepFixed = document.getElementById('stepFixed');
-  stepFixed.style.bottom = '33vw';
+  stepFixed.style.bottom = '35vw';
   stepFixed.style.left = '14vw';
   solvedChall()
   
