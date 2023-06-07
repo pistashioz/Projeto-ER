@@ -119,6 +119,7 @@ ion-icon {
     bottom: 0%;
     transform: translate(0%, -10%);
     z-index: 2;
+    left: 0;
 }
 #footerOptions button{
     background: none;
@@ -148,7 +149,9 @@ body{
     top: 0;
     left: 0;
 }
-
+#before{
+    display: block;
+}
 #stairs{
     width: 25vw;
     position: absolute;
@@ -201,7 +204,7 @@ body{
     position: absolute;
     bottom: -5vw;
     right: 60vw;
-    transition: all 0.5s ease;
+    transition: bottom 0.5s ease, right 0.5s ease;
     cursor: pointer;
 }
 
@@ -210,7 +213,9 @@ body{
     position: absolute;
     bottom: 1vw;
     right: 75vw;
-    z-index: 2;
+    z-index: 0;
+    transition: bottom 0.5s ease, right 0.5s ease;
+    cursor: pointer;
 }
 
 #step3{
@@ -219,6 +224,7 @@ body{
     bottom: 0.5vw;
     right: 45vw;
     z-index: 2;
+    cursor: pointer;
 }
 
 #piece1{
@@ -227,6 +233,7 @@ body{
     bottom: 0.5vw;
     right: 2vw;
     z-index: 1;
+    cursor: pointer;
 }
 #piece2{
     width: 8vw;
@@ -234,8 +241,82 @@ body{
     bottom: 0vw;
     right: 80vw;
     z-index: 2;
+    cursor: pointer;
+}
+/*challenge 2 level 2*/
+#objectsChall2{
+    display: none;
+}
+#backChall1{
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    left: 0;
+    top: 40%;
+}
+#step{
+    width: 30vw;
+    position: absolute;
+    bottom: 0vw;
+    right: 0vw;
+    z-index: 3;
+    cursor: pointer;
+}
+#rightPiece{
+    width: 21vw;
+    position: absolute;
+    bottom: 5vw;
+    right: 18vw;
+    z-index: 2;
+    cursor: pointer;
+}
+#wrongPiece{
+    width: 13vw;
+    position: absolute;
+    bottom: 0vw;
+    right: 80vw;
+    z-index: 1;
+    cursor: pointer;
+}
+#objectsChall2 p{
+    font-size: 1.5vw;
+    color: black;
+    background-color: whitesmoke;
+    width: 4vw;
+    text-align: center;
+    border-radius: 2rem;
+    position: fixed;
+    z-index: 5;
 }
 
+#width{
+    right: 24.5vw;
+    bottom: 0;
+}
+#height{
+    right: 30vw;
+    bottom: 3.6vh;  
+}
+#hypotenuse1{
+    right: 29vw;
+    bottom: 15vh;  
+}
+#hypotenuse2{
+    left: 9.2vw;
+    bottom: 3vh;  
+}
+
+#stepFixed{
+    display: none;
+    width: 42vw;
+    position: absolute;
+    bottom: 0vh;
+    right: -5vw;
+    z-index: 1;
+    cursor: pointer;
+}
 
 /* modal buy hints*/
 
@@ -288,7 +369,7 @@ ion-icon {
     left: 10%;
     top: 70%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
 }
 
@@ -438,3 +519,4 @@ ion-icon {
     left: 80%;
     top: 1%;
 }
+

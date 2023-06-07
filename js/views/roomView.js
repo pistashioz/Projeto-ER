@@ -1,9 +1,7 @@
+
+//progress bar
 const bar = document.querySelector(".bar");
 const percentageTag = document.querySelector(".percentage");
-const totalTag = document.querySelector("#num1");
-const solvedTag = document.querySelector("#num2");
-const addBtn = document.querySelector("#add");
-const subBtn = document.querySelector("#sub");
 const total = 10;
 let solved = 0;
 
@@ -18,11 +16,10 @@ const updateBarLength = () => {
 };
 
 const updateText = () => {
-  solvedTag.textContent = solved;
   percentageTag.textContent = ruleOfThree(total, solved) + "%";
 };
 
-addBtn.onclick = () => {
+function solvedChall(){
   if (solved < total) {
     solved++;
     updateBarLength();
@@ -30,16 +27,6 @@ addBtn.onclick = () => {
   }
 };
 
-subBtn.onclick = () => {
-  if (solved > 0) {
-    solved--;
-    updateBarLength();
-    updateText();
-  }
-};
-
-totalTag.textContent = total;
-solvedTag.textContent = solved;
 percentageTag.textContent = ruleOfThree(total, solved) + "%";
 
 
@@ -106,8 +93,52 @@ function closeModal(modal) {
     modal.classList.remove('active')
   }
 
-function moveRectangle() {
-    var rectangle = document.getElementById('step1');
-    rectangle.style.bottom = '17.5vw';
-    rectangle.style.right = '25vw';
+
+/*moving steps functions*/ 
+function moveStep1() {
+    var image = document.getElementById('step1');
+    image.style.bottom = '17.5vw';
+    image.style.right = '25vw';
+    solvedChall()
+}
+function moveStep2(){
+  var image = document.getElementById('step2');
+  image.style.bottom = '5.4vw';
+  image.style.right = '21vw';
+  solvedChall()
+}
+
+function zoomBg(){
+  document.getElementById('objects').style.display = "none";
+  document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/piecesBg.svg)";
+  document.getElementById('objectsChall2').style.display = "block";
+}
+
+function backChall1(){
+  document.getElementById('objects').style.display = "block";
+  document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
+  document.getElementById('objectsChall2').style.display = "none";
+}
+
+//check right answer challenge 2
+
+const hypotenuse1 = document.getElementById('hypotenuse2');
+const hypotenuse2 = document.getElementById('hypotenuse');
+const audioWrong = new Audio("../src/audio/wrong.mp3");
+const audioRight = new Audio("../src/audio/correct.mp3"); 
+function wrong(){
+  audioWrong.play();
+}
+function right(){
+  solvedChall()
+  audioRight.play();
+  document.getElementById('antes').style.display = "none";
+  document.getElementById('stepFixed').style.display = "block";
+}
+function changePosition(){
+  var stepFixed = document.getElementById('stepFixed');
+  stepFixed.style.bottom = '33vw';
+  stepFixed.style.left = '14vw';
+  solvedChall()
+  
 }
