@@ -97,7 +97,7 @@ export function getAvatarList(){
 
 init();
 login("12","12");
-updateCoins(20);
+updateCoins(60);
 
 export class User{
     username = ""

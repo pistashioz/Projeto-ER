@@ -1,28 +1,4 @@
-/* import {avatarsList} from "../js/models/avatarModel.js"
-import {User} from "../js/models/avatarModel.js"
-const user = new User('nome','mail','pass')
-listaAvataresDisponiveis = user.avatarsList;
-listaTotal = avatarsList;
 
-
-btnBuy =' '
-btnBuy.addEvent('click',function(){
-    avatarSel = 'avatar-cat'
-    if( user.coins >=listaTotal[avatarSel] ){
-        listaAvataresDisponiveis.append(avatarSel)
-        for(const element in listaTotal.keys()){
-            if (listaAvataresDisponiveis.contains(element)){
-                document.getElementById(element).classList.remove('brig')
-
-        }
-        user.coins = user.coins-listaTotal[avatarSel];
-    } 
-    }
-    else {
-        console.log('no money') 
-    }
-    
-}); */
 
 import * as user from "../models/UserModels.js";
 import * as handleAvatar from "../models/avatarModel.js" 
@@ -77,11 +53,6 @@ updateShop()
 updateAvatar()
 
 
-/*     openModalButtons.forEach(button => {
-        console.log(button);
-        button.addEventListener('click', () => buyModal(button))
-    });
- */
     function buyModal(button,price,avatarName){
         divBuyModal.innerHTML =  "<div id = 'modal' class = 'modalBuy'><div class = 'container'><div class = 'modal-head'><h1>Comprar</h1></div><div class = 'modal-body'><h3>Tem a certeza que quer comprar o avatar selecionado?</h3><div id = 'btns'><button class = 'buy-button' id = 'btnBuy'>Comprar</button><button  id = 'btnExit'>Sair</button></div> </div></div></div><div id = 'overlay'></div>"
         const buyBtn = document.getElementById('btnBuy');
@@ -126,15 +97,3 @@ function buyAvatar(button,price,avatarName){
         ,10000)
     }
 };
-
-
-
-function changeAvatar(image){
-    const defaultAvatar = document.getElementById('defaultAvatar');
-    if (image){
-        var source = image
-    }else{
-        var source = document.getElementById('fox-avatar').src
-    }
-    defaultAvatar.src= source;
-}
