@@ -23,7 +23,7 @@ export function checkUser(username){
         return true
       }
 }
-export function checkMail(userMail){
+export function VerifyMail(userMail){
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userMail))
     {
       return (true)
@@ -96,6 +96,17 @@ export function updateBoughtAvatar(nome){
 export function getAvatarList(){
     let user = users.find((user) => user.username === getUserLogged()).avatarList;
     return user;
+}
+
+export function checkEmail(email){
+   return (users.find((user) => user.email === email)) ? true : false
+}
+
+export function changePassword(email,password){
+    let user = users.find((user) => user.email == email);
+    console.table(user)
+    user.password = password;
+    updateLocalStorageUser()
 }
 
 init();

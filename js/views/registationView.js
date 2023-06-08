@@ -37,7 +37,7 @@ function validateEmail() {
   if (!email){
     confirmMailInputError.textContent = ''; 
   }else{
-    if (User.checkMail(email)) {
+    if (User.VerifyMail(email)) {
       signUpButton.disabled = false;
       confirmMailInputError.textContent = ''; 
     }
