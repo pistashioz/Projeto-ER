@@ -17,7 +17,7 @@
             <div class="modal-header">
                 <button  id="closeBtn" class = 'close-modal'><ion-icon name="close-outline"></ion-icon></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id = 'modal-bdy'>
                 <div id = 'left'>
                     <div id = 'profilePic'>
                         <img src = '../src/img/avatares/fox.svg' alt = 'profilePicture'>
@@ -38,6 +38,7 @@
                 <div id = 'btns'>
                     <button id = 'settings'>Editar dados</button>
                     <button id = 'save'>Guardar </button>
+                    <button id = 'admin'><ion-icon name="people-outline"></ion-icon></button>
                 </div>
             </div>
         </div>
@@ -47,9 +48,9 @@
         <button id = 'open-modalRules'>Regras</button>
         <div class = 'container'>
             <div class="modal-header">
-                <button  id="modalRul" class = 'close-modal'><ion-icon name="close-outline"></ion-icon></button>
+                <button  id="closeAdmin"><ion-icon name="close-outline"></ion-icon></button>
             </div>
-            <div id = 'rulesDiv' class="modal-body">
+            <div id = 'rulesDiv' class="modal-bodyR">
                 <ul id = 'rules'>
                     <li>Resolve os desafios antes que seja tarde demais</li>
                     <li>Pede pistas</li>
@@ -68,7 +69,7 @@
     <div id = 'containerExit' class = 'hide'>
         <div id = 'modalExit-header'>
             <h1 id = 'titleExit'>Sair</h1>
-            <button id = 'close-modalExit'><ion-icon name="close-outline"></ion-icon></button>
+            <button data-modal-target="#modal" id = 'close-modalExit'><ion-icon name="close-outline"></ion-icon></button>
         </div>
         <div id = 'modalExit-body'>
             <h3>tem a certeza que quer sair?</h3>
@@ -78,11 +79,30 @@
             </div>
         </div>
     </div>
+           <!-- user administration ADMIN -->
+
+           <div id = 'modalAdmin' class = 'modalAdmin'>
+                <div class = 'containerAdmin'>
+                    <div class = 'modal-headAdmin'>
+                        <h1>Utilizadores</h1>
+                        <button id="closeAdmin" class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
+                    </div>
+                    <div class = 'scroll-bg'>
+                        <div class = 'scroll-div'>
+                            <p class = 'userNames'>user01</p>
+                        </div>
+                    </div>
+                </div>
+           </div>
 
 
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src = '../js/views/perfilView.js'></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
 </body>
 </html>

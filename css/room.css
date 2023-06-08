@@ -1,0 +1,587 @@
+/*GAMIFICATION ELEMENTS*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Montserrat:wght@600&display=swap');
+@font-face{
+    src: url("../src/fonts/BalooBhaina-Regular.ttf");
+    font-family: Baloo Bhaina;
+}
+* {
+  box-sizing: border-box;
+  font-family: Baloo Bhaina;
+  color: whitesmoke;
+}
+
+:root {
+  font-size: 62.5%;
+  
+  --bar-color: #A27229;
+  --body-color: #CEC8C8;
+  --text-color: whitesmoke;
+  --bar-wrap-back-color: #fddb80;
+}
+button{
+    cursor: pointer;
+}
+button:focus{
+    outline: none;
+}
+
+
+.status-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+    width: 100%;
+}
+.bar-wrap {
+  padding: 0.4vw;
+  margin-top: 2vh;
+  width: 60vw;
+  border-radius: 100px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  background-color: var(--bar-wrap-back-color);
+  z-index: 2;
+  position: fixed;
+  left: 50%;
+  top: 3%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.bar {
+  width: 0%;
+  height: 1.2vh;
+  padding: 1.3vw;
+  transition: width .15s ease-out;
+  
+  background-color: var(--bar-color);
+  border-radius: 100px;
+  box-shadow: inset -1px -1px 10px rgba(221, 184, 0, 0.8);
+}
+
+.percentage {
+    position: fixed;
+    left: 93%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    margin: 10px 0 25px;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--text-color);
+}
+
+/*coins*/
+
+#coins{
+    width: 30%;
+    height: 5%;
+    font-size: 4.5vw;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    left: 0%;
+    top: 5%;
+}
+#coinImg{
+    width: 7vw;
+    height: auto;
+}
+#amount{
+    margin-left: 0.5vw;
+    margin-bottom: -1vh;
+    color: whitesmoke;
+}
+
+/*hint button*/
+#hintBtn{
+    position: fixed;
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    z-index: 5;
+    left: 93%;
+    top: 1%;
+}
+
+ion-icon {
+    font-size: 64px;
+    color: whitesmoke;
+  }
+
+#footerOptions{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0%;
+    transform: translate(0%, -10%);
+    z-index: 2;
+    left: 0;
+}
+#footerOptions button{
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+#sound{
+    position: fixed;
+    right: 0%;
+    margin-right: 2vw;
+}
+#homeBtn{
+    margin-left: 2vw;
+}
+
+/*LEVEL1*/
+#level1{
+    display: block;
+}
+#rect{
+    display: none;
+    width: 15vw;
+    height: 60vh;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+area{
+    cursor: pointer
+}
+#equation h4{
+    position: fixed;
+    font-size: 4vw;
+    background-color: rgba(114, 105, 98, 0.4);
+    height: 7vh;
+    width: 50vw;
+    text-align: center;
+    max-width: 50vw;
+    border-radius: 2rem;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+#options h3{
+    position: fixed;
+    font-size: 4vw;
+    background-color: #5b5654;
+    width: 22vh;
+    height: 10vh;
+    text-align: center;
+    border-radius: 2rem;
+    padding-top: 1vh;
+    cursor: pointer;
+}
+#op1{
+    left: 4vw;
+    bottom: 49vh;
+}
+#op2{
+    left: 23vw;
+    top: 9vh;
+}
+#op3{
+    right: 23vw;
+    top: 21vh;
+}
+#op4{
+    right: 3vw;
+    top: 51vh;
+}
+#op5{
+    right: 23vw;
+    bottom: 5.3vh; 
+}
+
+
+/*LEVEL2*/
+body{
+    background-image: url("../src/img/rooms/level1/bg1Lvl1.svg");
+    display: block; 
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    margin: 0;
+    background-position: center center;
+
+}
+#level2{
+    display: none;
+}
+#before{
+    display: block;
+}
+#stairs{
+    width: 25vw;
+    position: absolute;
+    bottom: 0.5vw;
+    right: 20vw;
+    z-index: 1;
+}
+/* stairs when organized 
+#step1{
+    width: 15vw;
+    position: absolute;
+    bottom: 22.9vw;
+    right: 25vw;
+}
+
+#step2{
+    width: 23vw;
+    position: absolute;
+    bottom: 6.5vw;
+    right: 21vw;
+    z-index: 2;
+}
+
+#step3{
+    width: 14vw;
+    position: absolute;
+    bottom: 16.5vw;
+    right: 23vw;
+    z-index: 2;
+}
+
+#piece1{
+    width: 10.5vw;
+    position: absolute;
+    bottom: 16.5vw;
+    right: 31vw;
+    z-index: 1;
+}
+#piece2{
+    width: 8vw;
+    position: absolute;
+    bottom: 0vw;
+    right: 23vw;
+    z-index: 2;
+}
+*/
+#step1{
+    width: 15vw;
+    height: 15vw;
+    position: absolute;
+    bottom: -5vw;
+    right: 60vw;
+    transition: bottom 0.5s ease, right 0.5s ease;
+    cursor: pointer;
+}
+
+#step2{
+    width: 23vw;
+    position: absolute;
+    bottom: 1vw;
+    right: 75vw;
+    z-index: 0;
+    transition: bottom 0.5s ease, right 0.5s ease;
+    cursor: pointer;
+}
+
+#step3{
+    width: 14vw;
+    position: absolute;
+    bottom: 0.5vw;
+    right: 45vw;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#piece1{
+    width: 10.5vw;
+    position: absolute;
+    bottom: 0.5vw;
+    right: 2vw;
+    z-index: 1;
+    cursor: pointer;
+}
+#piece2{
+    width: 8vw;
+    position: absolute;
+    bottom: 0vw;
+    right: 80vw;
+    z-index: 2;
+    cursor: pointer;
+}
+/*challenge 2 level 2*/
+#objectsChall2{
+    display: none;
+}
+#backChall1{
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    left: 0;
+    top: 40%;
+}
+#step{
+    width: 30vw;
+    position: absolute;
+    bottom: 0vw;
+    right: 0vw;
+    z-index: 3;
+    cursor: pointer;
+}
+#rightPiece{
+    width: 21vw;
+    position: absolute;
+    bottom: 5vw;
+    right: 18vw;
+    z-index: 2;
+    cursor: pointer;
+}
+#wrongPiece{
+    width: 13vw;
+    position: absolute;
+    bottom: 0vw;
+    right: 80vw;
+    z-index: 1;
+    cursor: pointer;
+}
+#objectsChall2 p{
+    font-size: 1.5vw;
+    color: black;
+    background-color: whitesmoke;
+    width: 4vw;
+    text-align: center;
+    border-radius: 2rem;
+    position: fixed;
+    z-index: 5;
+}
+
+#width{
+    right: 24.5vw;
+    bottom: 0;
+}
+#height{
+    right: 30vw;
+    bottom: 3.6vh;  
+}
+#hypotenuse1{
+    right: 29vw;
+    bottom: 15vh;  
+}
+#hypotenuse2{
+    left: 9.2vw;
+    bottom: 3vh;  
+}
+
+#stepFixed{
+    display: none;
+    width: 42vw;
+    position: absolute;
+    bottom: 0vh;
+    right: -5vw;
+    z-index: 1;
+    cursor: pointer;
+}
+
+/* modal buy hints*/
+
+.modalBuy {
+    background-color: #657D55;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-45%, -50%) scale(0);
+    width: 40%;
+    max-width: 40%;
+    padding: 1.2rem;
+    border-radius: 3rem;
+    height: 50%;
+    transition: 200ms ease-in-out;
+    z-index: 5;
+}
+.modalBuy.active{
+    transform: translate(-45%, -50%) scale(1);
+}
+ion-icon {
+    font-size: 5vw;
+    color: #F4F3FF;
+}
+
+
+
+
+.modal-head h1{
+    position: fixed;
+    text-align: center;
+    left: 25%;
+    font-size: 5vw
+}
+
+
+.modal-body h3{
+    position: fixed;
+    left: 55%;
+    top: 57%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 50%;
+    font-size: 3vw;
+}
+#btns{
+    width: 80%;
+    position: fixed;
+    position: fixed;
+    left: 10%;
+    top: 70%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+
+#btns button{
+	color: whitesmoke;
+    font-size: 2.3vw;
+	padding: 0em 1em;
+    height:8vh;
+    box-shadow: inset;
+	border-radius: 2.5em;
+	transform-style: preserve-3d;
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+		background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#btnBuy{
+	background: #E0A968;
+    border: 2px solid #E0A968;
+}
+#btnExit{
+    background: #9D1919;
+    border: 2px solid #9D1919;
+}
+
+
+#btns button::before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: inherit;
+	transform: translate3d(0, 0.75em, -1em);
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#btnBuy::before{
+    background: #F67035;
+    box-shadow: 0 0 0 2px #F67035, 0 0.625em 0 0 none;
+}
+#btnExit::before{
+    background: #5A0000;
+    box-shadow: 0 0 0 2px #5A0000, 0 0.625em 0 0 none;
+}
+#btns button:hover {
+	
+	transform: translate(0, 0.25em);
+}
+#btnBuy:hover{
+    background: #E0A968;
+}
+#btnExit:hover{
+    background: #9D1919;
+}
+#btns button:hover::before {
+  backdrop-filter: blur(5rem) !important;
+	transform: translate3d(0, 0.5em, -1em);
+}
+#btnBuy:hover::before{
+    box-shadow: 0 0 0 2px #F67035, 0 0.5em 0 0  none;
+}
+#btnExit:hover::before{
+    box-shadow: 0 0 0 2px #5A0000, 0 0.5em 0 0  none;
+}
+#btns button:active {
+	transform: translate(0em, 0.75em);
+    outline: none;
+}
+#btnBuy:active{
+    background: #E0A968;
+}
+#btnExit:active{
+    background: #9D1919;
+}
+#btns button:active::before {
+	transform: translate3d(0, 0, -1em);
+    
+}
+#btnBuy:active::before{
+    box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #F67035;
+}
+#btnExit:active::before{
+    box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #5A0000;
+}
+
+
+
+
+/*hint modal*/
+
+.modalHint{
+    display: none;
+    background-color: #657D55;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-45%, -50%) scale(1);
+    width: 40vw;
+    max-width: 40vw;
+    padding: 1.2rem;
+    border-radius: 3rem;
+    height: 90vh;
+    transition: 200ms ease-in-out;
+    z-index: 6;
+}
+
+.modalHint-head h1{
+    position: fixed;
+    text-align: center;
+    font-size: 4.3vw;
+    position: fixed;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -10%);
+}
+
+.modalHint-body{
+    position: fixed;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 80%;
+    background-color: #CFB265;
+    border-radius: 3rem;
+    padding: 2vw;
+    padding-top: 2vw;
+    text-align: center;
+}
+
+
+
+.modalHint-body h3{
+    font-size: 2.3vw;
+}
+
+#closeHint{
+    position: fixed;
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    z-index: 11;
+    left: 80%;
+    top: 1%;
+}
+
