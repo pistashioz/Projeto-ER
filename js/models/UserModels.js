@@ -53,6 +53,9 @@ export function getUserLogged(){
     return JSON.parse(sessionStorage.getItem("loggedUserFlor"))
 }
 
+export function getEmailUser(){
+    return users.find((user) => user.username === getUserLogged()).email
+}
 
 export function updateAvatar(nome){
     let avatar = getCurrentAvatar()
