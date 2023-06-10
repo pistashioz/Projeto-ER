@@ -630,14 +630,17 @@ ion-icon {
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-45%, -50%) scale(1);
+    transform: translate(-45%, -50%) scale(0);
     width: 60vw;
     max-width: 60vw;
     padding: 1.2rem;
     border-radius: 3rem;
-    height: 70vh;
+    height: 75vh;
     transition: 200ms ease-in-out;
     z-index: 6;
+}
+.modalSettings.active{
+    transform: translate(-45%, -50%) scale(1);
 }
 
 .modalSettings-head h1{

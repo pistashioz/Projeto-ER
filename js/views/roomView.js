@@ -223,3 +223,61 @@ function removeRect(){
 openDoor()
 document.getElementById('rect').addEventListener('click', removeRect)
 
+/*admin room settings*/
+
+const openSettingBtn = document.querySelectorAll('[data-modal-target]');
+const closeSettingBtn = document.querySelectorAll('[data-close-button]');
+
+
+openSettingBtn.forEach(button => {
+    button.addEventListener('click', () =>{
+        const modal = document.querySelector(button.dataset.modalTarget);
+        openModal(modal)
+    })
+
+});
+
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = document.querySelector('.modalSettings')
+      closeModal(modal)
+    })
+  });
+const editBtn = document.querySelector('#editBtn');
+const saveBtn = document.querySelector('#saveBtn');
+
+const timeLeft = document.querySelectorAll('.time');
+const optQuestions = document.querySelectorAll('.optionsQuestions');
+const rightAn = document.querySelectorAll('.rightAnsw');
+const desafio = document.querySelectorAll('.challengeEdit')
+editBtn.addEventListener('click', () => {
+  timeLeft.forEach(time => {
+    time.removeAttribute('readonly');
+  });
+  optQuestions.forEach(question => {
+    question.removeAttribute('readonly');
+  });
+  rightAn.forEach(ans => {
+    ans.removeAttribute('readonly');
+  });
+  desafio.forEach(chall => {
+    chall.removeAttribute('readonly');
+  });
+
+});
+
+saveBtn.addEventListener('click', function(){
+  timeLeft.forEach(time => {
+    time.setAttribute('readonly', true);
+  });
+  optQuestions.forEach(question => {
+    question.setAttribute('readonly', true);
+  });
+  rightAn.forEach(ans => {
+    ans.setAttribute('readonly', true);
+  });
+  desafio.forEach(chall => {
+    chall.setAttribute('readonly', true);;
+  });
+})
+
