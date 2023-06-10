@@ -111,15 +111,27 @@ function moveStep2(){
 function zoomBg(){
   document.getElementById('objects').style.display = "none";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/piecesBg.svg)";
-  document.getElementById('objectsChall2').style.display = "block";
+  document.getElementById('objectsChall').style.display = "block";
 }
 
-function backChall1(){
+function backBtn(){
   document.getElementById('objects').style.display = "block";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
-  document.getElementById('objectsChall2').style.display = "none";
+  document.getElementById('objectsChall').style.display = "none";
+
+}
+function forwardBtn(){
+  if (ruleOfThree(total, solved) < 40){
+    wrong()
+  }
+  else{
+    document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bgChall3.svg)";
+    document.getElementById('objectsChall').style.display = "none";
+    document.body.style.backgroundPosition = "bottom center";
+  }
 }
 
+function showKey(){}
 //check right answer challenge 2
 
 const hypotenuse1 = document.getElementById('hypotenuse2');
@@ -134,6 +146,7 @@ function right(){
   audioRight.play();
   document.getElementById('antes').style.display = "none";
   document.getElementById('stepFixed').style.display = "block";
+  return true
 }
 function changePosition(){
   var stepFixed = document.getElementById('stepFixed');
@@ -164,6 +177,9 @@ wrongAnswer.forEach((el) => el.addEventListener('click', function(){
 const door = document.getElementById('rect').addEventListener('click', function(){
   document.getElementById('level2').style.display = "block";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
-  document.getElementById('objectsChall2').style.display = "none";
+  document.getElementById('objectsChall').style.display = "none";
+  document.getElementById('rect').style.display = "none";
+  document.getElementsByName('workmap').style.display = "none";
+
 })
 

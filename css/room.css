@@ -308,11 +308,12 @@ body{
     z-index: 2;
     cursor: pointer;
 }
+
 /*challenge 2 level 2*/
-#objectsChall2{
+#objectsChall{
     display: none;
 }
-#backChall1{
+#backBtn{
     background: none;
     border: 0;
     outline: none;
@@ -320,6 +321,15 @@ body{
     position: fixed;
     left: 0;
     top: 40%;
+}
+#forwardBtn{
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    right: 0;
+    top: 40%;   
 }
 #step{
     width: 30vw;
@@ -345,7 +355,7 @@ body{
     z-index: 1;
     cursor: pointer;
 }
-#objectsChall2 p{
+#objectsChall p{
     font-size: 1.5vw;
     color: black;
     background-color: whitesmoke;
@@ -380,6 +390,15 @@ body{
     bottom: 0vh;
     right: -5vw;
     z-index: 1;
+    cursor: pointer;
+}
+
+/*challenge 3 level 2*/
+#lastStep{
+    width: 32vw;
+    position: absolute;
+    bottom: 0vh;
+    right: 33.8%;
     cursor: pointer;
 }
 
