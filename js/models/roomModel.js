@@ -6,13 +6,14 @@ class Room{
     maxHints = 2;
     hide = True
     hints = []
+    
 }
 
 
 class Level1{
     challenge_1()
 }
-class Level2{
+class Level2 extends Room{
     challenge_1()
     challenge_2()
 }

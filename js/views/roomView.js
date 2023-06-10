@@ -121,23 +121,52 @@ function backBtn(){
 
 }
 function forwardBtn(){
+  console.log(ruleOfThree(total, solved))
   if (ruleOfThree(total, solved) < 40){
     wrong()
+    return false
   }
   else{
     document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bgChall3.svg)";
     document.getElementById('objectsChall').style.display = "none";
     document.body.style.backgroundPosition = "bottom center";
+    return true
   }
 }
+/*Challenge 3*/ 
+const forwardButton = document.querySelector('#forwardBtn')
+const chestOpening = new Audio('../src/audio/keyChestOpen.mp3')
+forwardButton.addEventListener('click', function(){
+  if (forwardBtn() === true){
+    document.getElementById('chest').style.display = "block"
+    document.getElementById('chest').addEventListener('click', function(){
+      chestOpening.play()
+      document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg2Chall3.svg)";
+      document.getElementById('chest').style.display = "none"
+      document.getElementById('key').style.display = "block"
+      solvedChall()
+    })
+}
+else{
+  document.getElementById('chest').style.display = "none"
+}
+  
+});
 
-function showKey(){}
+document.querySelector('#key').addEventListener('click', function(){
+  document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg3Chall3.svg)";
+  document.getElementById('key').style.display = "none"
+  solvedChall()
+});
+
+
 //check right answer challenge 2
 
 const hypotenuse1 = document.getElementById('hypotenuse2');
 const hypotenuse2 = document.getElementById('hypotenuse');
 const audioWrong = new Audio("../src/audio/wrong.mp3");
 const audioRight = new Audio("../src/audio/correct.mp3"); 
+
 function wrong(){
   audioWrong.play();
 }
@@ -153,14 +182,14 @@ function changePosition(){
   stepFixed.style.bottom = '35vw';
   stepFixed.style.left = '14vw';
   solvedChall()
-  
 }
+
 
 /*LEVEL 1*/
 
 const rightAnswer = document.querySelector('#op1');
 const wrongAnswer = document.querySelectorAll('.wrongAnswers')
-rightAnswer.addEventListener('click', function(){
+function checkRightAns(){
   solvedChall()
   audioRight.play();
   document.body.style.backgroundImage = "url(../src/img/rooms/level1/bg2Lvl1.svg)";
@@ -168,18 +197,29 @@ rightAnswer.addEventListener('click', function(){
   document.getElementById('equation').style.display = "none";
   document.getElementById('options').style.display = "none";
   document.getElementById('rect').style.display = "block";
-})
+  return true
+}
+rightAnswer.addEventListener('click', checkRightAns)
 
 wrongAnswer.forEach((el) => el.addEventListener('click', function(){
   audioWrong.play();
 }))
 
-const door = document.getElementById('rect').addEventListener('click', function(){
-  document.getElementById('level2').style.display = "block";
+function openDoor(){
+  if (checkRightAns === true){
+    document.getElementById('rect').style.display = "block";
+
+  }
+  else{
+    document.getElementById('rect').style.display = "none";
+  }
+}
+function removeRect(){
+  document.getElementById('level2' ).style.display = "block";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
   document.getElementById('objectsChall').style.display = "none";
   document.getElementById('rect').style.display = "none";
-  document.getElementsByName('workmap').style.display = "none";
-
-})
+}
+openDoor()
+document.getElementById('rect').addEventListener('click', removeRect)
 
