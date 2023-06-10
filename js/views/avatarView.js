@@ -1,112 +1,99 @@
-/* import {avatarsList} from "../js/models/avatarModel.js"
-import {User} from "../js/models/avatarModel.js"
-const user = new User('nome','mail','pass')
-listaAvataresDisponiveis = user.avatarsList;
-listaTotal = avatarsList;
 
-
-btnBuy =' '
-btnBuy.addEvent('click',function(){
-    avatarSel = 'avatar-cat'
-    if( user.coins >=listaTotal[avatarSel] ){
-        listaAvataresDisponiveis.append(avatarSel)
-        for(const element in listaTotal.keys()){
-            if (listaAvataresDisponiveis.contains(element)){
-                document.getElementById(element).classList.remove('brig')
-
-        }
-        user.coins = user.coins-listaTotal[avatarSel];
-    } 
-    }
-    else {
-        console.log('no money') 
-    }
-    
-}); */
 
 import * as user from "../models/UserModels.js";
 import * as handleAvatar from "../models/avatarModel.js" 
 
+var divBuyModal = document.getElementById("buyModalDiv");
 
-const openModalButtons = document.querySelectorAll('[data-modal-target]');
-const btns = document.querySelectorAll('.image-button');
-const closeModalButtons = document.querySelectorAll('[data-close-button]');
-const buyBtn = document.getElementById('btnBuy');
+var DIVBUY = document.getElementsByClassName("container avatars")[0]
+function updateShop(){
+    DIVBUY.innerHTML=""
+    console.table(user.getAvatarList());
+    for(const avatar of user.getAvatarList()){
+        const div = document.createElement("div");
+        div.classList.add("row","col");
+        const divCard = document.createElement("div");
+        divCard.style.width = "15 rem";
+        divCard.classList.add("card");
+        if(avatar.Available){
+            divCard.innerHTML =`<button class = 'image-button' id = '${avatar.name}-avatarBtn'><img class="card-img-top cardbought" src="../src/img/avatares/${avatar.name}.svg" alt="${avatar.name} avatar" id = '${avatar.name}-avatar'></button>`
+            divCard.childNodes[0].addEventListener("click",()=>{
+                user.updateAvatar(avatar.name);
+                updateAvatar();
+            });
+        }else{
+            var button = document.createElement("button");
+            button.classList.add("image-button")
+            button.id = `${avatar.name}-avatarBtn`
+            button.innerHTML= `<img class="card-img-top brig" src="../src/img/avatares/${avatar.name}.svg" alt="${avatar.name} avatar" id = '${avatar.name}-avatar'>
+            <div class = 'price'>
+            <img class = 'coinPrice' src="../src/img/coin.png" alt = 'coin'>
+            <h3 class = 'avatarPrice'>x ${handleAvatar.getPrice(avatar.name)}</h3>
+            </div>`
+            button.addEventListener("click", () => {
+                buyModal(button,handleAvatar.getPrice(avatar.name),avatar.name);
+            });
+            divCard.appendChild(button)
+        }
 
-
-
-openModalButtons.forEach(button => {
-    button.addEventListener('click', () =>{
-        const modal = document.querySelector(button.dataset.modalTarget);
-        openModal(modal)
-        buyBtn.addEventListener('click', function() {
-            buyAvatar(button)
-        })
-    })
-
-});
-
-closeModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const modal = document.querySelector('.modalBuy')
-      closeModal(modal)
-    })
-  });
-
-
-
-function openModal(modal){
-    if (modal == null){
-        return
-    } 
-    modal.classList.add('active')
+        div.appendChild(divCard);
+        DIVBUY.appendChild(div);
+    }
 }
 
-function closeModal(modal) {
-    if (modal == null) {
-        return
-    } 
-    modal.classList.remove('active')
-  }
+function updateAvatar(){
+    const imagemAvatarDiv = document.getElementById("actualAvatar");
+
+    const avatar = user.getCurrentAvatar();
+
+    imagemAvatarDiv.innerHTML= `<img src="../src/img/avatares/${avatar.name}.svg" alt="avatar" id = 'defaultAvatar'>`
+
+}
+updateShop()
+updateAvatar()
+
+
+    function buyModal(button,price,avatarName){
+        divBuyModal.innerHTML =  "<div id = 'modal' class = 'modalBuy'><div class = 'container'><div class = 'modal-head'><h1>Comprar</h1></div><div class = 'modal-body'><h3>Tem a certeza que quer comprar o avatar selecionado?</h3><div id = 'btns'><button class = 'buy-button' id = 'btnBuy'>Comprar</button><button  id = 'btnExit'>Sair</button></div> </div></div></div><div id = 'overlay'></div>"
+        const buyBtn = document.getElementById('btnBuy');
+        buyBtn.addEventListener('click', function() {
+            buyAvatar(button,price,avatarName);
+            updateShop()
+        })
+        const closeModalButtons = document.querySelectorAll('.btnExit');
+            closeModalButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                  divBuyModal.innerHTML = "";
+                })
+            });
+    }
 
 /*buy button*/
 
-function buyAvatar(button){
+function buyAvatar(button,price,avatarName){
+    divBuyModal.innerHTML = "";
     const image = button.firstChild;
     const priceHTML = button.lastElementChild;
-    closeModal(modal);
     let coins = parseInt(user.getCoins().toString());
-    let price = parseInt(handleAvatar.getPrice(image.src.split("/")[image.src.split("/").length - 1].toString().split(".")[0]));
-    console.log(coins);
-    console.log(price);
+    console.log(coins +"/"+ price)
     if(coins >= price){
         let currentCoins = coins - parseInt(price);
         user.updateCoins(currentCoins);
-        priceHTML.innerHTML = '';
-        image.classList.replace('brig', 'card');
-        button.removeAttribute("data-modal-target");
         /*change avatar profile*/ 
-        button.addEventListener('click', function() {
-            user.updateAvatar(image.src.split("/")[image.src.split("/").length - 1].toString().split(".")[0])
-            changeAvatar(image.src)
-        });
-        document.getElementById('fox-avatarBtn').addEventListener('click', function() {
-            user.updateAvatar("fox")
-            changeAvatar("")
-        });
+        user.updateBoughtAvatar(avatarName);
     }else{
-
+        console.log("No money");
+        let warning = document.getElementById("warningNoMoney");
+        let element = document.createElement("div")
+        element.innerHTML="<div id = 'modalNoMoney' class = 'modalNoMoney'><div class = 'container'><div class = 'modal-headMoney'><h1>Moedas insuficientes</h1><button id='noMoneyBtn'><ion-icon name='close-outline'></ion-icon></button></div><div class = 'modal-bodyMoney'><h3>Completa os desafios para ganhar mais moedas!</h3></div></div></div><div id = 'overlay'></div>"
+        warning.appendChild(element);
+        let buttonClose = document.getElementById("noMoneyBtn");
+        buttonClose.addEventListener("click",() =>{
+            warning.innerHTML = ""
+        });
+        setTimeout(function(){
+            warning.innerHTML= ""
+        }
+        ,10000)
     }
 };
-
-
-
-function changeAvatar(image){
-    const defaultAvatar = document.getElementById('defaultAvatar');
-    if (image){
-        var source = image
-    }else{
-        var source = document.getElementById('fox-avatar').src
-    }
-    defaultAvatar.src= source;
-}

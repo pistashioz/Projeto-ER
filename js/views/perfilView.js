@@ -1,3 +1,6 @@
+import * as user from "../models/UserModels.js"
+
+
 /*profile modal*/
 const cbtn = document.querySelector('#modalRul');
 const openModalButton = document.querySelector("#open-modalProfile");
@@ -65,18 +68,28 @@ const toggleeModal = () => {
 
 /*DOM edit and save profile data*/
 
+//Building the current data
+
+const inputName = document.getElementById("userName");
+const inputEmail = document.getElementById("email");
+
+inputName.value = user.getUserLogged();
+inputEmail.value = user.getEmailUser();
+
+
+//editing data
 const editBtn = document.querySelector('#settings');
 const saveBtn = document.querySelector('#save');
 
-editBtn.addEventListener('click', function(){
-    document.getElementById('userName').removeAttribute('readonly');
-    document.getElementById('email').removeAttribute('readonly');
+editBtn.addEventListener('click', () => {
+  inputName.removeAttribute('readonly');
+  inputEmail.removeAttribute('readonly');
 
 });
 
 saveBtn.addEventListener('click', function(){
-    document.getElementById('userName').setAttribute('readonly', true);
-    document.getElementById('email').setAttribute('readonly', true);
+  inputName.setAttribute('readonly', true);
+  inputEmail.setAttribute('readonly', true);
 })
 
 /*NO ESTA DEJANDO EDITAR EL AVATAR PORQUE CADA VEZ QUE CLICO EN EL MODAL, COMO TENGO QUE CLICAR EN EL MODAL PARA CERRAR*/ 
@@ -124,14 +137,17 @@ document.querySelector('#open-modalRules').addEventListener('click', function(){
 
 
 const openAdmin = document.querySelector('#admin')
-openAdmin.addEventListener('click', openModal)
+openAdmin.addEventListener('click', () => {
+  document.querySelector('.modalAdmin').style.display = 'block'
+})
 
 const closeAdmin = document.querySelector('.close-button')
-closeAdmin.addEventListener('click', closeModal)
-function openModal(){
-  document.querySelector('.modalAdmin').style.display = 'block'
-}
-
-function closeModal() {
+closeAdmin.addEventListener('click',() => {
   document.querySelector('.modalAdmin').style.display = 'none'
-  }
+})
+
+//change profile pic
+
+const ImageAvatar = document.getElementById("profilePic")
+
+ImageAvatar.innerHTML = `<img src = '../src/img/avatares/${user.getCurrentAvatar().name}.svg' alt = 'profilePicture'>`

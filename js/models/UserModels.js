@@ -1,4 +1,4 @@
-let users;
+let users = [];
 let defaultAvatar = []
 let defaultlist = [["fox",true,true],["chick",false,false],["frog",false,false],["bunny",false,false],["cat",false,false]]
 export function init(){
@@ -12,7 +12,7 @@ export function init(){
 }
 
 export function add(username,password,email){
-        users.push(new User(username, password, email,15,defaultAvatar));
+        users.push(new User(username, password, email,20,defaultAvatar));
         localStorage.setItem("usersFlor", JSON.stringify(users));
         sessionStorage.setItem("loggedUserFlor", JSON.stringify(username));
 }
@@ -23,7 +23,7 @@ export function checkUser(username){
         return true
       }
 }
-export function checkMail(userMail){
+export function VerifyMail(userMail){
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userMail))
     {
       return (true)
@@ -53,6 +53,9 @@ export function getUserLogged(){
     return JSON.parse(sessionStorage.getItem("loggedUserFlor"))
 }
 
+export function getEmailUser(){
+    return users.find((user) => user.username === getUserLogged()).email
+}
 
 export function updateAvatar(nome){
     let avatar = getCurrentAvatar()
@@ -83,10 +86,33 @@ export function getCurrentAvatar(){
 export function updateLocalStorageUser(){
     localStorage.setItem("usersFlor", JSON.stringify(users));
 }
+export function updateBoughtAvatar(nome){
+        let user = users.find((user) => user.username === getUserLogged()).avatarList;
+        let avatarChange = user.find((user) => user.name === nome);
+        avatarChange.Available = true;
+        updateLocalStorageUser()
+}
+
+export function getAvatarList(){
+    let user = users.find((user) => user.username === getUserLogged()).avatarList;
+    return user;
+}
+
+export function checkEmail(email){
+   return (users.find((user) => user.email === email)) ? true : false
+}
+
+export function changePassword(email,password){
+    let user = users.find((user) => user.email == email);
+    console.table(user)
+    user.password = password;
+    updateLocalStorageUser()
+}
 
 init();
 login("12","12");
-updateCoins(20)
+updateCoins(60);
+
 export class User{
     username = ""
     password = ""
