@@ -115,17 +115,32 @@ function zoomBg(){
   document.getElementById('objects').style.display = "none";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/piecesBg.svg)";
   document.getElementById('objectsChall').style.display = "block";
-
 }
 document.getElementById("backBtn").addEventListener("click",backBtn)
+
 function backBtn(){
-  document.getElementById('objects').style.display = "block";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
   document.getElementById('objectsChall').style.display = "none";
+  document.getElementById("objects").style.display = "block";
+
+  document.getElementById("forwardNoStepPieces").style.display = "block";
+    /*BackButton not displaying*/
+  if (checkPosition === true){
+    document.getElementById('fixedStep').style.display = "block";
+    document.getElementById('toStay').style.display = "block";
+    document.querySelector("#toRemove").style.display = "none";
+  }
+  else{
+    document.getElementById("forwardNoStepPieces").style.display = "none";
+  }
+  
 }
 
+
+document.getElementById("forwardNoStepPieces").addEventListener("click", zoomBg)
+
+
 function forwardBtn(){
-  console.log(ruleOfThree(total, solved))
   if (ruleOfThree(total, solved) < 50){
     wrong()
     return false
@@ -166,15 +181,19 @@ document.querySelector('#key').addEventListener('click', function(){
 
 //check right answer challenge 2
 
-const hypotenuse1 = document.getElementById('hypotenuse2');
-const hypotenuse2 = document.getElementById('hypotenuse');
 const audioWrong = new Audio("../src/audio/wrong.mp3");
 const audioRight = new Audio("../src/audio/correct.mp3"); 
 
 
 document.getElementById("rightPiece").addEventListener("click",right)
 document.getElementById("wrongPiece").addEventListener("click",wrong)
-document.getElementById("stepFixed").addEventListener("click",changePosition)
+let checkPosition = false
+document.getElementById("stepFixed").addEventListener("click", function (){
+  changePosition()
+  checkPosition =  true
+  
+
+})
 function wrong(){
   audioWrong.play();
 }
@@ -190,6 +209,7 @@ function changePosition(){
   stepFixed.style.bottom = '35vw';
   stepFixed.style.left = '14vw';
   solvedChall()
+
 }
 
 

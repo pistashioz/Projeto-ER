@@ -224,6 +224,7 @@ body{
 #before{
     display: block;
 }
+
 #stairs{
     width: 25vw;
     position: absolute;
@@ -274,7 +275,7 @@ body{
     width: 15vw;
     height: 15vw;
     position: absolute;
-    bottom: -5vw;
+    bottom: -7vh;
     right: 60vw;
     transition: bottom 0.5s ease, right 0.5s ease;
     cursor: pointer;
@@ -283,17 +284,26 @@ body{
 #step2{
     width: 23vw;
     position: absolute;
-    bottom: 1vw;
+    bottom: 3vh;
     right: 75vw;
     z-index: 0;
     transition: bottom 0.5s ease, right 0.5s ease;
     cursor: pointer;
 }
-
+#fixedStep{
+    display: none;
+    width: 19vw;
+    position: absolute;
+    bottom: 34.5vh;
+    right: 23vw;
+    z-index: 5;
+    transition: bottom 0.5s ease, right 0.5s ease;
+    cursor: pointer;
+}
 #step3{
     width: 14vw;
     position: absolute;
-    bottom: 0.5vw;
+    bottom: 3vh;
     right: 45vw;
     z-index: 2;
     cursor: pointer;
@@ -302,7 +312,7 @@ body{
 #piece1{
     width: 10.5vw;
     position: absolute;
-    bottom: 0.5vw;
+    bottom: 2vh;
     right: 2vw;
     z-index: 1;
     cursor: pointer;
@@ -310,9 +320,9 @@ body{
 #piece2{
     width: 8vw;
     position: absolute;
-    bottom: 0vw;
-    right: 80vw;
-    z-index: 2;
+    bottom: 1vh;
+    left: 22vw;
+    z-index: 10;
     cursor: pointer;
 }
 
@@ -328,6 +338,17 @@ body{
     position: fixed;
     left: 0;
     top: 40%;
+}
+#forwardNoStepPieces{
+    display: none;
+    background: none;
+    border: 0;
+    color: red;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    right: 0;
+    top: 40%;  
 }
 #forwardBtn{
     background: none;
