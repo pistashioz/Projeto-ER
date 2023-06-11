@@ -136,15 +136,37 @@ document.querySelector('#open-modalRules').addEventListener('click', function(){
 
 
 
-const openAdmin = document.querySelector('#admin')
+const openAdmin = document.querySelector('#admin');
+
 openAdmin.addEventListener('click', () => {
-  document.querySelector('.modalAdmin').style.display = 'block'
+  var result = document.createElement("div")
+  result.innerHTML = `
+  <div id = 'modalAdmin' class = 'modalAdmin'>
+                <div class = 'containerAdmin'>
+                    <div class = 'modal-headAdmin'>
+                        <h1>Utilizadores</h1>
+                        <button id="closeAdmin" class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
+                    </div>
+                    <div class = 'scroll-bg'>
+                        <div class = 'scroll-div'>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+  `
+  document.body.appendChild(result);
+  var divUsers = document.getElementsByClassName("scroll-div")[0];
+  
+
+  const closeAdmin = document.querySelector('.close-button')
+  closeAdmin.addEventListener('click',() => {
+    const modalAdmin = document.querySelector('#modalAdmin');
+    modalAdmin.remove();
+  })
 })
 
-const closeAdmin = document.querySelector('.close-button')
-closeAdmin.addEventListener('click',() => {
-  document.querySelector('.modalAdmin').style.display = 'none'
-})
+
 
 //change profile pic
 

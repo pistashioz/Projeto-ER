@@ -9,13 +9,17 @@ export function init(){
         defaultAvatar[i].InUse = defaultlist[i][1];
         defaultAvatar[i].Available = defaultlist[i][2];
     }
-}
+} 
 
 export function add(username,password,email){
-        users.push(new User(username, password, email,20,defaultAvatar));
+        users.push(new User(username, password,email,60,defaultAvatar));
         localStorage.setItem("usersFlor", JSON.stringify(users));
         sessionStorage.setItem("loggedUserFlor", JSON.stringify(username));
 }
+init();
+login("12","12");
+
+
 export function checkUser(username){
     if (users.some((user) => user.username === username)) {
         return false
@@ -109,9 +113,6 @@ export function changePassword(email,password){
     updateLocalStorageUser()
 }
 
-init();
-login("12","12");
-updateCoins(60);
 
 export class User{
     username = ""

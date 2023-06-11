@@ -558,7 +558,7 @@ ion-icon {
 /*Admin Modal*/
 
 .modalAdmin{
-    display: none;
+    display: block;
     background-color: #AD6545;
     position: fixed;
     left: 50%;

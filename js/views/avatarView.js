@@ -8,7 +8,6 @@ var divBuyModal = document.getElementById("buyModalDiv");
 var DIVBUY = document.getElementsByClassName("container avatars")[0]
 function updateShop(){
     DIVBUY.innerHTML=""
-    console.table(user.getAvatarList());
     for(const avatar of user.getAvatarList()){
         const div = document.createElement("div");
         div.classList.add("row","col");
@@ -38,6 +37,7 @@ function updateShop(){
 
         div.appendChild(divCard);
         DIVBUY.appendChild(div);
+        document.getElementById("amount").textContent =`x ${user.getCoins()}`
     }
 }
 
@@ -96,4 +96,6 @@ function buyAvatar(button,price,avatarName){
         }
         ,10000)
     }
+
 };
+

@@ -74,11 +74,19 @@ userfield.addEventListener('input', validateUsername);
 
 
 //-------------------------------END---------------------------//
+
 //ADD Acount//
 signUpButton.addEventListener("click", function (){
   let username = userfield.value;
   let password = document.querySelector("#password");
   let email = emailField.value;
   User.add(username,password.value,email);
-  window.location.replace("../index.html");
+  window.location.replace("../html/login.html");
 });
+
+document.getElementById("alreadyAcc").addEventListener("click",() => {
+  window.location.replace("../html/login.html");
+});
+
+//-------------------------------END---------------------------//
+
