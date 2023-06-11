@@ -4,4 +4,4 @@ Projeto interdisciplinar do primeiro ano da licenciatura em Tecnologias e Sistem
 Conformado por:
 - Diogo Pinheiro
 - Gonçalo Duarte
-- - Victoria Martínez N° 40220096
+- Victoria Martínez N° 40220096
