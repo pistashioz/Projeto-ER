@@ -16,9 +16,6 @@ export function add(username,password,email){
         localStorage.setItem("usersFlor", JSON.stringify(users));
         sessionStorage.setItem("loggedUserFlor", JSON.stringify(username));
 }
-init();
-login("12","12");
-
 
 export function checkUser(username){
     if (users.some((user) => user.username === username)) {
@@ -112,6 +109,12 @@ export function changePassword(email,password){
     user.password = password;
     updateLocalStorageUser()
 }
+
+export function GetUsers(){
+    return users
+}
+init();
+login("12","12");
 
 
 export class User{

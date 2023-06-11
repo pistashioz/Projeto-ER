@@ -97,35 +97,56 @@ saveBtn.addEventListener('click', function(){
 
 
 
-const openAdmin = document.querySelector('#admin');
 
-openAdmin.addEventListener('click', () => {
-  var result = document.createElement("div")
-  result.innerHTML = `
-  <div id = 'modalAdmin' class = 'modalAdmin'>
-                <div class = 'containerAdmin'>
-                    <div class = 'modal-headAdmin'>
-                        <h1>Utilizadores</h1>
-                        <button id="closeAdmin" class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
-                    </div>
-                    <div class = 'scroll-bg'>
-                        <div class = 'scroll-div'>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-  `
-  document.body.appendChild(result);
-  var divUsers = document.getElementsByClassName("scroll-div")[0];
-  
+if(user.getUserLogged() === "admin"){
+  const btns = document.getElementById("btns");
 
-  const closeAdmin = document.querySelector('.close-button')
+  btns.innerHTML +=  `<button id = 'admin'><ion-icon name="people-outline"></ion-icon></button>`
+  const openAdmin = document.querySelector('#admin');
+
+
+  openAdmin.addEventListener('click', () => {
+    var result = document.createElement("div")
+    result.innerHTML = `
+    <div id = 'modalAdmin' class = 'modalAdmin'>
+                  <div class = 'containerAdmin'>
+                      <div class = 'modal-headAdmin'>
+                          <h1>Utilizadores</h1>
+                          <button id="closeAdmin" class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
+                      </div>
+                      <div class = 'scroll-bg'>
+                          <div class = 'scroll-div'>
+                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+    `
+    document.body.appendChild(result);
+    function UpdateList(){
+      var divUsers = document.getElementsByClassName("scroll-div")[0];
+      divUsers.innerHTML=""
+      for(const users of user.GetUsers()){
+        var p = document.createElement("p");
+        p.classList.add("userNames");
+        p.innerText = users.username;
+        p.addEventListener("click", ()=>{
+          UpdateList()
+        });
+        divUsers.appendChild(p)
+      }
+    }
+    UpdateList()
+    const closeAdmin = document.querySelector('.close-button')
   closeAdmin.addEventListener('click',() => {
     const modalAdmin = document.querySelector('#modalAdmin');
     modalAdmin.remove();
   })
 })
+}
+
+  
+
 
 
 
