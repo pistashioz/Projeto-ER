@@ -159,7 +159,7 @@ ion-icon {
 area{
     cursor: pointer
 }
-#equation h4{
+#equationLvl1 h4{
     position: fixed;
     font-size: 4vw;
     background-color: rgba(114, 105, 98, 0.4);
@@ -684,7 +684,7 @@ ion-icon {
     background-color: #CFB265;
     border: 0;
     color: whitesmoke;
-    padding-left: 2vw;
+    padding-left: 1vw;
     font-size: 2vw;
     border-radius:3rem;
     margin-left: 1vw;

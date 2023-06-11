@@ -194,7 +194,7 @@ function checkRightAns(){
   audioRight.play();
   document.body.style.backgroundImage = "url(../src/img/rooms/level1/bg2Lvl1.svg)";
   document.body.style.backgroundPosition =  "botton center";
-  document.getElementById('equation').style.display = "none";
+  document.getElementById('equationLvl1').style.display = "none";
   document.getElementById('options').style.display = "none";
   document.getElementById('rect').style.display = "block";
   return true
@@ -243,6 +243,7 @@ closeModalButtons.forEach(button => {
       closeModal(modal)
     })
   });
+  /*
 const editBtn = document.querySelector('#editBtn');
 const saveBtn = document.querySelector('#saveBtn');
 
@@ -251,19 +252,7 @@ const optQuestions = document.querySelectorAll('.optionsQuestions');
 const rightAn = document.querySelectorAll('.rightAnsw');
 const desafio = document.querySelectorAll('.challengeEdit')
 editBtn.addEventListener('click', () => {
-  timeLeft.forEach(time => {
-    time.removeAttribute('readonly');
-  });
-  optQuestions.forEach(question => {
-    question.removeAttribute('readonly');
-  });
-  rightAn.forEach(ans => {
-    ans.removeAttribute('readonly');
-  });
-  desafio.forEach(chall => {
-    chall.removeAttribute('readonly');
-  });
-
+document.querySelector('#equationLvl1 h4').innerText = document.querySelector('#challengeLvl1').placeholder
 });
 
 saveBtn.addEventListener('click', function(){
@@ -279,5 +268,9 @@ saveBtn.addEventListener('click', function(){
   desafio.forEach(chall => {
     chall.setAttribute('readonly', true);;
   });
-})
 
+  
+
+});
+
+*/
