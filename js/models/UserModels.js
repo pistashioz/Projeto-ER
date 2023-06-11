@@ -114,7 +114,7 @@ export function GetUsers(){
     return users
 }
 init();
-login("12","12");
+login("admin","123");
 
 
 export class User{

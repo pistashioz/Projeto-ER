@@ -1,4 +1,4 @@
-
+import * as user from "../models/UserModels.js";
 //progress bar
 const bar = document.querySelector(".bar");
 const percentageTag = document.querySelector(".percentage");
@@ -95,34 +95,38 @@ function closeModal(modal) {
 
 
 /*moving steps functions LEVEL 2*/ 
-function moveStep1() {
+document.getElementById("step1").addEventListener("click",()=>{
     var image = document.getElementById('step1');
     image.style.bottom = '17.5vw';
     image.style.right = '25vw';
     solvedChall()
-}
-function moveStep2(){
+});
+document.getElementById("step2").addEventListener("click",()=>{
   var image = document.getElementById('step2');
   image.style.bottom = '5.4vw';
   image.style.right = '21vw';
   solvedChall()
-}
+});
 
+document.getElementById("piece1").addEventListener("click",zoomBg)
+document.getElementById("piece2").addEventListener("click",zoomBg)
+document.getElementById("step3").addEventListener("click",zoomBg)
 function zoomBg(){
   document.getElementById('objects').style.display = "none";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/piecesBg.svg)";
   document.getElementById('objectsChall').style.display = "block";
-}
 
+}
+document.getElementById("backBtn").addEventListener("click",backBtn)
 function backBtn(){
   document.getElementById('objects').style.display = "block";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
   document.getElementById('objectsChall').style.display = "none";
-
 }
+
 function forwardBtn(){
   console.log(ruleOfThree(total, solved))
-  if (ruleOfThree(total, solved) < 40){
+  if (ruleOfThree(total, solved) < 50){
     wrong()
     return false
   }
@@ -167,6 +171,10 @@ const hypotenuse2 = document.getElementById('hypotenuse');
 const audioWrong = new Audio("../src/audio/wrong.mp3");
 const audioRight = new Audio("../src/audio/correct.mp3"); 
 
+
+document.getElementById("rightPiece").addEventListener("click",right)
+document.getElementById("wrongPiece").addEventListener("click",wrong)
+document.getElementById("stepFixed").addEventListener("click",changePosition)
 function wrong(){
   audioWrong.play();
 }
@@ -224,6 +232,10 @@ openDoor()
 document.getElementById('rect').addEventListener('click', removeRect)
 
 /*admin room settings*/
+if(user.getUserLogged()=== "admin"){
+
+var footerOptions = document.getElementById("footerOptions");
+footerOptions.innerHTML += `<button id = 'settingsBtn' data-modal-target="#settingsModal"><ion-icon name="cog-outline"></ion-icon></button>`
 
 const openSettingBtn = document.querySelectorAll('[data-modal-target]');
 const closeSettingBtn = document.querySelectorAll('[data-close-button]');
@@ -237,12 +249,14 @@ openSettingBtn.forEach(button => {
 
 });
 
-closeModalButtons.forEach(button => {
+closeSettingBtn.forEach(button => {
     button.addEventListener('click', () => {
       const modal = document.querySelector('.modalSettings')
       closeModal(modal)
     })
   });
+
+}
   /*
 const editBtn = document.querySelector('#editBtn');
 const saveBtn = document.querySelector('#saveBtn');
