@@ -6,13 +6,14 @@ class Room{
     maxHints = 2;
     hide = True
     hints = []
+    
 }
 
 
 class Level1{
     challenge_1()
 }
-class Level2{
+class Level2 extends Room{
     challenge_1()
     challenge_2()
 }
@@ -61,5 +62,60 @@ function showMenu(){
 }
 
 function hideMenu(){
+
+}
+
+class EditRoom{
+    #time
+    #challenge
+    #options = []
+    #rightAns
+
+    constructor(time, challenge, options = [], rightAns){
+        this.#time = time;
+        this.#challenge = challenge;
+        this.#options = options;
+        this.#rightAns = rightAns
+    }
+
+    get time() {
+        return this.#time;
+    }
+
+    set time(value) {
+        this.#time = value;
+    }
+
+    get challenge() {
+        return this.#challenge
+    }
+
+    set challenge(value){
+        this.#challenge = value
+    }
+
+    get options(){
+        return this.#options
+    }
+
+    set options(value){
+        this.#options = value
+    }
+
+    get rightAns(){
+        return this.#rightAns
+    }
+
+    set rightAns(value){
+        this.#rightAns = value
+    }
+}
+
+class RoomGestor{
+    list
+
+    constructor(list){
+        this.list = list
+    }
 
 }

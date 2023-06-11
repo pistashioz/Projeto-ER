@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/room.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
@@ -32,7 +31,7 @@
     </div>
     <!-- room1 -->
     <div class = 'room' id = 'level1'>
-        <div id = 'equation'>
+        <div id = 'equationLvl1'>
             <h4>13x - 543 = x + 177 </h4>
         </div>
         <div id = 'options'>
@@ -44,21 +43,26 @@
         </div>
         <div usemap="#workmap" id = 'rect'></div>
         <map name="workmap">
-            <area shape="rect" coords="34, 44, 270, 350" alt="Computer" href="computer.html">
-          </map>
+            <area shape="rect" coords="34, 44, 270, 350" alt="door open">
+        </map>
     </div>
     <!-- room2 -->
     <div class = 'room' id = 'level2'>
         <div id = 'objects'>
-            <img id = 'stairs' src = '../src/img/rooms/level2/room/stairs.svg'>
-            <img id = 'step1' src = '../src/img/rooms/level2/room/step1.svg' onclick="moveStep1()">
-            <img id = 'step2' src = '../src/img/rooms/level2/room/step2.svg' onclick="moveStep2()">
-            <img id = 'step3' src = '../src/img/rooms/level2/room/step3.svg' onclick = "zoomBg()">
-            <img id = 'piece1' class = 'pieces' src = '../src/img/rooms/level2/room/option1.svg' onclick = "zoomBg()">
-            <img id = 'piece2' class = 'pieces' src = '../src/img/rooms/level2/room/option2.svg' onclick = "zoomBg()">
+            <div id ='toStay'> 
+                <img id = 'stairs' src = '../src/img/rooms/level2/room/stairs.svg'>
+                <img id = 'step1' src = '../src/img/rooms/level2/room/step1.svg' onclick="moveStep1()">
+                <img id = 'step2' src = '../src/img/rooms/level2/room/step2.svg' onclick="moveStep2()">
+            </div>
+            <div id = 'toRemove'>
+                <img id = 'step3' src = '../src/img/rooms/level2/room/step3.svg' onclick = "zoomBg()">
+                <img id = 'piece1' class = 'pieces' src = '../src/img/rooms/level2/room/option1.svg' onclick = "zoomBg()">
+                <img id = 'piece2' class = 'pieces' src = '../src/img/rooms/level2/room/option2.svg' onclick = "zoomBg()">
+            </div>
         </div>
-        <div id = 'objectsChall2'>
-            <button id = 'backChall1' onclick = "backChall1()"><ion-icon name="arrow-back-outline"></ion-icon></button>
+        <div id = 'objectsChall'>
+            <button id = 'backBtn' onclick = "backBtn()"><ion-icon name="arrow-back-outline"></ion-icon></button>
+            <button id = 'forwardBtn'><ion-icon name="arrow-forward-outline"></ion-icon></button>
             <div id = 'antes'>
                 <img id = 'step' src = '../src/img/rooms/level2/room/stepChall2.svg'>
                 <div id = 'challenge'>
@@ -78,17 +82,28 @@
             <img id = 'stepFixed' alt = 'step fixed' src = '../src/img/rooms/level2/room/stepCompleted.svg' onclick = "changePosition()">
            
         </div>
+        <div id = 'objectsChall3'>
+            <div usemap="#workmapChall3" id = 'chest'></div>
+            <map name="workmapChall3">
+                <area shape="rect" coords="100, 100, 100, 100" alt="Chest">
+            </map>
+            <div usemap = "workmapKey" id  = 'key'></div>
+            <map name  = "workmapKey">
+                <area shape="circle" coords="337,300,44" alt="Key">
+            </map>
+        </div>
     </div>
 
     <div id = 'footerOptions'>
         <a href="../html/perfil.html"><button id = 'homeBtn'><ion-icon name="home-outline"></ion-icon></button></a>
-            <!-- sound -->
-    <audio id = 'bgTrack'  autoplay="true" loop>
-        <source src="" type = "audio/mp3">
-    </audio>
-    <button id = 'sound'><ion-icon name="volume-high-outline"></ion-icon></button>
-    <div id="alert-container"></div>
-
+        <button id = 'settingsBtn' data-modal-target="#settingsModal"><ion-icon name="cog-outline"></ion-icon></button>
+        
+                <!-- sound -->
+        <audio id = 'bgTrack'  autoplay="true" loop>
+            <source src="" type = "audio/mp3">
+        </audio>
+        <button id = 'sound'><ion-icon name="volume-high-outline"></ion-icon></button>
+        <div id="alert-container"></div>
     </div>
 
     <!-- buy hint modal-->
@@ -101,7 +116,7 @@
                 <h3>Tem a certeza que quer obter uma pista?</h3>
                 <div id = 'btns'>
                     <button class = 'buy-button' id = 'btnBuy'>Comprar</button>
-                    <button  data-close-button class = 'close-button'id = 'btnExit'>Sair</button>
+                    <button  data-close-button class = 'close-button' id = 'btnExit'>Sair</button>
                 </div> 
             </div>
         </div>
@@ -114,16 +129,119 @@
             <h1>Pista</h1>
             <button id="closeHint"><ion-icon name="close-outline"></ion-icon></button>
         </div>
-        <div class = 'modalHint-body'><h3 id = 'hintText'>As pistas devem aparecer aqui!!!</h3></div> 
+        <div class = 'modalHint-body'><h3 id = 'hintText'>as pistas devem aparecer aqui!!!</h3></div> 
         </div>
     </div>
-</div>
+
+    <!-- settings modal (ONLY AVAILABLE FOR ADMIN) -->
+<div id = 'settingsModal' class = 'modalSettings'>
+        
+        <div class = 'container'>
+            <div class = 'modalSettings-head'>
+                <h1>Configurações</h1>
+                <button id="closeSettings" data-close-button class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
+            </div>
+            <div class = 'modalSettings-body'>
+                <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-inner">
+                            <!-- level 1 settings -->
+                        <div class="carousel-item active">
+                            <h3>Nível 1</h3>
+                            <div class = 'questions'>
+                                <h4> tempo limite: </h4>
+                                <input type = "number" id = 'timeLvl1' class = 'time' min="1" max="20" required>
+                                <h4>minutos</h4>
+                            </div>
+                            <div class = 'questions'>
+                                <h4> desafio: </h4>
+                                <input type = "text" class = 'challengeEdit' id = 'challengeLvl1' required>
+                            </div>
+                            <div class = 'questions'>
+                                <h4> opções: </h4>
+                                <input type = "text" class = 'optionsQuestions' id = 'opt1Lvl1'  required>
+                                <input type = "text" class = 'optionsQuestions' id = 'opt2Lvl1'  required>
+                                <input type = "text" class = 'optionsQuestions' id = 'opt3Lvl1'  required>
+                                <input type = "text" class = 'optionsQuestions' id = 'opt4Lvl1'  required>
+                                <input type = "text" class = 'optionsQuestions' id = 'opt5Lvl1'  required>
+                            </div>
+                            <div class = 'questions'>
+                                <h4> resposta correta: </h4>
+                                <input type = "text" class = 'rightAnsw'  id = 'rightOptLvl1' required>
+                            </div>
+                        </div>
+                        <!-- level 2 settings -->
+                        <div class="carousel-item">
+                            <h3>Nível 2</h3>
+                            <div class = 'questions'>
+                                <h4> tempo limite: </h4>
+                                <input type = "number" id = 'timeLvl2' class = 'time' min="1" max="20"  required>
+                                <h4>minutos</h4>
+                            </div>
+                            <div class = 'questions'>
+                                <h4> desafio: </h4>
+                                <input type = "text" class = 'challengeEdit' id = 'challengeLvl2' required>
+                            </div>
+                            <div class = 'questions'>
+                                <h4> opções: </h4>
+                                <input type = "text" class = 'optionsQuestions' id = 'opt1Lvl2'  required>
+                                <input type = "text" class = 'optionsQuestions' id = 'opt2Lvl2' required>
+                            </div>
+                            <div class = 'questions'>
+                                <h4> resposta correta: </h4>
+                                <input type = "text" class = 'rightAnsw' id = 'rightOptLvl2'  required>
+                            </div>
+                        </div>
+                        <!-- level 3 settings -->
+                        <div class="carousel-item">
+                            <h3>Nível 3</h3>
+                            <div class = 'questions'>
+                                <h4> tempo limite: </h4>
+                                <input type = "number" id = 'timeLvl3' class = 'time' min="1" max="20"  required>
+                                <h4>minutos</h4>
+                            </div>
+                            <div class = 'questions'>
+                                <h4> desafio: </h4>
+                                <input type = "text" class = 'challengeEdit' id = 'challengeLvl3'  required>
+                            </div>
+                            <div class = 'questions'>
+                                <h4> opções: </h4>
+                                <input type = "text" class = 'optionsQuestions'  id = 'opt1Lvl3'  required>
+                                <input type = "text" class = 'optionsQuestions'  id = 'opt2Lvl3'  required>
+                            </div>
+                            <div class = 'questions'>
+                                <h4> resposta correta: </h4>
+                                <input type = "text" class = 'rightAnsw' id = 'rightOptLvl3'  required>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    <div id = 'btnSettings'>
+                        <button id = 'editBtn'>Editar</button>
+                        <button id = 'saveBtn'>Guardar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+        </div>
+    </div>
 
 
     <script src = '../js/views/roomView.js'></script>
        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>

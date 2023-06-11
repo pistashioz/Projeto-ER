@@ -118,7 +118,7 @@ ion-icon {
     position: fixed;
     bottom: 0%;
     transform: translate(0%, -10%);
-    z-index: 2;
+    z-index: 10;
     left: 0;
 }
 #footerOptions button{
@@ -126,6 +126,12 @@ ion-icon {
     border: 0;
     outline: none;
     cursor: pointer;
+}
+#settingsBtn{
+    position: fixed;
+    left: 0%;
+    margin-left: 2vw;
+    margin-top: -15vh;
 }
 #sound{
     position: fixed;
@@ -141,7 +147,7 @@ ion-icon {
     display: block;
 }
 #rect{
-    display: none;
+    display: block;
     width: 15vw;
     height: 60vh;
     position: fixed;
@@ -149,10 +155,11 @@ ion-icon {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 area{
     cursor: pointer
 }
-#equation h4{
+#equationLvl1 h4{
     position: fixed;
     font-size: 4vw;
     background-color: rgba(114, 105, 98, 0.4);
@@ -308,11 +315,12 @@ body{
     z-index: 2;
     cursor: pointer;
 }
+
 /*challenge 2 level 2*/
-#objectsChall2{
+#objectsChall{
     display: none;
 }
-#backChall1{
+#backBtn{
     background: none;
     border: 0;
     outline: none;
@@ -320,6 +328,15 @@ body{
     position: fixed;
     left: 0;
     top: 40%;
+}
+#forwardBtn{
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    right: 0;
+    top: 40%;   
 }
 #step{
     width: 30vw;
@@ -345,7 +362,7 @@ body{
     z-index: 1;
     cursor: pointer;
 }
-#objectsChall2 p{
+#objectsChall p{
     font-size: 1.5vw;
     color: black;
     background-color: whitesmoke;
@@ -383,6 +400,28 @@ body{
     cursor: pointer;
 }
 
+/*challenge 3 level 2*/
+
+#chest{
+    display: none;
+    cursor: pointer;
+    width: 35vw;
+    height: 12vh;
+    position: fixed;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+#key{
+    display: none;
+    cursor: pointer;
+    width: 8vw;
+    height: 12vh;
+    position: fixed;
+    bottom: 5%;
+    left: 51%;
+    transform: translate(-50%, 0%); 
+}
 /* modal buy hints*/
 
 .modalBuy {
@@ -406,9 +445,6 @@ ion-icon {
     font-size: 5vw;
     color: #F4F3FF;
 }
-
-
-
 
 .modal-head h1{
     position: fixed;
@@ -544,6 +580,8 @@ ion-icon {
     z-index: 6;
 }
 
+
+
 .modalHint-head h1{
     position: fixed;
     text-align: center;
@@ -585,3 +623,191 @@ ion-icon {
     top: 1%;
 }
 
+/*Settings modal*/
+.modalSettings{
+    display: block;
+    background-color: #657D55;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-45%, -50%) scale(0);
+    width: 60vw;
+    max-width: 60vw;
+    padding: 1.2rem;
+    border-radius: 3rem;
+    height: 75vh;
+    transition: 200ms ease-in-out;
+    z-index: 6;
+}
+.modalSettings.active{
+    transform: translate(-45%, -50%) scale(1);
+}
+
+.modalSettings-head h1{
+    position: fixed;
+    font-size: 4.3vw;
+    position: fixed;
+    left: 50%;
+    top: 4%;
+    transform: translate(-50%, -10%);
+}
+
+.modalSettings-body{
+    position: fixed;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 80%;
+    background-color: #657D55;
+    border-radius: 3rem;
+    padding: 2vw;
+    padding-top: 2vw;
+    text-align:justify;
+}
+
+
+.questions{
+    display: flex;
+    margin-left: 5vw;
+    margin-top: 3vh;
+}
+.modalSettings-body h3{
+    font-size: 2.3vw;
+    text-decoration: underline;
+    margin-right: 2vw;
+}
+.modalSettings-body h4{
+    font-size: 2vw;
+}
+.modalSettings-body input{
+    background-color: #CFB265;
+    border: 0;
+    color: whitesmoke;
+    padding-left: 1vw;
+    font-size: 2vw;
+    border-radius:3rem;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top: -1vh;
+}
+#time {
+    width: 5vw;
+    height: 6vh;
+}
+#challenge{
+    width: 25vw;
+    height: 6vh;
+}
+.optionsQuestions{
+    width: 5vw;
+    height: 6vh;
+}
+#rightAnsw{
+    width: 5vw;
+    height: 6vh;
+}
+.modalSettings-body input:focus{
+    outline: none;
+}
+
+#closeSettings{
+    position: fixed;
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    z-index: 11;
+    right: 5%;
+    top: 1%;
+}
+#btnSettings{
+    width: 40vw;
+    justify-content: space-around;
+    display: flex;
+    position: fixed;
+    left: 15%;
+    bottom: 3vh;
+}
+#btnSettings button{
+	color: whitesmoke;
+    font-size: 2.3vw;
+	padding: 0em 1em;
+    height:8vh;
+    box-shadow: inset;
+	border-radius: 2.5em;
+	transform-style: preserve-3d;
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+	background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#editBtn{
+	background: #529AC2;
+    border: 2px solid #529AC2;
+}
+#saveBtn{
+    background: #53A04C;
+    border: 2px solid #53A04C;
+}
+
+
+#btnSettings button::before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: inherit;
+	transform: translate3d(0, 0.75em, -1em);
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#editBtn::before{
+    background: #2A6E95;
+    box-shadow: 0 0 0 2px #2A6E95, 0 0.625em 0 0 none;
+}
+#saveBtn::before{
+    background: #16680F;
+    box-shadow: 0 0 0 2px #16680F, 0 0.625em 0 0 none;
+}
+#btnSettings button:hover {
+	
+	transform: translate(0, 0.25em);
+}
+#editBtn:hover{
+    background: #529AC2;
+}
+#saveBtn:hover{
+    background: #53A04C;
+}
+#btnSettings button:hover::before {
+  backdrop-filter: blur(5rem) !important;
+	transform: translate3d(0, 0.5em, -1em);
+}
+#editBtn:hover::before{
+    box-shadow: 0 0 0 2px #2A6E95, 0 0.5em 0 0  none;
+}
+#saveBtn:hover::before{
+    box-shadow: 0 0 0 2px #16680F, 0 0.5em 0 0  none;
+}
+#btnSettings button:active {
+	transform: translate(0em, 0.75em);
+    outline: none;
+}
+#editBtn:active{
+    background: #529AC2;
+}
+#saveBtn:active{
+    background: #53A04C;
+}
+#btnSettings button:active::before {
+	transform: translate3d(0, 0, -1em);
+    
+}
+#editBtn:active::before{
+    box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #2A6E95;
+}
+#saveBtn:active::before{
+    box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #16680F;
+}

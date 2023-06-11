@@ -111,14 +111,54 @@ function moveStep2(){
 function zoomBg(){
   document.getElementById('objects').style.display = "none";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/piecesBg.svg)";
-  document.getElementById('objectsChall2').style.display = "block";
+  document.getElementById('objectsChall').style.display = "block";
 }
 
-function backChall1(){
+function backBtn(){
   document.getElementById('objects').style.display = "block";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
-  document.getElementById('objectsChall2').style.display = "none";
+  document.getElementById('objectsChall').style.display = "none";
+
 }
+function forwardBtn(){
+  console.log(ruleOfThree(total, solved))
+  if (ruleOfThree(total, solved) < 40){
+    wrong()
+    return false
+  }
+  else{
+    document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bgChall3.svg)";
+    document.getElementById('objectsChall').style.display = "none";
+    document.body.style.backgroundPosition = "bottom center";
+    return true
+  }
+}
+/*Challenge 3*/ 
+const forwardButton = document.querySelector('#forwardBtn')
+const chestOpening = new Audio('../src/audio/keyChestOpen.mp3')
+forwardButton.addEventListener('click', function(){
+  if (forwardBtn() === true){
+    document.getElementById('chest').style.display = "block"
+    document.getElementById('chest').addEventListener('click', function(){
+      chestOpening.play()
+      document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg2Chall3.svg)";
+      document.getElementById('chest').style.display = "none"
+      document.getElementById('key').style.display = "block"
+      solvedChall()
+    })
+}
+else{
+  document.getElementById('chest').style.display = "none"
+}
+  
+});
+
+document.querySelector('#key').addEventListener('click', function(){
+  document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg3Chall3.svg)";
+  document.getElementById('key').style.display = "none"
+  solvedChall()
+});
+
 
 //check right answer challenge 2
 
@@ -126,6 +166,7 @@ const hypotenuse1 = document.getElementById('hypotenuse2');
 const hypotenuse2 = document.getElementById('hypotenuse');
 const audioWrong = new Audio("../src/audio/wrong.mp3");
 const audioRight = new Audio("../src/audio/correct.mp3"); 
+
 function wrong(){
   audioWrong.play();
 }
@@ -134,36 +175,102 @@ function right(){
   audioRight.play();
   document.getElementById('antes').style.display = "none";
   document.getElementById('stepFixed').style.display = "block";
+  return true
 }
 function changePosition(){
   var stepFixed = document.getElementById('stepFixed');
   stepFixed.style.bottom = '35vw';
   stepFixed.style.left = '14vw';
   solvedChall()
-  
 }
+
 
 /*LEVEL 1*/
 
 const rightAnswer = document.querySelector('#op1');
 const wrongAnswer = document.querySelectorAll('.wrongAnswers')
-rightAnswer.addEventListener('click', function(){
+function checkRightAns(){
   solvedChall()
   audioRight.play();
   document.body.style.backgroundImage = "url(../src/img/rooms/level1/bg2Lvl1.svg)";
   document.body.style.backgroundPosition =  "botton center";
-  document.getElementById('equation').style.display = "none";
+  document.getElementById('equationLvl1').style.display = "none";
   document.getElementById('options').style.display = "none";
   document.getElementById('rect').style.display = "block";
-})
+  return true
+}
+rightAnswer.addEventListener('click', checkRightAns)
 
 wrongAnswer.forEach((el) => el.addEventListener('click', function(){
   audioWrong.play();
 }))
 
-const door = document.getElementById('rect').addEventListener('click', function(){
-  document.getElementById('level2').style.display = "block";
-  document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
-  document.getElementById('objectsChall2').style.display = "none";
-})
+function openDoor(){
+  if (checkRightAns === true){
+    document.getElementById('rect').style.display = "block";
 
+  }
+  else{
+    document.getElementById('rect').style.display = "none";
+  }
+}
+function removeRect(){
+  document.getElementById('level2' ).style.display = "block";
+  document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
+  document.getElementById('objectsChall').style.display = "none";
+  document.getElementById('rect').style.display = "none";
+}
+openDoor()
+document.getElementById('rect').addEventListener('click', removeRect)
+
+/*admin room settings*/
+
+const openSettingBtn = document.querySelectorAll('[data-modal-target]');
+const closeSettingBtn = document.querySelectorAll('[data-close-button]');
+
+
+openSettingBtn.forEach(button => {
+    button.addEventListener('click', () =>{
+        const modal = document.querySelector(button.dataset.modalTarget);
+        openModal(modal)
+    })
+
+});
+
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = document.querySelector('.modalSettings')
+      closeModal(modal)
+    })
+  });
+  /*
+const editBtn = document.querySelector('#editBtn');
+const saveBtn = document.querySelector('#saveBtn');
+
+const timeLeft = document.querySelectorAll('.time');
+const optQuestions = document.querySelectorAll('.optionsQuestions');
+const rightAn = document.querySelectorAll('.rightAnsw');
+const desafio = document.querySelectorAll('.challengeEdit')
+editBtn.addEventListener('click', () => {
+document.querySelector('#equationLvl1 h4').innerText = document.querySelector('#challengeLvl1').placeholder
+});
+
+saveBtn.addEventListener('click', function(){
+  timeLeft.forEach(time => {
+    time.setAttribute('readonly', true);
+  });
+  optQuestions.forEach(question => {
+    question.setAttribute('readonly', true);
+  });
+  rightAn.forEach(ans => {
+    ans.setAttribute('readonly', true);
+  });
+  desafio.forEach(chall => {
+    chall.setAttribute('readonly', true);;
+  });
+
+  
+
+});
+
+*/
