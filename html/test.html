@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/perfil.css">
+    
+</head>
+<body>
+
+           <!-- user administration ADMIN -->
+
+           <div id = 'modalAdmin' class = 'modalAdmin'>
+                <div class = 'containerAdmin'>
+                    <div class = 'modal-headAdmin'>
+                        <h1>Utilizadores</h1>
+                        <button id="closeAdmin" class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
+                    </div>
+                    <div class = 'scroll-bg'>
+                        <div class = 'scroll-div'>
+                            <p class = 'userNames'>user01</p>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+           <div id = 'modalUserOptions' class = 'modalUserOptions'>
+            <div class = 'containerOptions'>
+                <div class = 'modal-headOptions'>
+                    <h1>User01</h1>
+                    <button id="closeOptions" class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
+                </div>
+                
+                <div id = 'buttonsOpt'>
+                    <button id = 'block'>Bloquear</button>
+                    <button id = 'remove'>Remover</button>
+                </div>
+                </div>
+            </div>
+           </div>
+
+
+
+           <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+           <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+           <script type = "module" src = '../js/views/perfilView.js'></script>
+       
+           <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+           integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+           </script>
+       </body>
+       </html>
