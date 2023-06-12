@@ -131,6 +131,23 @@ if(user.getUserLogged() === "admin"){
         p.classList.add("userNames");
         p.innerText = users.username;
         p.addEventListener("click", ()=>{
+          const modalBlock = document.createElement("div");
+          modalBlock.innerHTML= `<div id = 'modalUserOptions' class = 'modalUserOptions'>
+          <div class = 'containerOptions'>
+              <div class = 'modal-headOptions'>
+                  <h1>${users.username}</h1>
+                  <button id="closeOptions" class = 'close-buttonBlock'><ion-icon name="close-outline"></ion-icon></button>
+              </div>
+              
+              <div id = 'buttonsOpt'>
+                  <button id = 'block'>Bloquear</button>
+                  <button id = 'remove'>Remover</button>
+              </div>
+              </div>
+          </div>
+         </div>
+`
+          result.appendChild(modalBlock)
           UpdateList()
         });
         divUsers.appendChild(p)
