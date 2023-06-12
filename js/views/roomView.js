@@ -181,12 +181,54 @@ document.querySelector('#key').addEventListener('click', function(){
 
 //level 2 to level 3
 document.querySelector('#doorOpen').addEventListener('click', function(){
-document.body.style.backgroundImage = "url(../src/img/rooms/level3/bgLvl3.svg)";
-document.body.style.backgroundPosition = "top center";
-document.getElementById('objectsChall3').style.display = "none"
-document.getElementById('objectsLvl3').style.display = "block"
+  document.body.style.backgroundImage = "url(../src/img/rooms/level3/bgLvl3.svg)";
+  document.body.style.backgroundPosition = "top center";
+  document.getElementById('objectsChall3').style.display = "none"
+  document.getElementById('level3').style.display = "block"
   solvedChall()
 });
+//level 3
+//grab elements for inventory
+const piecesPiano = document.querySelectorAll('.pianoPieces')
+piecesPiano.forEach((el) => el.addEventListener('click', function(){
+  addInventory(el)
+}))
+var counter = 0
+function addInventory(el){
+  el.style.display = 'none'
+  document.querySelector('#pianoPieceInventory').style.display = 'block'
+  counter += 1
+  document.querySelector('#alreadyInventory').innerHTML = counter
+  if (counter == 6){
+    document.querySelector('#piano').style.display = 'block'
+  }
+}
+document.querySelector('#piano').addEventListener('click', function(){
+  document.body.style.backgroundImage = "url(../src/img/rooms/level3/bg2.png)";
+  document.querySelector('#piano').style.display = 'none'
+  document.querySelector('#submeterPercentagem').style.display = 'block'
+  document.querySelector('#percentagemPiano').style.display = 'block'
+})
+document.querySelector('#submeterPercentagem').addEventListener('click', checkPercentage)
+function checkPercentage(){
+  const answPercentage = document.querySelector('#percentagemPiano')
+  if (answPercentage.value == 15){
+    audioRight.play();
+    solvedChall()
+    document.querySelector('#inventory').style.display = 'none'
+
+    document.body.style.backgroundImage = "url(../src/img/rooms/level3/bg3.png)";
+    document.querySelector('#exitPiano').style.display = 'block'
+  }
+  else{
+    audioWrong.play()
+  }
+}
+document.querySelector('#exitPiano').addEventListener('click', function(){
+  document.body.style.backgroundImage = "url(../src/img/rooms/level3/bg4.png)";
+  document.querySelector('#exitPiano').style.display = 'none'
+  document.querySelector('#answlvl3').style.display = 'none'
+})
 
 //check right answer challenge 2
 
