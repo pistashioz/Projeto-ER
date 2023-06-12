@@ -175,9 +175,18 @@ else{
 document.querySelector('#key').addEventListener('click', function(){
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg3Chall3.svg)";
   document.getElementById('key').style.display = "none"
+  document.getElementById('doorOpen').style.display = 'block'
   solvedChall()
 });
 
+//level 2 to level 3
+document.querySelector('#doorOpen').addEventListener('click', function(){
+document.body.style.backgroundImage = "url(../src/img/rooms/level3/bgLvl3.svg)";
+document.body.style.backgroundPosition = "top center";
+document.getElementById('objectsChall3').style.display = "none"
+document.getElementById('objectsLvl3').style.display = "block"
+  solvedChall()
+});
 
 //check right answer challenge 2
 
@@ -275,7 +284,6 @@ closeSettingBtn.forEach(button => {
       closeModal(modal)
     })
   });
-
 }
   /*
 const editBtn = document.querySelector('#editBtn');

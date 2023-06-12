@@ -429,8 +429,9 @@ body{
     width: 35vw;
     height: 12vh;
     position: fixed;
-    bottom: 0%;
+    bottom: 2vh;
     left: 50%;
+    z-index: 11;
     transform: translate(-50%, 0%);
 }
 #key{
@@ -443,6 +444,24 @@ body{
     left: 51%;
     transform: translate(-50%, 0%); 
 }
+#doorOpen{
+    display: none;
+    cursor: pointer;
+    width: 23vw;
+    height: 70vh;
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, 0%); 
+}
+/*Level 3*/
+
+.pianoPieces{
+    display: none;
+    position: fixed;
+    width: 5vw;
+}
+
 /* modal buy hints*/
 
 .modalBuy {

@@ -714,6 +714,11 @@ ion-icon {
     border: 2px solid #6A6A6A;
 }
 
+#unblock{
+    background: #599F5C;
+    border: 2px solid #599F5C;
+}
+
 
 #buttonsOpt button::before {
 	position: absolute;
@@ -736,6 +741,11 @@ ion-icon {
     background: #292929;
     box-shadow: 0 0 0 2px #292929, 0 0.625em 0 0 none;
 }
+#unblock::before{
+    background: #18661B;
+    box-shadow: 0 0 0 2px #18661B, 0 0.625em 0 0 none;
+}
+
 
 #buttonsOpt button:hover {
 	
@@ -748,6 +758,10 @@ ion-icon {
     background: #6A6A6A;
 }
 
+#unblock:hover{
+    background:  #599F5C;
+}
+
 #buttonsOpt button:hover::before {
   backdrop-filter: blur(5rem) !important;
 	transform: translate3d(0, 0.5em, -1em);
@@ -757,6 +771,9 @@ ion-icon {
 }
 #block:hover::before{
     box-shadow: 0 0 0 2px #292929, 0 0.5em 0 0  none;
+}
+#unblock:hover::before{
+    box-shadow: 0 0 0 2px #18661B, 0 0.5em 0 0  none;
 }
 
 #buttonsOpt button:active {
@@ -768,6 +785,9 @@ ion-icon {
 #block:active{
     background: #6A6A6A;
 }
+#unblock:active{
+    background:  #599F5C;
+}
 
 #buttonsOpt button:active::before {
 	transform: translate3d(0, 0, -1em);
@@ -777,6 +797,9 @@ ion-icon {
 }
 #block:active::before{
     box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #292929;
+}
+#unblock:active::before{
+    box-shadow: 0 0 0 2px rgb(133, 133, 133), 0 0 #18661B;
 }
 
 
