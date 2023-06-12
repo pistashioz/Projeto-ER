@@ -12,7 +12,7 @@ export function init(){
 } 
 
 export function add(username,password,email){
-        users.push(new User(username, password,email,60,defaultAvatar));
+        users.push(new User(username, password,email,60));
         localStorage.setItem("usersFlor", JSON.stringify(users));
         sessionStorage.setItem("loggedUserFlor", JSON.stringify(username));
 }
@@ -113,6 +113,19 @@ export function changePassword(email,password){
 export function GetUsers(){
     return users
 }
+
+export function blockUser(name){
+    const user = users.find((user) => user.username === name);
+    user.blocked = true;
+    updateLocalStorageUser()
+}
+
+export function unblockUser(name){
+    const user = users.find((user) => user.username === name);
+    user.blocked = false;
+    updateLocalStorageUser()
+}
+
 init();
 login("admin","123");
 
@@ -122,14 +135,15 @@ export class User{
     password = ""
     email = ""
     coins = 0
-    avatarList = []
+    avatarList = defaultAvatar
+    blocked=false
     
-    constructor(username,password,email,coins,avatarList){
+    constructor(username,password,email,coins){
         this.username = username;
         this.password = password;
         this.email = email;
         this.coins = coins;
-        this.avatarList = avatarList;
+
     }
 }
 

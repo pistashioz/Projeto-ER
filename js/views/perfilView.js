@@ -127,12 +127,14 @@ if(user.getUserLogged() === "admin"){
       var divUsers = document.getElementsByClassName("scroll-div")[0];
       divUsers.innerHTML=""
       for(const users of user.GetUsers()){
+        if(users.username === "admin"){}else{
         var p = document.createElement("p");
         p.classList.add("userNames");
         p.innerText = users.username;
         p.addEventListener("click", ()=>{
           const modalBlock = document.createElement("div");
-          modalBlock.innerHTML= `<div id = 'modalUserOptions' class = 'modalUserOptions'>
+          modalBlock.innerHTML= `
+          <div id = 'modalUserOptions' class = 'modalUserOptions'>
           <div class = 'containerOptions'>
               <div class = 'modal-headOptions'>
                   <h1>${users.username}</h1>
@@ -147,11 +149,20 @@ if(user.getUserLogged() === "admin"){
           </div>
          </div>
 `
-          result.appendChild(modalBlock)
-          UpdateList()
+          result.appendChild(modalBlock);
+          const closeblock = document.querySelector('.close-buttonBlock')
+          closeblock.addEventListener('click',() => {
+            const modalblock = document.querySelector('#modalUserOptions');
+            modalblock.remove();
+          })
+
+          document.getElementById("block").addEventListener("click",()=>{
+            user.blockUser(users.username);
+          })
         });
         divUsers.appendChild(p)
       }
+    }
     }
     UpdateList()
     const closeAdmin = document.querySelector('.close-button')
