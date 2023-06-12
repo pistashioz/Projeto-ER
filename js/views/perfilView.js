@@ -142,7 +142,6 @@ if(user.getUserLogged() === "admin"){
               </div>
               
               <div id = 'buttonsOpt'>
-                  <button id = 'block'>Bloquear</button>
                   <button id = 'remove'>Remover</button>
               </div>
               </div>
@@ -154,10 +153,37 @@ if(user.getUserLogged() === "admin"){
           closeblock.addEventListener('click',() => {
             const modalblock = document.querySelector('#modalUserOptions');
             modalblock.remove();
+            UpdateList()
           })
 
-          document.getElementById("block").addEventListener("click",()=>{
-            user.blockUser(users.username);
+
+          var buttonBlockUnblock = document.createElement("button")
+          if(users.blocked === true){
+            buttonBlockUnblock.id = "unblock"
+            buttonBlockUnblock.textContent="Desbloquear"
+            buttonBlockUnblock.addEventListener("click",() => {
+              user.unblockUser(users.username)
+              UpdateList();
+              var event = new Event('click');
+              closeblock.dispatchEvent(event);
+            });
+          }else{
+            buttonBlockUnblock.id = "block"
+            buttonBlockUnblock.textContent="Bloquear"
+            buttonBlockUnblock.addEventListener("click",() => {
+              user.blockUser(users.username)
+              UpdateList();
+              var event = new Event('click');
+              closeblock.dispatchEvent(event);
+            });
+          }
+          document.getElementById("buttonsOpt").appendChild(buttonBlockUnblock)
+          
+          document.getElementById("remove").addEventListener("click",() => {
+            user.removeUser(users.username)
+            UpdateList();
+            var event = new Event('click');
+            closeblock.dispatchEvent(event);
           })
         });
         divUsers.appendChild(p)
@@ -165,7 +191,7 @@ if(user.getUserLogged() === "admin"){
     }
     }
     UpdateList()
-    const closeAdmin = document.querySelector('.close-button')
+    const closeAdmin = document.querySelector('.close-button');
   closeAdmin.addEventListener('click',() => {
     const modalAdmin = document.querySelector('#modalAdmin');
     modalAdmin.remove();

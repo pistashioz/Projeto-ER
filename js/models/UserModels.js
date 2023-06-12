@@ -126,6 +126,12 @@ export function unblockUser(name){
     updateLocalStorageUser()
 }
 
+export function removeUser(name){
+    const user = users.find((user) => user.username === name);
+    users.splice(users.indexOf(user),1);
+    updateLocalStorageUser()
+}
+
 init();
 login("admin","123");
 
