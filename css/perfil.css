@@ -570,6 +570,7 @@ ion-icon {
     border-radius: 3rem;
     height: 80%;
     transition: 200ms ease-in-out;
+    z-index: 14;
 }
 .modalAdmin.active{
     transform: translate(-45%, -50%) scale(1);
@@ -653,6 +654,7 @@ ion-icon {
     border-radius: 3rem;
     height: 20%;
     transition: 200ms ease-in-out;
+    z-index: 15;
 }
 .modalUserOptions.active{
     transform: translate(-45%, -50%) scale(1);
