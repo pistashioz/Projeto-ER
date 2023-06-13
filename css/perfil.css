@@ -382,9 +382,7 @@ ion-icon {
 
 
 /*modal sair*/
-#containerExit.hide{
-    opacity: 0;
-}
+
 
 #close-modalExit{
     background: none;
@@ -418,7 +416,11 @@ ion-icon {
     font-size: 3.5dvb;
     background-color: #AD6545;
 }
+#containerExit.active{
+    display: block;
+}
 #containerExit{
+    display: none;
     background-color: rgb(101 125 85 / 0.6);
     backdrop-filter: blur(20px);
     position: fixed;
@@ -592,6 +594,7 @@ ion-icon {
     background: none;
     border: 0;
     margin-right: 2vw;
+    float: right;
 }
 .scroll-bg{
     background-color: #F1CC6B;

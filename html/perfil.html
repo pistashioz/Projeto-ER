@@ -10,13 +10,10 @@
 </head>
 <body>
     <div id = 'fade' class = 'hide'></div>
-    <! -- profile modal -- >
+    <!-- profile modal -->
     <div id = 'modalProfile' class = 'hide'>
         <button id = 'open-modalProfile'>Perfil</button>
         <div class = 'container'>
-            <div class="modal-header">
-                <button  id="closeBtn" class = 'close-modal'><ion-icon name="close-outline"></ion-icon></button>
-            </div>
             <div class="modal-body" id = 'modal-bdy'>
                 <div id = 'left'>
                     <div id = 'profilePic'>
@@ -42,13 +39,10 @@
             </div>
         </div>
     </div>
-    <! -- rule modal -- >
+    <!-- rule modal -->
     <div id = 'modalRules' class = 'hide'>
         <button id = 'open-modalRules'>Regras</button>
         <div class = 'container'>
-            <div class="modal-header">
-                <button  id="closeAdmin"><ion-icon name="close-outline"></ion-icon></button>
-            </div>
             <div id = 'rulesDiv' class="modal-bodyR">
                 <ul id = 'rules'>
                     <li>Resolve os desafios antes que seja tarde demais</li>
@@ -60,20 +54,20 @@
         </div>
     </div>
 
-    <! -- exit modal -- >
+    <!-- exit modal -->
 
     <div id = 'modalExit'>
         <button id = 'open-modalExit'>Sair</button>
     </div>
-    <div id = 'containerExit' class = 'hide'>
+    <div id = 'containerExit'>
         <div id = 'modalExit-header'>
             <h1 id = 'titleExit'>Sair</h1>
-            <button data-modal-target="#modal" id = 'close-modalExit'><ion-icon name="close-outline"></ion-icon></button>
+            <button data-close-button class = 'close-button' id = 'close-modalExit'><ion-icon name="close-outline"></ion-icon></button>
         </div>
         <div id = 'modalExit-body'>
             <h3>tem a certeza que quer sair?</h3>
             <div id = 'buttons'>
-                <button id = 'nao'>Não</button>
+                <button data-close-button class = 'close-button' id = 'nao'>Não</button>
                 <button id = 'sair'>Sair</button>
             </div>
         </div>

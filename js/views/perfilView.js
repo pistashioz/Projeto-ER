@@ -2,7 +2,7 @@ import * as user from "../models/UserModels.js"
 
 
 /*profile modal*/
-const cbtn = document.querySelector('#modalRul');
+const cbtn = document.querySelector('#modalRules');
 const openModalButton = document.querySelector("#open-modalProfile");
 const closeModalButton = document.querySelectorAll(".close-modal");
 const modal = document.querySelector("#modalProfile");
@@ -28,7 +28,7 @@ closeModalButton.forEach((x) => x.addEventListener('click',[rModal,modal].forEac
 document.querySelector('#open-modalRules').addEventListener('click', function(){
   if (rModal.classList.contains('hide') && modal.classList.contains('hide')){
     [rModal,modal].forEach((x) => x.classList.remove('hide'))
-    
+    console.log(cbtn)
     cbtn.style.zIndex = 13;
     modal.style.zIndex=10;
     rModal.style.zIndex=13;
@@ -53,17 +53,33 @@ document.querySelector('#open-modalRules').addEventListener('click', function(){
 
 /*exit modal*/
 
+
 const openeModalButton = document.querySelector("#open-modalExit");
 const closeeModalButton = document.querySelector("#close-modalExit");
 const eModal = document.querySelector("#containerExit");
 
 const toggleeModal = () => {
-    [eModal, fade].forEach((el) => el.classList.toggle("hide"));
+    eModal.classList.add("active");
     [rModal, modal].forEach((el) => el.classList.add("hide"));
 };
 
 [openeModalButton, closeeModalButton, fade].forEach((el) => {
   el.addEventListener("click", () => toggleeModal());
+});
+//close exit modal button
+function closeModal(modal) {
+  if (modal == null) {
+      return
+  } 
+  modal.classList.remove('active')
+}
+
+const closeExitBtn = document.querySelectorAll('[data-close-button]');
+closeExitBtn.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = document.querySelector('#containerExit')
+    closeModal(modal)
+  })
 });
 
 /*DOM edit and save profile data*/
