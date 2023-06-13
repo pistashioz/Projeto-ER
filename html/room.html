@@ -11,6 +11,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
+    
     <!-- gamification elements (progress bar, hints, coins) -->
     <div class="container">
         <!-- coins -->
@@ -129,7 +130,18 @@
         <map name="workmapExitPiano">
             <area shape="rect" coords="34, 44, 270, 350" alt="door open">
         </map>
-
+        <div class="wrapper">
+            <h1>Adivinha a palavra</h1>
+            <div class="content">
+              <input type="text" class="typing-input" maxlength="1">
+              <div class="inputs"></div>
+              <div class="details">
+                <p class="hint">Pista: <span></span></p>
+                <p class="guess-left">Tentativas restantes: <span></span></p>
+                <p class="wrong-letter">letras erradas: <span></span></p>
+              </div>
+            </div>
+          </div>
     </div>
 
     <div id = 'footerOptions'>
@@ -274,6 +286,8 @@
 
 
     <script type="module" src = '../js/views/roomView.js'></script>
+    
+    <script src="../js/views/words.js"></script>
        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

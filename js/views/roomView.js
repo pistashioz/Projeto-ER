@@ -216,7 +216,8 @@ function checkPercentage(){
     audioRight.play();
     solvedChall()
     document.querySelector('#inventory').style.display = 'none'
-
+    document.querySelector('#submeterPercentagem').style.display = 'none'
+    document.querySelector('#percentagemPiano').style.display = 'none'
     document.body.style.backgroundImage = "url(../src/img/rooms/level3/bg3.png)";
     document.querySelector('#exitPiano').style.display = 'block'
   }
@@ -228,6 +229,7 @@ document.querySelector('#exitPiano').addEventListener('click', function(){
   document.body.style.backgroundImage = "url(../src/img/rooms/level3/bg4.png)";
   document.querySelector('#exitPiano').style.display = 'none'
   document.querySelector('#answlvl3').style.display = 'none'
+  document.querySelector('.wrapper').style.display = 'block'
 })
 
 //check right answer challenge 2
@@ -358,3 +360,66 @@ saveBtn.addEventListener('click', function(){
 });
 
 */
+const inputs = document.querySelector(".inputs"),
+hintTag = document.querySelector(".hint span"),
+guessLeft = document.querySelector(".guess-left span"),
+wrongLetter = document.querySelector(".wrong-letter span"),
+typingInput = document.querySelector(".typing-input");
+
+let word, maxGuesses, incorrectLetters = [], correctLetters = [];
+
+function randomWord() {
+    let ranItem = wordList[Math.floor(Math.random() * wordList.length)];
+    word = ranItem.word;
+    maxGuesses = word.length >= 5 ? 8 : 6;
+    correctLetters = []; incorrectLetters = [];
+    hintTag.innerText = ranItem.hint;
+    guessLeft.innerText = maxGuesses;
+    wrongLetter.innerText = incorrectLetters;
+
+    let html = "";
+    for (let i = 0; i < word.length; i++) {
+        html += `<input type="text" disabled>`;
+        inputs.innerHTML = html;
+    }
+}
+randomWord();
+
+function initGame(e) {
+    let key = e.target.value.toLowerCase();
+    if(key.match(/^[A-Za-z]+$/) && !incorrectLetters.includes(` ${key}`) && !correctLetters.includes(key)) {
+        if(word.includes(key)) {
+            for (let i = 0; i < word.length; i++) {
+                if(word[i] == key) {
+                    correctLetters += key;
+                    inputs.querySelectorAll("input")[i].value = key;
+                }
+            }
+        } else {
+            maxGuesses--;
+            incorrectLetters.push(` ${key}`);
+        }
+        guessLeft.innerText = maxGuesses;
+        wrongLetter.innerText = incorrectLetters;
+    }
+    typingInput.value = "";
+
+    setTimeout(() => {
+        if(correctLetters.length === word.length) {
+            audioRight.play();
+            document.querySelector('.wrapper').style.display = 'none'
+            document.body.style.backgroundImage = "url(../src/img/rooms/level3/bg5.png)";
+            document.body.style.backgroundPosition = "center center";
+        } else if(maxGuesses < 1) {
+          audioWrong.play();
+            for(let i = 0; i < word.length; i++) {
+                inputs.querySelectorAll("input")[i].value = word[i];
+            }
+        }
+    }, 100);
+}
+
+typingInput.addEventListener("input", initGame);
+inputs.addEventListener("click", () => typingInput.focus());
+document.addEventListener("keydown", () => typingInput.focus());
+
