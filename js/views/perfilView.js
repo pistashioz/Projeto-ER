@@ -123,6 +123,12 @@ if(user.getUserLogged() === "admin"){
               </div>
     `
     document.body.appendChild(result);
+    const closeAdmin = document.querySelector('.close-button');
+      closeAdmin.addEventListener('click',() => {
+
+      const modalAdmin = document.querySelector('#modalAdmin');
+      modalAdmin.remove();
+     })
     function UpdateList(){
       var divUsers = document.getElementsByClassName("scroll-div")[0];
       divUsers.innerHTML=""
@@ -188,14 +194,10 @@ if(user.getUserLogged() === "admin"){
         });
         divUsers.appendChild(p)
       }
+
     }
     }
     UpdateList()
-    const closeAdmin = document.querySelector('.close-button');
-  closeAdmin.addEventListener('click',() => {
-    const modalAdmin = document.querySelector('#modalAdmin');
-    modalAdmin.remove();
-  })
 })
 }
 

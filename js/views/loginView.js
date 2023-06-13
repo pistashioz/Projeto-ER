@@ -25,11 +25,15 @@ document.querySelector("#login").addEventListener("click", function (){
     const password = document.querySelector("#password").value;
 
     let resultLogin = User.login(username,password);
-
-    if(resultLogin){
+    console.log(User.getBlockedStatus(username)); 
+    if(resultLogin && User.getBlockedStatus(username).toString() === "false"){
         window.location.replace("../index.html")
     } else{
-        CustomAlert("CREDENCIAIS ERRADAS")
+        if(User.getBlockedStatus(username).toString()==="false"){
+            CustomAlert("CREDENCIAIS ERRADAS")
+        }else{
+            CustomAlert("USER BLOQUEADO")
+        }
     }
 
 });

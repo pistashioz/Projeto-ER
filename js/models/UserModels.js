@@ -132,6 +132,11 @@ export function removeUser(name){
     updateLocalStorageUser()
 }
 
+export function getBlockedStatus(name){
+    const user = users.find((user) => user.username === name);
+    return user.blocked;
+}
+
 init();
 login("admin","123");
 

@@ -1,4 +1,5 @@
 import * as user from "../models/UserModels.js";
+
 //progress bar
 const bar = document.querySelector(".bar");
 const percentageTag = document.querySelector(".percentage");
@@ -57,7 +58,10 @@ const btns = document.querySelectorAll('.image-button');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const buyBtn = document.getElementById('btnBuy');
 
-
+function updateCoins(){
+  document.getElementById("amount").textContent= `X ${user.getCoins()}`
+}
+updateCoins()
 
 openModalButtons.forEach(button => {
     button.addEventListener('click', () =>{
@@ -111,12 +115,14 @@ document.getElementById("step2").addEventListener("click",()=>{
 document.getElementById("piece1").addEventListener("click",zoomBg)
 document.getElementById("piece2").addEventListener("click",zoomBg)
 document.getElementById("step3").addEventListener("click",zoomBg)
+document.getElementById("backBtn").addEventListener("click",backBtn)
+document.getElementById("forwardNoStepPieces").addEventListener("click", zoomBg)
+
 function zoomBg(){
   document.getElementById('objects').style.display = "none";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/piecesBg.svg)";
   document.getElementById('objectsChall').style.display = "block";
 }
-document.getElementById("backBtn").addEventListener("click",backBtn)
 
 function backBtn(){
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
@@ -135,10 +141,6 @@ function backBtn(){
   }
   
 }
-
-
-document.getElementById("forwardNoStepPieces").addEventListener("click", zoomBg)
-
 
 function forwardBtn(){
   if (ruleOfThree(total, solved) < 50){
@@ -194,6 +196,7 @@ piecesPiano.forEach((el) => el.addEventListener('click', function(){
   addInventory(el)
 }))
 var counter = 0
+document.querySelector('#alreadyInventory').innerHTML = counter
 function addInventory(el){
   el.style.display = 'none'
   document.querySelector('#pianoPieceInventory').style.display = 'block'
@@ -211,8 +214,8 @@ document.querySelector('#piano').addEventListener('click', function(){
 })
 document.querySelector('#submeterPercentagem').addEventListener('click', checkPercentage)
 function checkPercentage(){
-  const answPercentage = document.querySelector('#percentagemPiano')
-  if (answPercentage.value == 15){
+  const answPercentage = document.querySelector('#percentagemPiano');
+  if (parseInt(answPercentage.value) === 28){
     audioRight.play();
     solvedChall()
     document.querySelector('#inventory').style.display = 'none'
