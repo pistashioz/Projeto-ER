@@ -3,7 +3,7 @@ import * as user from "../models/UserModels.js";
 //progress bar
 const bar = document.querySelector(".bar");
 const percentageTag = document.querySelector(".percentage");
-const total = 10;
+const total = 11;
 let solved = 0;
 
 const ruleOfThree = (num1, num2) => {
@@ -143,7 +143,7 @@ function backBtn(){
 }
 
 function forwardBtn(){
-  if (ruleOfThree(total, solved) < 50){
+  if (ruleOfThree(total, solved) < 20){
     wrong()
     return false
   }
@@ -156,9 +156,15 @@ function forwardBtn(){
 }
 /*Challenge 3*/ 
 const forwardButton = document.querySelector('#forwardBtn')
-const chestOpening = new Audio('../src/audio/keyChestOpen.mp3')
+const chestOpening = new Audio('../src/audio/openChest.mp3')
+const doorOpening = new Audio('../src/audio/openDoor.mp3')
+const closedDoor = new Audio('../src/audio/lockedDoor.mp3')
 forwardButton.addEventListener('click', function(){
   if (forwardBtn() === true){
+    document.getElementById('doorClosed').style.display = 'block'
+    document.getElementById('doorClosed').addEventListener('click', function(){
+      closedDoor.play()
+    })
     document.getElementById('chest').style.display = "block"
     document.getElementById('chest').addEventListener('click', function(){
       chestOpening.play()
@@ -175,8 +181,10 @@ else{
 });
 
 document.querySelector('#key').addEventListener('click', function(){
+  document.getElementById('doorClosed').style.display = 'none'
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg3Chall3.svg)";
   document.getElementById('key').style.display = "none"
+  doorOpening.play()
   document.getElementById('doorOpen').style.display = 'block'
   solvedChall()
 });
@@ -204,6 +212,7 @@ function addInventory(el){
   document.querySelector('#alreadyInventory').innerHTML = counter
   if (counter == 6){
     document.querySelector('#piano').style.display = 'block'
+    solvedChall()
   }
 }
 document.querySelector('#piano').addEventListener('click', function(){
@@ -213,16 +222,17 @@ document.querySelector('#piano').addEventListener('click', function(){
   document.querySelector('#percentagemPiano').style.display = 'block'
 })
 document.querySelector('#submeterPercentagem').addEventListener('click', checkPercentage)
+const audioPiano = new Audio('../src/audio/pianoSound.mp3')
 function checkPercentage(){
   const answPercentage = document.querySelector('#percentagemPiano');
   if (parseInt(answPercentage.value) === 28){
-    audioRight.play();
-    solvedChall()
+    audioPiano.play()
     document.querySelector('#inventory').style.display = 'none'
     document.querySelector('#submeterPercentagem').style.display = 'none'
     document.querySelector('#percentagemPiano').style.display = 'none'
     document.body.style.backgroundImage = "url(../src/img/rooms/level3/bg3.png)";
     document.querySelector('#exitPiano').style.display = 'block'
+    solvedChall()
   }
   else{
     audioWrong.play()
@@ -299,7 +309,9 @@ function openDoor(){
   }
 }
 function removeRect(){
+
   document.getElementById('level2' ).style.display = "block";
+
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/bg.svg)";
   document.getElementById('objectsChall').style.display = "none";
   document.getElementById('rect').style.display = "none";
@@ -407,19 +419,20 @@ function initGame(e) {
     }
     typingInput.value = "";
 
+    const audioWin = new Audio('../src/audio/winModalShow.mp3')
     setTimeout(() => {
         if(correctLetters.length === word.length) {
-            audioRight.play();
+          solvedChall()
             document.querySelector('.wrapper').style.display = 'none'
             document.body.style.backgroundImage = "url(../src/img/rooms/level3/bg5.png)";
             document.body.style.backgroundPosition = "center center";
+            audioWin.play()
+            setTimeout(document.getElementById('modalWin').classList.add("active"), 3000);
         } else if(maxGuesses < 1) {
           audioWrong.play();
-            for(let i = 0; i < word.length; i++) {
-                inputs.querySelectorAll("input")[i].value = word[i];
-            }
+          randomWord()
         }
-    }, 100);
+    }, 3);
 }
 
 typingInput.addEventListener("input", initGame);

@@ -36,11 +36,11 @@
             <h4>13x - 543 = x + 177 </h4>
         </div>
         <div id = 'options'>
-            <h3 id  = 'op1'>60°</h3>
-            <h3 id = 'op2' class = 'wrongAnswers'>30°</h3>
-            <h3 id = 'op3' class = 'wrongAnswers'>90°</h3>
-            <h3 id = 'op4' class = 'wrongAnswers'>40°</h3>
-            <h3 id = 'op5' class = 'wrongAnswers'>45°</h3>
+            <h3 id  = 'op1'>60</h3>
+            <h3 id = 'op2' class = 'wrongAnswers'>30</h3>
+            <h3 id = 'op3' class = 'wrongAnswers'>90</h3>
+            <h3 id = 'op4' class = 'wrongAnswers'>40</h3>
+            <h3 id = 'op5' class = 'wrongAnswers'>45</h3>
         </div>
         <div usemap="#workmap" id = 'rect'></div>
         <map name="workmap">
@@ -90,6 +90,10 @@
             <map name="workmapChall3">
                 <area shape="rect" coords="100, 100, 100, 100" alt="Chest">
             </map>
+            <div usemap="#workmapDoorClosed" id = 'doorClosed'></div>
+            <map name="workmapDoorClosed">
+                <area shape="rect" coords="34, 44, 270, 350" alt="door closed">
+            </map>
             <div usemap = "workmapKey" id  = 'key'></div>
             <map name  = "workmapKey">
                 <area shape="circle" coords="337,300,44" alt="Key">
@@ -119,7 +123,7 @@
         </div>
         <div usemap="#workmapPiano" id = 'piano'></div>
         <map name="workmapPiano">
-            <area shape="rect" coords="34, 44, 270, 350" alt="door open">
+            <area shape="rect" coords="34, 44, 270, 350" alt="piano">
         </map>
         
         <div id = 'answlvl3'>
@@ -128,7 +132,7 @@
         </div>
         <div usemap="#workmapExitPiano" id = 'exitPiano'></div>
         <map name="workmapExitPiano">
-            <area shape="rect" coords="34, 44, 270, 350" alt="door open">
+            <area shape="rect" coords="34, 44, 270, 350" alt="exitPiano">
         </map>
         <div class="wrapper">
             <h1>Adivinha a palavra</h1>
@@ -142,6 +146,22 @@
               </div>
             </div>
           </div>
+          <div usemap="#workmapFlower" id = 'clickFlower'></div>
+          <map name="workmapFlower">
+              <area shape="rect" coords="34, 44, 270, 350" alt="flower">
+          </map>
+              <!-- win modal-->
+        <div id = 'modalWin' class = 'modalWin'>
+            <div class = 'container'>
+                <div class = 'modal-headWin'>
+                    <h1>Encontraste a flor! </h1>
+                    <a href="../html/perfil.html"><button id="closeWin"><ion-icon name="close-outline"></ion-icon></button></a>
+                </div>
+                <div class = 'modal-bodyWin'>
+                    <h3> Salvaste a vila da maldição </h3>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id = 'footerOptions'>

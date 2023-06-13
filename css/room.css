@@ -164,6 +164,7 @@ area{
     position: fixed;
     font-size: 4vw;
     background-color: rgba(114, 105, 98, 0.4);
+    backdrop-filter: blur(5rem);
     height: 7vh;
     width: 50vw;
     text-align: center;
@@ -172,6 +173,7 @@ area{
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 0%);
+    z-index: 10;
 }
 #options h3{
     position: fixed;
@@ -434,6 +436,16 @@ body{
     left: 50%;
     z-index: 11;
     transform: translate(-50%, 0%);
+}
+#doorClosed{
+    display: none;
+    cursor: pointer;
+    width: 23vw;
+    height: 70vh;
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, 0%); 
 }
 #key{
     display: none;
@@ -1055,4 +1067,67 @@ ion-icon {
 
   }
 
+  #clickFlower{
+    display: block;
+    cursor: pointer;
+    width: 3vw;
+    height: 10vh;
+    position: fixed;
+    top: 55%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+}
 
+/*modal win*/
+
+.modalWin {
+    background-color:  rgba(207, 244, 60, 0.4);
+    backdrop-filter: blur(5rem);
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    transform: translate(-45%, -50%) scale(0);
+    width: 53vw;
+    max-width: 53vw;
+    padding: 1.2rem;
+    border-radius: 3rem;
+    height: 30vh;
+    transition: 200ms ease-in-out;
+    z-index: 5;
+    text-align: center;
+}
+.modalWin.active{
+    transform: translate(-45%, -50%) scale(1);
+}
+ion-icon {
+    font-size: 5vw;
+    color: #F4F3FF;
+}
+
+.modal-headWin h1{
+    position: fixed;
+    font-size: 5vw;
+    left: 6%;
+    top: 13%
+}
+
+
+.modal-bodyWin h3{
+    position: fixed;
+    left: 48%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 50%;
+    font-size: 3vw;
+}
+#closeWin{
+    position: fixed;
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    z-index: 11;
+    right: 2%;
+    top: 1%;
+}
