@@ -29,6 +29,7 @@
 
            <!-- hintsButton -->
         <button  id = 'hintBtn' data-modal-target="#modal"><ion-icon name="bulb-outline"></ion-icon></button> 
+        <button  id = 'hintBtnADMIN' data-modal-target="#modalHintAdmin"><ion-icon name="bulb-outline"></ion-icon></button> 
     </div>
     <!-- room1 -->
     <div class = 'room' id = 'level1'>
@@ -193,7 +194,59 @@
     </div>
 <!-- hint modal-->
 
-
+<div id = 'hintModal' class = 'modalHint'>
+    <div class = 'container'>
+        <div class = 'modalHint-head'>
+            <h1>Pista</h1>
+            <button id="closeHint"><ion-icon name="close-outline"></ion-icon></button>
+        </div>
+        <div class = 'modalHint-body'><h3 id = 'hintText'>as pistas devem aparecer aqui!!!</h3></div> 
+        </div>
+    </div>
+>
+<div class = 'modalHintAdmin' id = 'modalHintAdmin'>
+    <button id="closeHintAdmin" data-close-button class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
+    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+        <div class="carousel-inner">
+                <!-- level 1 settings -->
+            <div class="carousel-item active">
+                <h3>Nível 1</h3>
+                <div class = 'pistas'>
+                    <p id = 'pista1Lvl1' class = 'pista1'>Colocar pista1 ca</p>
+                    <p id = 'pista2Lvl1' class = 'pista2'>Colocar pista2 ca</p>
+                </div>
+            </div>
+            <!-- level 2 settings -->
+            <div class="carousel-item">
+                <h3>Nível 2</h3>
+                <div class = 'pistas'>
+                    <p id = 'pista1Lvl2' class = 'pista1'></p>
+                    <p id = 'pista2Lvl2' class = 'pista2'></p>
+                </div>
+            </div>
+            <!-- level 3 settings -->
+            <div class="carousel-item">
+                <h3>Nível 3</h3>
+                <div class = 'pistas'>
+                    <p id = 'pista1Lvl3' class = 'pista1'></p>
+                    <p id = 'pista2Lvl3' class = 'pista2'></p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        <div id = 'btnSettingsAdmin' class = 'btnsAdminHintAdmin'>
+            <button id = 'editBtnAdmin'>Editar</button>
+            <button id = 'saveBtnAdmin'>Guardar</button>
+        </div>
+    </div>
+</div>
 
     <!-- settings modal (ONLY AVAILABLE FOR ADMIN) -->
 <div id = 'settingsModal' class = 'modalSettings'>
@@ -201,7 +254,7 @@
         <div class = 'container'>
             <div class = 'modalSettings-head'>
                 <h1>Configurações</h1>
-                <button id="closeSettings" data-close-button class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
+                <button id="closeSettings" data-close-button class = 'close-Settingbutton'><ion-icon name="close-outline"></ion-icon></button>
             </div>
             <div class = 'modalSettings-body'>
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">

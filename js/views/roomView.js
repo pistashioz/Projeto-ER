@@ -59,19 +59,20 @@ function muteOrUnmute(){
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const btns = document.querySelectorAll('.image-button');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
+console.log(closeModalButtons)
 const buyBtn = document.getElementById('btnBuy');
 
 function updateCoins(){
   document.getElementById("amount").textContent= `X ${user.getCoins()}`
 }
-updateCoins()
+//updateCoins()
 
 openModalButtons.forEach(button => {
     button.addEventListener('click', () =>{
         const modal = document.querySelector(button.dataset.modalTarget);
         openModal(modal)
         buyBtn.addEventListener('click', function() {
-            buyAvatar(button)
+            //BUY HINT??
         })
     })
 
@@ -83,7 +84,6 @@ closeModalButtons.forEach(button => {
       closeModal(modal)
     })
   });
-
 
 
 function openModal(modal){
@@ -323,6 +323,25 @@ openDoor()
 document.getElementById('rect').addEventListener('click', removeRect)
 
 /*admin room settings*/
+const openAdminHintBtn = document.querySelectorAll('#hintBtnADMIN');
+console.log(openAdminHintBtn)
+openAdminHintBtn.forEach(button => {
+  button.addEventListener('click', () =>{
+      const modal = document.querySelector(button.dataset.modalTarget);
+      openModal(modal)
+  })
+
+});
+
+const closeAdminHintBtn = document.querySelectorAll('[data-close-Adminbutton]');
+closeAdminHintBtn.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = document.querySelector('.modalHintAdmin')
+    console.log(modal)
+    closeModal(modal)
+  })
+});
+
 if(user.getUserLogged()=== "admin"){
 
 var footerOptions = document.getElementById("footerOptions");
@@ -330,7 +349,6 @@ footerOptions.innerHTML += `<button id = 'settingsBtn' data-modal-target="#setti
 
 const openSettingBtn = document.querySelectorAll('[data-modal-target]');
 const closeSettingBtn = document.querySelectorAll('[data-close-button]');
-
 
 openSettingBtn.forEach(button => {
     button.addEventListener('click', () =>{
@@ -348,6 +366,8 @@ closeSettingBtn.forEach(button => {
   });
 }
   
+
+
 const inputs = document.querySelector(".inputs"),
 hintTag = document.querySelector(".hint span"),
 guessLeft = document.querySelector(".guess-left span"),
