@@ -141,6 +141,10 @@ export function getUserLevel(){
     const user = users.find((user) => user.username === getUserLogged());
     return user.nivel;
 }
+export function updateLevel(){
+    const user = users.find((user) => user.username === getUserLogged());
+    return user.nivel;
+}
 
 init();
 login("admin","123");

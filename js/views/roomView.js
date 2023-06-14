@@ -1,5 +1,8 @@
 import * as user from "../models/UserModels.js";
 
+
+
+
 //progress bar
 const bar = document.querySelector(".bar");
 const percentageTag = document.querySelector(".percentage");
@@ -120,7 +123,7 @@ document.getElementById("forwardNoStepPieces").addEventListener("click", zoomBg)
 
 function zoomBg(){
   document.getElementById('objects').style.display = "none";
-  document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/piecesBg.svg)";
+  document.body.style.backgroundImage = "url(../src/img/level2/room/piecesBg.svg)";
   document.getElementById('objectsChall').style.display = "block";
 }
 
@@ -143,7 +146,7 @@ function backBtn(){
 }
 
 function forwardBtn(){
-  if (ruleOfThree(total, solved) < 20){
+  if (ruleOfThree(total, solved) < 40){
     wrong()
     return false
   }
@@ -355,6 +358,8 @@ let word, maxGuesses, incorrectLetters = [], correctLetters = [];
 
 function randomWord() {
     let ranItem = wordList[Math.floor(Math.random() * wordList.length)];
+    console.log(wordList);
+    console.log(ranItem);
     word = ranItem.word;
     maxGuesses = word.length >= 5 ? 8 : 6;
     correctLetters = []; incorrectLetters = [];
@@ -409,3 +414,18 @@ typingInput.addEventListener("input", initGame);
 inputs.addEventListener("click", () => typingInput.focus());
 document.addEventListener("keydown", () => typingInput.focus());
 
+
+
+
+//Load user level
+switch (user.getUserLevel().toString()){
+  case "1":
+    console.log("cheguei");
+    document.getElementById('equationLvl1').style.display = "none";
+    document.getElementById('options').style.display = "none";
+    document.getElementById('rect').style.display = "none";
+    removeRect()
+    solvedChall()
+    break
+
+}
