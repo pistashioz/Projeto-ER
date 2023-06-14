@@ -344,37 +344,7 @@ closeSettingBtn.forEach(button => {
     })
   });
 }
-  /*
-const editBtn = document.querySelector('#editBtn');
-const saveBtn = document.querySelector('#saveBtn');
-
-const timeLeft = document.querySelectorAll('.time');
-const optQuestions = document.querySelectorAll('.optionsQuestions');
-const rightAn = document.querySelectorAll('.rightAnsw');
-const desafio = document.querySelectorAll('.challengeEdit')
-editBtn.addEventListener('click', () => {
-document.querySelector('#equationLvl1 h4').innerText = document.querySelector('#challengeLvl1').placeholder
-});
-
-saveBtn.addEventListener('click', function(){
-  timeLeft.forEach(time => {
-    time.setAttribute('readonly', true);
-  });
-  optQuestions.forEach(question => {
-    question.setAttribute('readonly', true);
-  });
-  rightAn.forEach(ans => {
-    ans.setAttribute('readonly', true);
-  });
-  desafio.forEach(chall => {
-    chall.setAttribute('readonly', true);;
-  });
-
   
-
-});
-
-*/
 const inputs = document.querySelector(".inputs"),
 hintTag = document.querySelector(".hint span"),
 guessLeft = document.querySelector(".guess-left span"),
