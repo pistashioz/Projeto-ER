@@ -193,11 +193,14 @@ document.querySelector('#key').addEventListener('click', function(){
 });
 
 //level 2 to level 3
-document.querySelector('#doorOpen').addEventListener('click', function(){
+function Level3(){
   document.body.style.backgroundImage = "url(../src/img/rooms/level3/bgLvl3.svg)";
   document.body.style.backgroundPosition = "top center";
   document.getElementById('objectsChall3').style.display = "none"
   document.getElementById('level3').style.display = "block"
+}
+document.querySelector('#doorOpen').addEventListener('click', function(){
+  Level3()
   solvedChall()
   user.updateLevel()
 });
