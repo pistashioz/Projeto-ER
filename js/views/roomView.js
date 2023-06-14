@@ -123,7 +123,7 @@ document.getElementById("forwardNoStepPieces").addEventListener("click", zoomBg)
 
 function zoomBg(){
   document.getElementById('objects').style.display = "none";
-  document.body.style.backgroundImage = "url(../src/img/level2/room/piecesBg.svg)";
+  document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/piecesBg.svg)";
   document.getElementById('objectsChall').style.display = "block";
 }
 
@@ -199,6 +199,7 @@ document.querySelector('#doorOpen').addEventListener('click', function(){
   document.getElementById('objectsChall3').style.display = "none"
   document.getElementById('level3').style.display = "block"
   solvedChall()
+  user.updateLevel()
 });
 //level 3
 //grab elements for inventory
@@ -320,7 +321,10 @@ function removeRect(){
   document.getElementById('rect').style.display = "none";
 }
 openDoor()
-document.getElementById('rect').addEventListener('click', removeRect)
+document.getElementById('rect').addEventListener('click', () =>{
+  removeRect()
+  user.updateLevel()
+})
 
 /*admin room settings*/
 const openAdminHintBtn = document.querySelectorAll('#hintBtnADMIN');
@@ -438,14 +442,27 @@ document.addEventListener("keydown", () => typingInput.focus());
 
 
 //Load user level
-switch (user.getUserLevel().toString()){
-  case "1":
-    console.log("cheguei");
-    document.getElementById('equationLvl1').style.display = "none";
-    document.getElementById('options').style.display = "none";
-    document.getElementById('rect').style.display = "none";
-    removeRect()
-    solvedChall()
-    break
-
+if (user.getUserLevel() >= 2){
+  document.getElementById('equationLvl1').style.display = "none";
+  document.getElementById('options').style.display = "none";
+  document.getElementById('rect').style.display = "none";
+  removeRect()
+  solvedChall()
+}
+if (user.getUserLevel() > 2){
+  document.body.style.backgroundImage = "url(../src/img/rooms/level3/bgLvl3.svg)";
+  document.body.style.backgroundPosition = "top center";
+  document.getElementById('objectsChall3').style.display = "none"
+  document.getElementById('key').style.display = "none"
+  document.getElementById('objectsChall').style.display = "none";
+  document.getElementById('toStay').style.display = "none";
+  document.getElementById('toRemove').style.display = "none";
+  document.getElementById('level3').style.display = "block"
+  solvedChall()
+  solvedChall()
+  solvedChall()
+  solvedChall()
+  solvedChall()
+  solvedChall()
+  solvedChall()
 }

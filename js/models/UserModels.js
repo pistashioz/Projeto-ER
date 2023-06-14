@@ -129,7 +129,7 @@ export function unblockUser(name){
 export function removeUser(name){
     const user = users.find((user) => user.username === name);
     users.splice(users.indexOf(user),1);
-    updateLocalStorageUser()
+    updateLocalStorageUser();
 }
 
 export function getBlockedStatus(name){
@@ -143,7 +143,8 @@ export function getUserLevel(){
 }
 export function updateLevel(){
     const user = users.find((user) => user.username === getUserLogged());
-    return user.nivel;
+    user.nivel +=  1;
+    updateLocalStorageUser();
 }
 
 init();
