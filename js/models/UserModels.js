@@ -137,6 +137,11 @@ export function getBlockedStatus(name){
     return user.blocked;
 }
 
+export function getUserLevel(){
+    const user = users.find((user) => user.username === getUserLogged());
+    return user.nivel;
+}
+
 init();
 login("admin","123");
 
@@ -148,6 +153,7 @@ export class User{
     coins = 0
     avatarList = defaultAvatar
     blocked=false
+    nivel = 1
     
     constructor(username,password,email,coins){
         this.username = username;
