@@ -1,5 +1,8 @@
 import * as user from "../models/UserModels.js";
 
+
+
+
 //progress bar
 const bar = document.querySelector(".bar");
 const percentageTag = document.querySelector(".percentage");
@@ -143,7 +146,7 @@ function backBtn(){
 }
 
 function forwardBtn(){
-  if (ruleOfThree(total, solved) < 20){
+  if (ruleOfThree(total, solved) < 40){
     wrong()
     return false
   }
@@ -196,6 +199,7 @@ document.querySelector('#doorOpen').addEventListener('click', function(){
   document.getElementById('objectsChall3').style.display = "none"
   document.getElementById('level3').style.display = "block"
   solvedChall()
+  user.updateLevel()
 });
 //level 3
 //grab elements for inventory
@@ -317,7 +321,10 @@ function removeRect(){
   document.getElementById('rect').style.display = "none";
 }
 openDoor()
-document.getElementById('rect').addEventListener('click', removeRect)
+document.getElementById('rect').addEventListener('click', () =>{
+  removeRect()
+  user.updateLevel()
+})
 
 /*admin room settings*/
 const openAdminHintBtn = document.querySelectorAll('#hintBtnADMIN');
@@ -375,6 +382,8 @@ let word, maxGuesses, incorrectLetters = [], correctLetters = [];
 
 function randomWord() {
     let ranItem = wordList[Math.floor(Math.random() * wordList.length)];
+    console.log(wordList);
+    console.log(ranItem);
     word = ranItem.word;
     maxGuesses = word.length >= 5 ? 8 : 6;
     correctLetters = []; incorrectLetters = [];
@@ -429,3 +438,31 @@ typingInput.addEventListener("input", initGame);
 inputs.addEventListener("click", () => typingInput.focus());
 document.addEventListener("keydown", () => typingInput.focus());
 
+
+
+
+//Load user level
+if (user.getUserLevel() >= 2){
+  document.getElementById('equationLvl1').style.display = "none";
+  document.getElementById('options').style.display = "none";
+  document.getElementById('rect').style.display = "none";
+  removeRect()
+  solvedChall()
+}
+if (user.getUserLevel() > 2){
+  document.body.style.backgroundImage = "url(../src/img/rooms/level3/bgLvl3.svg)";
+  document.body.style.backgroundPosition = "top center";
+  document.getElementById('objectsChall3').style.display = "none"
+  document.getElementById('key').style.display = "none"
+  document.getElementById('objectsChall').style.display = "none";
+  document.getElementById('toStay').style.display = "none";
+  document.getElementById('toRemove').style.display = "none";
+  document.getElementById('level3').style.display = "block"
+  solvedChall()
+  solvedChall()
+  solvedChall()
+  solvedChall()
+  solvedChall()
+  solvedChall()
+  solvedChall()
+}

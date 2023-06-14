@@ -129,12 +129,22 @@ export function unblockUser(name){
 export function removeUser(name){
     const user = users.find((user) => user.username === name);
     users.splice(users.indexOf(user),1);
-    updateLocalStorageUser()
+    updateLocalStorageUser();
 }
 
 export function getBlockedStatus(name){
     const user = users.find((user) => user.username === name);
     return user.blocked;
+}
+
+export function getUserLevel(){
+    const user = users.find((user) => user.username === getUserLogged());
+    return user.nivel;
+}
+export function updateLevel(){
+    const user = users.find((user) => user.username === getUserLogged());
+    user.nivel +=  1;
+    updateLocalStorageUser();
 }
 
 init();
@@ -148,6 +158,7 @@ export class User{
     coins = 0
     avatarList = defaultAvatar
     blocked=false
+    nivel = 1
     
     constructor(username,password,email,coins){
         this.username = username;
