@@ -338,7 +338,7 @@ if(user.getUserLogged()=== "admin"){
   document.getElementById("gamification").innerHTML += `<button  id = 'hintBtnADMIN' data-modal-target="#modalHintAdmin"><ion-icon name="bulb-outline"></ion-icon></button> `
   
   
-/*   function updatePistasAdmin(){
+  function updatePistasAdmin(){
     var modalHintAdmin = document.getElementById("modalHintAdmin");
     modalHintAdmin.innerHTML = ""
     modalHintAdmin.innerHTML = `<button id="closeHintAdmin" data-close-Adminbutton class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
@@ -410,17 +410,19 @@ if(user.getUserLogged()=== "admin"){
         }
         updatePistasAdmin()
       });
+
+      const closeAdminHintBtn = document.querySelectorAll('[data-close-Adminbutton]');
+      closeAdminHintBtn.forEach(button => {
+      button.addEventListener('click', () => {
+      const modal = document.querySelector('.modalHintAdmin')
+      closeModal(modal)
+    })
+    });
   }
 
   
-updatePistasAdmin() */
-const closeAdminHintBtn = document.querySelectorAll('[data-close-Adminbutton]');
-closeAdminHintBtn.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = document.querySelector('.modalHintAdmin')
-    closeModal(modal)
-  })
-});
+updatePistasAdmin()
+
 
 var footerOptions = document.getElementById("footerOptions");
 footerOptions.innerHTML += `<button id = 'settingsBtn' data-modal-target="#settingsModal"><ion-icon name="cog-outline"></ion-icon></button>`

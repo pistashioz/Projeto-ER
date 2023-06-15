@@ -27,7 +27,7 @@ document.querySelector("#login").addEventListener("click", function (){
     let resultLogin = User.login(username,password);
     console.log(User.getBlockedStatus(username)); 
     if(resultLogin && User.getBlockedStatus(username).toString() === "false"){
-        window.location.replace("../index.html")
+        window.location.replace("../perfil.html")
     } else{
         if(User.getBlockedStatus(username).toString()==="false"){
             CustomAlert("CREDENCIAIS ERRADAS")
