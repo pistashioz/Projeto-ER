@@ -25,6 +25,56 @@ a{
     color: #F4F3FF;
 }
 
+#divmapa{
+    margin-top: 2vh;
+    width: 63vw;
+    height: 96vh;
+    margin-left: 15vw;
+}
+
+#mapa{
+    width: 63vw;
+    height: 90vh;
+}
+
+.overlay {
+    position: absolute;
+    background-color: none;
+    cursor: pointer;
+}
+
+
+
+.section {
+    position: absolute;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    line-height: 150px;
+}
+
+.section1 {
+    top: 70vh;
+    left:46.5vw;
+    width: 2vw;
+    height: 7vh;
+}
+
+.section2 {
+    top: 49vh;
+    left: 43.5vw;
+    width: 8vw;
+    height: 9vh;
+}
+
+.section3 {
+    top: 33vh;
+    left: 43.5vw;
+    width: 8vw;
+    height: 13vh;
+}
+
+
 /*PROFILE MODAL*/
 #open-modalProfile{
     background-color: #AD6545;
