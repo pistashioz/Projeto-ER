@@ -1,5 +1,6 @@
 import * as user from "../models/UserModels.js";
 import * as pistas from "../models/hintsModel.js";
+import * as niveis from "../models/roomModel.js";
 
 
 
@@ -337,7 +338,7 @@ if(user.getUserLogged()=== "admin"){
   document.getElementById("gamification").innerHTML += `<button  id = 'hintBtnADMIN' data-modal-target="#modalHintAdmin"><ion-icon name="bulb-outline"></ion-icon></button> `
   
   
-  function updatePistasAdmin(){
+/*   function updatePistasAdmin(){
     var modalHintAdmin = document.getElementById("modalHintAdmin");
     modalHintAdmin.innerHTML = ""
     modalHintAdmin.innerHTML = `<button id="closeHintAdmin" data-close-Adminbutton class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
@@ -410,7 +411,9 @@ if(user.getUserLogged()=== "admin"){
         updatePistasAdmin()
       });
   }
-updatePistasAdmin()
+
+  
+updatePistasAdmin() */
 const closeAdminHintBtn = document.querySelectorAll('[data-close-Adminbutton]');
 closeAdminHintBtn.forEach(button => {
   button.addEventListener('click', () => {
