@@ -5,18 +5,18 @@ import * as User from "../models/UserModels.js";
 
 var muteBtn = document.getElementById('sound');
 var myTrack = document.getElementById('bgTrack');
-muteBtn.addEventListener('click', muteOrUnmute, false);
 
-function muteOrUnmute(){
-    if (myTrack.muted == true){
-        myTrack.muted = false;
-        muteBtn.innerHTML = '<ion-icon name="volume-high-outline"></ion-icon>'
-    }
-    else{
-        myTrack.muted = true;
-        muteBtn.innerHTML = '<ion-icon name="volume-mute-outline"></ion-icon>'
-    }
+myTrack.volume = 0.1;
+muteBtn.addEventListener('click', ()=>{
+  if (myTrack.muted == true){
+    myTrack.muted = false;
+    muteBtn.innerHTML = '<ion-icon name="volume-high-outline"></ion-icon>'
 }
+else{
+    myTrack.muted = true;
+    muteBtn.innerHTML = '<ion-icon name="volume-mute-outline"></ion-icon>'
+}
+});
 
 /*log in*/
 
@@ -27,7 +27,7 @@ document.querySelector("#login").addEventListener("click", function (){
     let resultLogin = User.login(username,password);
     console.log(User.getBlockedStatus(username)); 
     if(resultLogin && User.getBlockedStatus(username).toString() === "false"){
-        window.location.replace("../index.html")
+        window.location.replace("./perfil.html")
     } else{
         if(User.getBlockedStatus(username).toString()==="false"){
             CustomAlert("CREDENCIAIS ERRADAS")

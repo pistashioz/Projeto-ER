@@ -839,29 +839,25 @@ ion-icon {
     font-size: 3vw;
 }
 .pistas{
-    width: 45vw;
-    height: 65vh;
+    width: auto;
+    height: 40vh;
     margin: auto;
-    margin-top: -3vw;
+    margin-top: 8vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 2vw;
 
 }
-.pista1{
+.pista{
 
     background-color: rgba(101, 125, 85, 0.6);
     width: 20vw;
     height: 50vh;
     border-radius: 3rem;
+    padding: 20px;
 }
-.pista2{
-    background-color: rgba(101, 125, 85, 0.6);
-    width: 20vw;
-    height: 50vh;
-    border-radius: 3rem;
-}
+
 
 #btnSettingsAdmin{
     width: 40vw;

@@ -1,4 +1,7 @@
 import * as user from "../models/UserModels.js";
+import * as pistas from "../models/hintsModel.js";
+import * as niveis from "../models/roomModel.js";
+
 
 
 
@@ -59,7 +62,6 @@ function muteOrUnmute(){
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const btns = document.querySelectorAll('.image-button');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
-console.log(closeModalButtons)
 const buyBtn = document.getElementById('btnBuy');
 
 function updateCoins(){
@@ -330,26 +332,97 @@ document.getElementById('rect').addEventListener('click', () =>{
 })
 
 /*admin room settings*/
-const openAdminHintBtn = document.querySelectorAll('#hintBtnADMIN');
-console.log(openAdminHintBtn)
-openAdminHintBtn.forEach(button => {
-  button.addEventListener('click', () =>{
-      const modal = document.querySelector(button.dataset.modalTarget);
-      openModal(modal)
-  })
+document.getElementById("hintBtnADMIN").style.visibility = "hidden"
+document.getElementById("settingsBtn").style.visibility = "hidden"
 
-});
+if(user.getUserLogged() === "admin"){
+  document.getElementById("settingsBtn").style.visibility = "unset"
+  document.getElementById("hintBtnADMIN").style.visibility = "unset"
 
-const closeAdminHintBtn = document.querySelectorAll('[data-close-Adminbutton]');
-closeAdminHintBtn.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = document.querySelector('.modalHintAdmin')
-    console.log(modal)
-    closeModal(modal)
-  })
-});
+  function updatePistasAdmin(){
+    var modalHintAdmin = document.getElementById("modalHintAdmin");
+    modalHintAdmin.innerHTML = ""
+    modalHintAdmin.innerHTML = `<button id="closeHintAdmin" data-close-Adminbutton class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
+    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+        <div class="carousel-inner" id="carousel-hints">
+                
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        <div id = 'btnSettingsAdmin' class = 'btnsAdminHintAdmin'>
+            <button id = 'editBtnAdmin'>Editar</button>
+            <button id = 'saveBtnAdmin'>Guardar</button>
+        </div></div>`
 
-if(user.getUserLogged()=== "admin"){
+
+
+    var pistasDiv = document.getElementsByClassName("carousel-inner")[0];
+    for (const pista of pistas.getPistas()){
+      const divpistas = document.createElement("div");
+      divpistas.innerHTML += `<h3>Pistas nivel ${pistas.getPistas().indexOf(pista) + 1}</h3>`;
+      (pistas.getPistas().indexOf(pista) == 0) ? divpistas.classList.add("carousel-item","active") : divpistas.classList.add("carousel-item")
+      divpistas.classList.add("carousel-hintsAdmin") 
+      const divpistasPan = document.createElement("div");
+      divpistasPan.classList.add("pistas")
+      for(const innerPista of pista){
+        var pistaP = document.createElement("textarea")
+        pistaP.classList.add(`pista`)
+        pistaP.id = `pista${pista.indexOf(innerPista) + 1}Lvl${user.getUserLevel()}`
+        pistaP.value = innerPista.toString()
+        pistaP.readOnly=true;
+        divpistasPan.appendChild(pistaP)
+      }
+      
+      divpistas.appendChild(divpistasPan);
+      pistasDiv.appendChild(divpistas);
+      
+      }
+      var pistasEditButton = document.getElementById("editBtnAdmin");
+      pistasEditButton.addEventListener("click",() => {
+        const carrousel = document.getElementsByClassName("carousel-hintsAdmin");
+        for(const nivel of carrousel){
+          nivel.children[1].children[0].readOnly = false
+          if (nivel.children[1].children.length > 1){
+            nivel.children[1].children[1].readOnly = false
+          }
+        }
+      });
+
+      
+      var pistasEditButton = document.getElementById("saveBtnAdmin");
+      pistasEditButton.addEventListener("click",() => {
+        const carrousel = document.getElementsByClassName("carousel-hintsAdmin");
+        var index = 0
+        for(const nivel of carrousel){
+          pistas.editPistas(index,0,nivel.children[1].children[0].value)
+          nivel.children[1].children[0].readOnly = true
+          if (index > 1){
+            pistas.editPistas(index,1,nivel.children[1].children[1].value)
+            nivel.children[1].children[1].readOnly = true
+          }
+          index ++
+        }
+        updatePistasAdmin()
+      });
+
+      const closeAdminHintBtn = document.querySelectorAll('[data-close-Adminbutton]');
+      closeAdminHintBtn.forEach(button => {
+      button.addEventListener('click', () => {
+      const modal = document.querySelector('.modalHintAdmin')
+      closeModal(modal)
+    })
+    });
+  }
+
+  
+updatePistasAdmin()
+
 
 var footerOptions = document.getElementById("footerOptions");
 footerOptions.innerHTML += `<button id = 'settingsBtn' data-modal-target="#settingsModal"><ion-icon name="cog-outline"></ion-icon></button>`
@@ -385,8 +458,6 @@ let word, maxGuesses, incorrectLetters = [], correctLetters = [];
 
 function randomWord() {
     let ranItem = wordList[Math.floor(Math.random() * wordList.length)];
-    console.log(wordList);
-    console.log(ranItem);
     word = ranItem.word;
     maxGuesses = word.length >= 5 ? 8 : 6;
     correctLetters = []; incorrectLetters = [];
@@ -469,3 +540,22 @@ if (user.getUserLevel() > 2){
   solvedChall()
   solvedChall()
 }
+
+
+
+
+var muteBtn = document.getElementById('sound');
+var myTrack = document.getElementById('bgTrack');
+
+myTrack.volume = 0.1;
+
+muteBtn.addEventListener('click', ()=>{
+  if (myTrack.muted == true){
+    myTrack.muted = false;
+    muteBtn.innerHTML = '<ion-icon name="volume-high-outline"></ion-icon>'
+}
+else{
+    myTrack.muted = true;
+    muteBtn.innerHTML = '<ion-icon name="volume-mute-outline"></ion-icon>'
+}
+});
