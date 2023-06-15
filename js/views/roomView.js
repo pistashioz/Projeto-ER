@@ -1,4 +1,6 @@
 import * as user from "../models/UserModels.js";
+import * as pistas from "../models/roomModel.js";
+
 
 
 
@@ -330,8 +332,11 @@ document.getElementById('rect').addEventListener('click', () =>{
 })
 
 /*admin room settings*/
-const openAdminHintBtn = document.querySelectorAll('#hintBtnADMIN');
-console.log(openAdminHintBtn)
+
+
+if(user.getUserLogged()=== "admin"){
+  document.getElementById("gamification").innerHTML += `<button  id = 'hintBtnADMIN' data-modal-target="#modalHintAdmin"><ion-icon name="bulb-outline"></ion-icon></button> `
+  const openAdminHintBtn = document.querySelectorAll('#hintBtnADMIN');
 openAdminHintBtn.forEach(button => {
   button.addEventListener('click', () =>{
       const modal = document.querySelector(button.dataset.modalTarget);
@@ -344,12 +349,9 @@ const closeAdminHintBtn = document.querySelectorAll('[data-close-Adminbutton]');
 closeAdminHintBtn.forEach(button => {
   button.addEventListener('click', () => {
     const modal = document.querySelector('.modalHintAdmin')
-    console.log(modal)
     closeModal(modal)
   })
 });
-
-if(user.getUserLogged()=== "admin"){
 
 var footerOptions = document.getElementById("footerOptions");
 footerOptions.innerHTML += `<button id = 'settingsBtn' data-modal-target="#settingsModal"><ion-icon name="cog-outline"></ion-icon></button>`
