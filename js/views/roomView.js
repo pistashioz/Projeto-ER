@@ -65,7 +65,7 @@ const buyBtn = document.getElementById('btnBuy');
 function updateCoins(){
   document.getElementById("amount").textContent= `X ${user.getCoins()}`
 }
-//updateCoins()
+updateCoins()
 
 openModalButtons.forEach(button => {
     button.addEventListener('click', () =>{
