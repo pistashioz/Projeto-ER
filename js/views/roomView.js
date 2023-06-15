@@ -332,12 +332,13 @@ document.getElementById('rect').addEventListener('click', () =>{
 })
 
 /*admin room settings*/
+document.getElementById("hintBtnADMIN").style.visibility = "hidden"
+document.getElementById("settingsBtn").style.visibility = "hidden"
 
+if(user.getUserLogged() === "admin"){
+  document.getElementById("settingsBtn").style.visibility = "unset"
+  document.getElementById("hintBtnADMIN").style.visibility = "unset"
 
-if(user.getUserLogged()=== "admin"){
-  document.getElementById("gamification").innerHTML += `<button  id = 'hintBtnADMIN' data-modal-target="#modalHintAdmin"><ion-icon name="bulb-outline"></ion-icon></button> `
-  
-  
   function updatePistasAdmin(){
     var modalHintAdmin = document.getElementById("modalHintAdmin");
     modalHintAdmin.innerHTML = ""
@@ -357,8 +358,7 @@ if(user.getUserLogged()=== "admin"){
         <div id = 'btnSettingsAdmin' class = 'btnsAdminHintAdmin'>
             <button id = 'editBtnAdmin'>Editar</button>
             <button id = 'saveBtnAdmin'>Guardar</button>
-        </div>
-    </div>`
+        </div></div>`
 
 
 
@@ -540,3 +540,6 @@ if (user.getUserLevel() > 2){
   solvedChall()
   solvedChall()
 }
+
+
+

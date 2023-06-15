@@ -28,7 +28,9 @@
           </div>
 
            <!-- hintsButton -->
-        <button  id = 'hintBtn' data-modal-target="#modal"><ion-icon name="bulb-outline"></ion-icon></button> 
+        <button  id = 'hintBtn' data-modal-target="#modal"><ion-icon name="bulb-outline"></ion-icon></button>
+        <button  id = 'hintBtnADMIN' data-modal-target="#modalHintAdmin"><ion-icon name="bulb-outline"></ion-icon></button>
+        <button id = 'settingsBtn' data-modal-target="#settingsModal"><ion-icon name="cog-outline"></ion-icon></button>
     </div>
     <!-- room1 -->
     <div class = 'room' id = 'level1'>
@@ -170,7 +172,7 @@
         
                 <!-- sound -->
         <audio id = 'bgTrack'  autoplay="true" loop>
-            <source src="" type = "audio/mp3">
+            <source src="../src/audio/audiobg.mp3" type = "audio/mp3">
         </audio>
         <button id = 'sound'><ion-icon name="volume-high-outline"></ion-icon></button>
         <div id="alert-container"></div>
@@ -204,11 +206,11 @@
     </div>
 
 <div class = 'modalHintAdmin' id = 'modalHintAdmin'>
-    
+
 </div>
 
     <!-- settings modal (ONLY AVAILABLE FOR ADMIN) -->
-<div id = 'settingsModal' class = 'modalSettings'>
+<div id = 'settingsModal' class = 'modalSettings '>
         
         <div class = 'container'>
             <div class = 'modalSettings-head'>
@@ -307,6 +309,7 @@
     </div>
         </div>
     </div>
+
 
 
     <script type="module" src = '../js/views/roomView.js'></script>
