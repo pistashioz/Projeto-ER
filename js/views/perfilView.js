@@ -100,26 +100,22 @@ const saveBtn = document.querySelector('#save');
 editBtn.addEventListener('click', () => {
   inputName.removeAttribute('readonly');
   inputEmail.removeAttribute('readonly');
-
 });
 
 saveBtn.addEventListener('click', function(){
   inputName.setAttribute('readonly', true);
   inputEmail.setAttribute('readonly', true);
+  user.updateData(inputName.value,inputEmail.value)
 })
 
 
 /*admin modal*/
 
-
-
+const openAdmin = document.querySelector('#admin');
+openAdmin.style.visibility = "hidden";
 
 if(user.getUserLogged() === "admin"){
-  const btns = document.getElementById("btns");
-
-  btns.innerHTML +=  `<button id = 'admin'><ion-icon name="people-outline"></ion-icon></button>`
-  const openAdmin = document.querySelector('#admin');
-
+  openAdmin.style.visibility = "unset";
 
   openAdmin.addEventListener('click', () => {
     var result = document.createElement("div")

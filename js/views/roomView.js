@@ -208,6 +208,8 @@ document.querySelector('#doorOpen').addEventListener('click', function(){
   Level3()
   solvedChall()
   user.updateLevel()
+  user.addCoins(40);
+  updateCoins()
 });
 //level 3
 //grab elements for inventory
@@ -363,6 +365,8 @@ openDoor()
 document.getElementById('rect').addEventListener('click', () =>{
   removeRect()
   user.updateLevel()
+  user.addCoins(20);
+  updateCoins()
 })
 
 /*admin room settings*/
@@ -533,6 +537,7 @@ function initGame(e) {
             document.body.style.backgroundPosition = "center center";
             audioWin.play()
             setTimeout(document.getElementById('modalWin').classList.add("active"), 3000);
+            user.updateLevel()
         } else if(maxGuesses < 1) {
           audioWrong.play();
           randomWord()

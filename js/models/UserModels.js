@@ -12,7 +12,7 @@ export function init(){
 } 
 
 export function add(username,password,email){
-        users.push(new User(username, password,email,60));
+        users.push(new User(username, password,email,20));
         localStorage.setItem("usersFlor", JSON.stringify(users));
         sessionStorage.setItem("loggedUserFlor", JSON.stringify(username));
 }
@@ -55,32 +55,39 @@ export function getUserLogged(){
 }
 
 export function getEmailUser(){
-    return users.find((user) => user.username === getUserLogged()).email
+    return _findCurrentUser().email
 }
-
+export function addCoins(coins){
+    const user = _findCurrentUser();
+    user.coins += coins;
+    updateLocalStorageUser()
+}
 export function updateAvatar(nome){
     let avatar = getCurrentAvatar()
     if(nome !== avatar.name){
         avatar.InUse = false;
-        let user = users.find((user) => user.username === getUserLogged()).avatarList;
+        let user = _findCurrentUser().avatarList;
         let avatarChange = user.find((user) => user.name === nome);
         avatarChange.InUse = true;
         updateLocalStorageUser()
     }
 }
 export function getCoins(){
-    const user = users.find((user) => user.username === getUserLogged());
+    const user = _findCurrentUser();
     return user.coins
 }
  
 export function updateCoins(coins){
-    const user = users.find((user) => user.username === getUserLogged());
+    const user = _findCurrentUser();
     user.coins = coins;
     updateLocalStorageUser()
 }
 
+function _findCurrentUser(){
+    return users.find((user) => user.username === getUserLogged());
+}
 export function getCurrentAvatar(){
-    let user = users.find((user) => user.username === getUserLogged()).avatarList;
+    let user = _findCurrentUser().avatarList;
     return user.find((user) => user.InUse === true);
 }
 
@@ -88,14 +95,14 @@ export function updateLocalStorageUser(){
     localStorage.setItem("usersFlor", JSON.stringify(users));
 }
 export function updateBoughtAvatar(nome){
-        let user = users.find((user) => user.username === getUserLogged()).avatarList;
+        let user = _findCurrentUser().avatarList;
         let avatarChange = user.find((user) => user.name === nome);
         avatarChange.Available = true;
         updateLocalStorageUser()
 }
 
 export function getAvatarList(){
-    let user = users.find((user) => user.username === getUserLogged()).avatarList;
+    let user = _findCurrentUser().avatarList;
     return user;
 }
 
@@ -138,17 +145,23 @@ export function getBlockedStatus(name){
 }
 
 export function getUserLevel(){
-    const user = users.find((user) => user.username === getUserLogged());
+    const user = _findCurrentUser();
     return user.nivel;
 }
 export function updateLevel(){
-    const user = users.find((user) => user.username === getUserLogged());
-    user.nivel +=  1;
+    const user = _findCurrentUser();
+    (user.nivel == 3) ? user.nivel = 1 : user.nivel +=  1 
     updateLocalStorageUser();
 }
 
+export function updateData(username,email){
+    const user = _findCurrentUser();
+    user.username = username;
+    user.email = email;
+    updateLocalStorageUser();
+    sessionStorage.setItem("loggedUserFlor", JSON.stringify(username));
+}
 init();
-login("admin","123");
 
 
 export class User{
