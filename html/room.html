@@ -211,98 +211,99 @@
 
     <!-- settings modal (ONLY AVAILABLE FOR ADMIN) -->
 <div id = 'settingsModal' class = 'modalSettings '>
-        
         <div class = 'container'>
             <div class = 'modalSettings-head'>
                 <h1>Configurações</h1>
                 <button id="closeSettings" data-close-button class = 'close-Settingbutton'><ion-icon name="close-outline"></ion-icon></button>
             </div>
             <div class = 'modalSettings-body'>
-                <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
-                    <div class="carousel-inner">
-                            <!-- level 1 settings -->
-                        <div class="carousel-item active">
-                            <h3>Nível 1</h3>
-                            <div class = 'questions'>
-                                <h4> tempo limite: </h4>
-                                <input type = "number" id = 'timeLvl1' class = 'time' min="1" max="20" required>
-                                <h4>minutos</h4>
-                            </div>
-                            <div class = 'questions'>
-                                <h4> desafio: </h4>
-                                <input type = "text" class = 'challengeEdit' id = 'challengeLvl1' required>
-                            </div>
-                            <div class = 'questions'>
-                                <h4> opções: </h4>
-                                <input type = "text" class = 'optionsQuestions' id = 'opt1Lvl1'  required>
-                                <input type = "text" class = 'optionsQuestions' id = 'opt2Lvl1'  required>
-                                <input type = "text" class = 'optionsQuestions' id = 'opt3Lvl1'  required>
-                                <input type = "text" class = 'optionsQuestions' id = 'opt4Lvl1'  required>
-                                <input type = "text" class = 'optionsQuestions' id = 'opt5Lvl1'  required>
-                            </div>
-                            <div class = 'questions'>
-                                <h4> resposta correta: </h4>
-                                <input type = "text" class = 'rightAnsw'  id = 'rightOptLvl1' required>
-                            </div>
-                        </div>
-                        <!-- level 2 settings -->
-                        <div class="carousel-item">
-                            <h3>Nível 2</h3>
-                            <div class = 'questions'>
-                                <h4> tempo limite: </h4>
-                                <input type = "number" id = 'timeLvl2' class = 'time' min="1" max="20"  required>
-                                <h4>minutos</h4>
-                            </div>
-                            <div class = 'questions'>
-                                <h4> desafio: </h4>
-                                <input type = "text" class = 'challengeEdit' id = 'challengeLvl2' required>
-                            </div>
-                            <div class = 'questions'>
-                                <h4> opções: </h4>
-                                <input type = "text" class = 'optionsQuestions' id = 'opt1Lvl2'  required>
-                                <input type = "text" class = 'optionsQuestions' id = 'opt2Lvl2' required>
-                            </div>
-                            <div class = 'questions'>
-                                <h4> resposta correta: </h4>
-                                <input type = "text" class = 'rightAnsw' id = 'rightOptLvl2'  required>
-                            </div>
-                        </div>
-                        <!-- level 3 settings -->
-                        <div class="carousel-item">
-                            <h3>Nível 3</h3>
-                            <div class = 'questions'>
-                                <h4> tempo limite: </h4>
-                                <input type = "number" id = 'timeLvl3' class = 'time' min="1" max="20"  required>
-                                <h4>minutos</h4>
-                            </div>
-                            <div class = 'questions'>
-                                <h4> desafio: </h4>
-                                <input type = "text" class = 'challengeEdit' id = 'challengeLvl3'  required>
-                            </div>
-                            <div class = 'questions'>
-                                <h4> opções: </h4>
-                                <input type = "text" class = 'optionsQuestions'  id = 'opt1Lvl3'  required>
-                                <input type = "text" class = 'optionsQuestions'  id = 'opt2Lvl3'  required>
-                            </div>
-                            <div class = 'questions'>
-                                <h4> resposta correta: </h4>
-                                <input type = "text" class = 'rightAnsw' id = 'rightOptLvl3'  required>
-                            </div>
-                        </div>
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <h3>Nível 1</h3>
+                        <div class = 'questions'>
+                            <h4> tempo limite: </h4>
+                            <input type = "number" id = 'timeLvl1' class = 'time' min="1" max="20" required>
+                            <h4>minutos</h4>
+                        </div>
+                        <div class = 'questions'>
+                            <h4> desafio: </h4>
+                            <input type = "text" class = 'challengeEdit' id = 'challengeLvl1' required>
+                        </div>
+                        <div class = 'questions'>
+                            <h4> opções: </h4>
+                            <input type = "text" class = 'optionsQuestions' id = 'opt1Lvl1'  required>
+                            <input type = "text" class = 'optionsQuestions' id = 'opt2Lvl1'  required>
+                            <input type = "text" class = 'optionsQuestions' id = 'opt3Lvl1'  required>
+                            <input type = "text" class = 'optionsQuestions' id = 'opt4Lvl1'  required>
+                            <input type = "text" class = 'optionsQuestions' id = 'opt5Lvl1'  required>
+                        </div>
+                        <div class = 'questions'>
+                            <h4> resposta correta: </h4>
+                            <input type = "text" class = 'rightAnsw'  id = 'rightOptLvl1' required>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <h3>Nível 2</h3>
+                        <div class = 'questions'>
+                            <h4> tempo limite: </h4>
+                            <input type = "number" id = 'timeLvl2' class = 'time' min="1" max="20"  required>
+                            <h4>minutos</h4>
+                        </div>
+                        <div class = 'questions'>
+                            <h4> desafio: </h4>
+                            <input type = "text" class = 'challengeEdit' id = 'challengeLvl2' required>
+                        </div>
+                        <div class = 'questions'>
+                            <h4> opções: </h4>
+                            <input type = "text" class = 'optionsQuestions' id = 'opt1Lvl2'  required>
+                            <input type = "text" class = 'optionsQuestions' id = 'opt2Lvl2' required>
+                        </div>
+                        <div class = 'questions'>
+                            <h4> resposta correta: </h4>
+                            <input type = "text" class = 'rightAnsw' id = 'rightOptLvl2'  required>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <h3>Nível 3</h3>
+                        <div class = 'questions'>
+                            <h4> tempo limite: </h4>
+                            <input type = "number" id = 'timeLvl3' class = 'time' min="1" max="20"  required>
+                            <h4>minutos</h4>
+                        </div>
+                        <div class = 'questions'>
+                            <h4> desafio: </h4>
+                            <input type = "text" class = 'challengeEdit' id = 'challengeLvl3'  required>
+                        </div>
+                        <div class = 'questions'>
+                            <h4> opções: </h4>
+                            <input type = "text" class = 'optionsQuestions'  id = 'opt1Lvl3'  required>
+                            <input type = "text" class = 'optionsQuestions'  id = 'opt2Lvl3'  required>
+                        </div>
+                        <div class = 'questions'>
+                            <h4> resposta correta: </h4>
+                            <input type = "text" class = 'rightAnsw' id = 'rightOptLvl3'  required>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
                     </button>
                     <div id = 'btnSettings'>
                         <button id = 'editBtn'>Editar</button>
                         <button id = 'saveBtn'>Guardar</button>
                     </div>
-                </div>
+                  </div>
             </div>
 
         </div>
