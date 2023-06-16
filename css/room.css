@@ -239,6 +239,7 @@ body{
     display: block;
 }
 
+
 #stairs{
     width: 25vw;
     position: absolute;
@@ -319,7 +320,7 @@ body{
     position: absolute;
     bottom: 3vh;
     right: 45vw;
-    z-index: 2;
+    z-index: 20;
     cursor: pointer;
 }
 
@@ -327,8 +328,8 @@ body{
     width: 10.5vw;
     position: absolute;
     bottom: 2vh;
-    right: 2vw;
-    z-index: 1;
+    right: 8vw;
+    z-index: 20;
     cursor: pointer;
 }
 #piece2{
@@ -336,7 +337,7 @@ body{
     position: absolute;
     bottom: 1vh;
     left: 22vw;
-    z-index: 10;
+    z-index: 20;
     cursor: pointer;
 }
 
