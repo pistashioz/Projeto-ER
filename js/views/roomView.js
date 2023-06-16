@@ -104,6 +104,8 @@ function closeModal(modal) {
 
 
 /*moving steps functions LEVEL 2*/ 
+
+
 document.getElementById("step1").addEventListener("click",()=>{
     var image = document.getElementById('step1');
     image.style.bottom = '17.5vw';
@@ -127,6 +129,7 @@ function zoomBg(){
   document.getElementById('objects').style.display = "none";
   document.body.style.backgroundImage = "url(../src/img/rooms/level2/room/piecesBg.svg)";
   document.getElementById('objectsChall').style.display = "block";
+  randomChallengeLvl2()
 }
 
 function backBtn(){
@@ -279,6 +282,21 @@ function right(){
   document.getElementById('stepFixed').style.display = "block";
   return true
 }
+
+const height = document.querySelector('#height');
+const width = document.querySelector('#width');
+const op1Wrong = document.querySelector('#hypotenuse1');
+const op2Right = document.querySelector('#hypotenuse2');
+function randomChallengeLvl2(){
+  let randChall = questionsLvl2[Math.floor(Math.random() * questionsLvl1.length)];
+  height.innerText = randChall.height;
+  width.innerText = randChall.width;
+  op1Wrong.innerText = randChall.op1;
+  op2Right.innerText = randChall.op2;
+
+}
+
+
 function changePosition(){
   var stepFixed = document.getElementById('stepFixed');
   stepFixed.style.bottom = '35vw';
@@ -290,7 +308,23 @@ function changePosition(){
 
 /*LEVEL 1*/
 
+const equation = document.querySelector('#eq');
 const rightAnswer = document.querySelector('#op1');
+const op2 = document.querySelector('#op2');
+const op3 = document.querySelector('#op3');
+const op4 = document.querySelector('#op4');
+const op5 = document.querySelector('#op5');
+function randomChallengeLvl1(){
+  let randChall = questionsLvl1[Math.floor(Math.random() * questionsLvl1.length)];
+  equation.innerText = randChall.equation;
+  rightAnswer.innerText = randChall.op1;
+  op2.innerText = randChall.op2;
+  op3.innerText = randChall.op3;
+  op4.innerText = randChall.op4;
+  op5.innerText = randChall.op5;
+}
+randomChallengeLvl1()
+
 const wrongAnswer = document.querySelectorAll('.wrongAnswers')
 function checkRightAns(){
   solvedChall()
@@ -445,8 +479,6 @@ closeSettingBtn.forEach(button => {
     })
   });
 }
-  
-
 
 const inputs = document.querySelector(".inputs"),
 hintTag = document.querySelector(".hint span"),
