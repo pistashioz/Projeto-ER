@@ -224,3 +224,11 @@ if(user.getUserLogged() === "admin"){
 const ImageAvatar = document.getElementById("profilePic")
 
 ImageAvatar.innerHTML = `<img src = '../src/img/avatares/${user.getCurrentAvatar().name}.svg' alt = 'profilePicture'>`
+
+
+
+const sairbtn = document.getElementById("sair")
+
+sairbtn.addEventListener("click",()=>{
+  user.logout()
+})

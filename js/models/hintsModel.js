@@ -1,5 +1,19 @@
+
+
 import * as user from "./UserModels.js";
+
+let numpista = 0
+
+export function addPista(){
+    numpista+=1
+}
+export function resetPista(){
+    numpista = 0
+}
+
+
 let pistas = []
+
 
 init()
 export function init(){
@@ -24,3 +38,13 @@ export function editPistas(nivel,index,conteudo){
     updateLocalStrorage()
 
 }
+export function getPistaAtual(){
+    if(parseInt(pistas[user.getUserLevel()-1].length) > parseInt(numpista)){
+        return pistas[user.getUserLevel()-1][numpista]
+    }else{
+        return "Não existem mais pistas"
+    }
+}
+
+
+//gestão de pista usada por nivel

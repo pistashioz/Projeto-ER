@@ -102,8 +102,7 @@ export function updateBoughtAvatar(nome){
 }
 
 export function getAvatarList(){
-    let user = _findCurrentUser().avatarList;
-    return user;
+    return _findCurrentUser().avatarList;
 }
 
 export function checkEmail(email){

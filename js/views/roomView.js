@@ -62,28 +62,85 @@ function muteOrUnmute(){
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const btns = document.querySelectorAll('.image-button');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
-const buyBtn = document.getElementById('btnBuy');
 
 function updateCoins(){
   document.getElementById("amount").textContent= `X ${user.getCoins()}`
 }
 updateCoins()
 
-openModalButtons.forEach(button => {
+    const button = document.getElementById("hintBtn") ;
     button.addEventListener('click', () =>{
-        const modal = document.querySelector(button.dataset.modalTarget);
-        openModal(modal)
+        const modal = document.getElementById("tobuy");
+        const containerclass = document.createElement("div")
+        containerclass.innerHTML=`<div id = 'modal' class = 'modalBuy'>
+        <div class = 'container'>
+            <div class = 'modal-head'>
+                <h1>Comprar</h1>
+            </div>
+            <div class = 'modal-body'>
+                <h3>Tem a certeza que quer obter uma pista?</h3>
+                <div id = 'btns'>
+                    <button class = 'buy-button' id = 'btnBuy'>Comprar</button>
+                    <button  data-close-button class = 'close-button' id = 'btnExit'>Sair</button>
+                </div> 
+            </div>
+        </div>
+    </div>`
+
+        modal.appendChild(containerclass);
+        const buyBtn = document.getElementById('btnBuy');
         buyBtn.addEventListener('click', function() {
-            //BUY HINT??
+          const modalhintshow = document.getElementById("hintshower");
+          const containerclass = document.createElement("div")
+          containerclass.innerHTML=`<div id = 'hintModal' class = 'modalHint'>
+          <div class = 'container'>
+              <div class = 'modalHint-head'>
+                  <h1>Pista</h1>
+                  <button id="closeHint"><ion-icon name="close-outline"></ion-icon></button>
+              </div>
+              <div class = 'modalHint-body'><h3 id = 'hintText'>as pistas devem aparecer aqui!!!</h3></div> 
+              </div>
+          </div>`
+          const modalHint = document.getElementById("hintModal");
+          console.log("Im here");
+          let coins = parseInt(user.getCoins().toString());
+          if (pistas.getPistaAtual() === "Não existem mais pistas"){
+            modalhintshow.appendChild(containerclass);
+            document.getElementById("hintText").textContent = pistas.getPistaAtual()
+            document.getElementById("closeHint").addEventListener("click",()=>{
+              modalhintshow.innerHTML=""
+              });
+          }else{
+            if(coins >= 5){
+                let currentCoins = coins - 5;
+                user.updateCoins(currentCoins);
+                modalhintshow.appendChild(containerclass);
+                document.getElementById("hintText").textContent = pistas.getPistaAtual()
+                updateCoins()
+                document.getElementById("closeHint").addEventListener("click",()=>{
+                  modalhintshow.innerHTML=""
+                  pistas.addPista()
+                  });
+            }else{
+                let warning = document.getElementById("modalNoMoney");
+                warning.classList.add("active")
+                setTimeout(function(){
+                  warning.classList.remove("active")
+                }
+                ,3000)
+              }
+          }
+
+            modal.innerHTML = ""
+
         })
     })
 
-});
 
 closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
-      const modal = document.querySelector('.modalBuy')
-      closeModal(modal)
+      const modal = document.querySelector('.tobuy')
+      modal.innerHTML = ""
     })
   });
 
@@ -209,6 +266,7 @@ document.querySelector('#doorOpen').addEventListener('click', function(){
   solvedChall()
   user.updateLevel()
   user.addCoins(40);
+  pistas.resetPista()
   updateCoins()
 });
 //level 3
@@ -366,6 +424,7 @@ document.getElementById('rect').addEventListener('click', () =>{
   removeRect()
   user.updateLevel()
   user.addCoins(20);
+  pistas.resetPista()
   updateCoins()
 })
 

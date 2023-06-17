@@ -28,7 +28,7 @@
           </div>
 
            <!-- hintsButton -->
-        <button  id = 'hintBtn' data-modal-target="#modal"><ion-icon name="bulb-outline"></ion-icon></button>
+        <button  id = 'hintBtn' ><ion-icon name="bulb-outline"></ion-icon></button>
         <button  id = 'hintBtnADMIN' data-modal-target="#modalHintAdmin"><ion-icon name="bulb-outline"></ion-icon></button>
         <button id = 'settingsBtn' data-modal-target="#settingsModal"><ion-icon name="cog-outline"></ion-icon></button>
     </div>
@@ -179,30 +179,23 @@
     </div>
 
     <!-- buy hint modal-->
-    <div id = 'modal' class = 'modalBuy'>
-        <div class = 'container'>
-            <div class = 'modal-head'>
-                <h1>Comprar</h1>
+    <div id="tobuy">
+
+    </div>
+<!-- hint modal-->
+<div id="hintshower"></div>
+
+    <div id="warningNoMoney">
+        <div id = 'modalNoMoney' class = 'modalNoMoney'>
+            <div class = 'container'><div class = 'modal-headMoney'>
+                <h1>Moedas insuficientes</h1>
             </div>
-            <div class = 'modal-body'>
-                <h3>Tem a certeza que quer obter uma pista?</h3>
-                <div id = 'btns'>
-                    <button class = 'buy-button' id = 'btnBuy'>Comprar</button>
-                    <button  data-close-button class = 'close-button' id = 'btnExit'>Sair</button>
-                </div> 
+            <div class = 'modal-bodyMoney'>
+                <h3>Completa os desafios para ganhar mais moedas!</h3>
             </div>
         </div>
     </div>
-<!-- hint modal-->
-
-<div id = 'hintModal' class = 'modalHint'>
-    <div class = 'container'>
-        <div class = 'modalHint-head'>
-            <h1>Pista</h1>
-            <button id="closeHint"><ion-icon name="close-outline"></ion-icon></button>
-        </div>
-        <div class = 'modalHint-body'><h3 id = 'hintText'>as pistas devem aparecer aqui!!!</h3></div> 
-        </div>
+        <div id = 'overlay'></div>
     </div>
 
 <div class = 'modalHintAdmin' id = 'modalHintAdmin'>
