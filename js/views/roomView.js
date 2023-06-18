@@ -45,10 +45,12 @@ var muteBtn = document.getElementById('sound');
 var myTrack = document.getElementById('bgTrack');
 muteBtn.addEventListener('click', muteOrUnmute, false);
 
+
 function muteOrUnmute(){
     if (myTrack.muted == true){
         myTrack.muted = false;
         muteBtn.innerHTML = '<ion-icon name="volume-high-outline"></ion-icon>'
+        
     }
     else{
         myTrack.muted = true;
@@ -329,7 +331,7 @@ let checkPosition = false
 document.getElementById("stepFixed").addEventListener("click", function (){
   changePosition()
   checkPosition =  true
-})
+}, {once: true})
 function wrong(){
   audioWrong.play();
 }
@@ -359,6 +361,7 @@ function changePosition(){
   var stepFixed = document.getElementById('stepFixed');
   stepFixed.style.bottom = '35vw';
   stepFixed.style.left = '14vw';
+
   solvedChall()
 
 }
