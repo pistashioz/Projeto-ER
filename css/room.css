@@ -84,6 +84,7 @@ button:focus{
     position: fixed;
     left: 0%;
     top: 5%;
+    z-index: 12;
 }
 #coinImg{
     width: 7vw;

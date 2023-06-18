@@ -32,13 +32,29 @@ button{
     font-family: Baloo Bhaina;
     color: #F4F3FF;
     text-shadow: 2px 5px 2px rgb(131, 57, 11);
+    margin-top: 1vh;
 }
 
-#user p,#confPw p, #mail p{
+
+#user p{
   font-size: 18px;
-  color: rgb(167, 0, 0);
+  color: whitesmoke;
   margin-top: -10px;
-  margin-left: 20px;
+  margin-left: 450px;
+  position:fixed;
+}
+ #mail p{
+  font-size: 18px;
+  color: whitesmoke;
+  margin-top: -10px;
+  margin-left: 250px;
+  position:fixed;
+}
+#confPw p{
+  font-size: 18px;
+  color: whitesmoke;
+  margin-top: -10px;
+  margin-left: 360px;
   position:fixed;
 }
 
@@ -49,7 +65,7 @@ button{
 }
 fieldset{
     border: 0;
-    margin-top: -7vh;
+    margin-top: -11vh;
     margin-left: 3vw;
 }
 #user input, #pw input, #confPw input, #mail input{

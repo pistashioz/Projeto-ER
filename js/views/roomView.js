@@ -45,10 +45,12 @@ var muteBtn = document.getElementById('sound');
 var myTrack = document.getElementById('bgTrack');
 muteBtn.addEventListener('click', muteOrUnmute, false);
 
+
 function muteOrUnmute(){
     if (myTrack.muted == true){
         myTrack.muted = false;
         muteBtn.innerHTML = '<ion-icon name="volume-high-outline"></ion-icon>'
+        
     }
     else{
         myTrack.muted = true;
@@ -333,9 +335,7 @@ let checkPosition = false
 document.getElementById("stepFixed").addEventListener("click", function (){
   changePosition()
   checkPosition =  true
-  
-
-})
+}, {once: true})
 function wrong(){
   audioWrong.play();
 }
@@ -355,8 +355,8 @@ function randomChallengeLvl2(){
   let randChall = questionsLvl2[Math.floor(Math.random() * questionsLvl1.length)];
   height.innerText = randChall.height;
   width.innerText = randChall.width;
-  op1Wrong.innerText = randChall.op1;
-  op2Right.innerText = randChall.op2;
+  op1Wrong.innerText = randChall.op2;
+  op2Right.innerText = randChall.op1;
 
 }
 
@@ -365,6 +365,7 @@ function changePosition(){
   var stepFixed = document.getElementById('stepFixed');
   stepFixed.style.bottom = '35vw';
   stepFixed.style.left = '14vw';
+
   solvedChall()
 
 }
