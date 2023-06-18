@@ -4,8 +4,6 @@ import * as niveis from "../models/roomModel.js";
 
 
 
-
-
 //progress bar
 const bar = document.querySelector(".bar");
 const percentageTag = document.querySelector(".percentage");
@@ -37,26 +35,6 @@ function solvedChall(){
 percentageTag.textContent = ruleOfThree(total, solved) + "%";
 
 
-
-/*mute/unmute sound*/
-
-
-var muteBtn = document.getElementById('sound');
-var myTrack = document.getElementById('bgTrack');
-muteBtn.addEventListener('click', muteOrUnmute, false);
-
-
-function muteOrUnmute(){
-    if (myTrack.muted == true){
-        myTrack.muted = false;
-        muteBtn.innerHTML = '<ion-icon name="volume-high-outline"></ion-icon>'
-        
-    }
-    else{
-        myTrack.muted = true;
-        muteBtn.innerHTML = '<ion-icon name="volume-mute-outline"></ion-icon>'
-    }
-}
 
 
 
@@ -699,3 +677,21 @@ var index = 0
     input.value = niveis.getTimeIndex(index)
     index += 1
   }
+
+
+var muteBtn = document.getElementById('sound');
+var myTrack = document.getElementById('bgTrack');
+
+myTrack.volume = 0.1;
+muteBtn.addEventListener('click', ()=>{
+  if (!myTrack.muted){
+    myTrack.muted = false;
+    muteBtn.innerHTML = '<ion-icon name="volume-high-outline"></ion-icon>'
+}
+else{
+    myTrack.muted = true;
+    muteBtn.innerHTML = '<ion-icon name="volume-mute-outline"></ion-icon>'
+}
+});
+
+
