@@ -140,7 +140,11 @@ export function removeUser(name){
 
 export function getBlockedStatus(name){
     const user = users.find((user) => user.username === name);
-    return user.blocked;
+    if(user){
+        return user.blocked;
+    }else{
+        return false
+    }
 }
 
 export function getUserLevel(){
