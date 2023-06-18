@@ -857,3 +857,11 @@ ion-icon {
 }
 
 
+#sound{
+    background: none;
+    border: none;
+    position: fixed;
+    right: 5%;
+    margin-right: 2vw;
+    bottom: 0%;
+}
