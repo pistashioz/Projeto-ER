@@ -329,8 +329,6 @@ let checkPosition = false
 document.getElementById("stepFixed").addEventListener("click", function (){
   changePosition()
   checkPosition =  true
-  
-
 })
 function wrong(){
   audioWrong.play();
@@ -351,8 +349,8 @@ function randomChallengeLvl2(){
   let randChall = questionsLvl2[Math.floor(Math.random() * questionsLvl1.length)];
   height.innerText = randChall.height;
   width.innerText = randChall.width;
-  op1Wrong.innerText = randChall.op1;
-  op2Right.innerText = randChall.op2;
+  op1Wrong.innerText = randChall.op2;
+  op2Right.innerText = randChall.op1;
 
 }
 

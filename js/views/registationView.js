@@ -59,11 +59,11 @@ function validateUsername() {
   }else{
     if (User.checkUser(username)) {
       signUpButton.disabled = false;
-      confirmUsername.textContent = 'nome valido :)';   
+      confirmUsername.textContent = 'Nome valido';   
 
       
     }else {
-      confirmUsername.textContent = 'Utilizador já existe'; 
+      confirmUsername.textContent = 'O utilizador já existe'; 
       signUpButton.disabled = true;
 
     }

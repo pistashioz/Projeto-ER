@@ -289,6 +289,7 @@ ion-icon {
     outline: none;
     cursor: pointer;
     border-radius: 5dvb;
+    align-items: center;
 
 }
 .image-button:focus{
