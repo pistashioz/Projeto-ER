@@ -4,8 +4,6 @@ import * as niveis from "../models/roomModel.js";
 
 
 
-
-
 //progress bar
 const bar = document.querySelector(".bar");
 const percentageTag = document.querySelector(".percentage");
@@ -38,31 +36,9 @@ percentageTag.textContent = ruleOfThree(total, solved) + "%";
 
 
 
-/*mute/unmute sound*/
-
-
-var muteBtn = document.getElementById('sound');
-var myTrack = document.getElementById('bgTrack');
-muteBtn.addEventListener('click', muteOrUnmute, false);
-
-
-function muteOrUnmute(){
-    if (myTrack.muted == true){
-        myTrack.muted = false;
-        muteBtn.innerHTML = '<ion-icon name="volume-high-outline"></ion-icon>'
-        
-    }
-    else{
-        myTrack.muted = true;
-        muteBtn.innerHTML = '<ion-icon name="volume-mute-outline"></ion-icon>'
-    }
-}
-
 
 
 /*modal buy hints*/ 
-const openModalButtons = document.querySelectorAll('[data-modal-target]');
-const btns = document.querySelectorAll('.image-button');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 
 function updateCoins(){
@@ -90,6 +66,13 @@ updateCoins()
     </div>`
 
         modal.appendChild(containerclass);
+
+        const closebtn = document.getElementById('btnExit');
+        closebtn.addEventListener("click",()=>{
+          modal.innerHTML = ""
+        });
+
+        
         const buyBtn = document.getElementById('btnBuy');
         buyBtn.addEventListener('click', function() {
           const modalhintshow = document.getElementById("hintshower");
@@ -104,7 +87,7 @@ updateCoins()
               </div>
           </div>`
           const modalHint = document.getElementById("hintModal");
-          console.log("Im here");
+          
           let coins = parseInt(user.getCoins().toString());
           if (pistas.getPistaAtual() === "Não existem mais pistas"){
             modalhintshow.appendChild(containerclass);
@@ -134,17 +117,15 @@ updateCoins()
           }
 
             modal.innerHTML = ""
-
+            closeModalButtons.forEach(button => {
+              button.addEventListener('click', () => {
+                const modal = document.querySelector('.tobuy')
+                modal.innerHTML = ""
+              })
+            });
         })
     })
 
-
-closeModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const modal = document.querySelector('.tobuy')
-      modal.innerHTML = ""
-    })
-  });
 
 
 function openModal(modal){
@@ -270,6 +251,7 @@ document.querySelector('#doorOpen').addEventListener('click', function(){
   user.addCoins(40);
   pistas.resetPista()
   updateCoins()
+  countdownDuration = niveis.getTimeLevel(user.getUserLevel()) * 60;
 });
 //level 3
 //grab elements for inventory
@@ -427,6 +409,7 @@ document.getElementById('rect').addEventListener('click', () =>{
   user.addCoins(20);
   pistas.resetPista()
   updateCoins()
+  countdownDuration = niveis.getTimeLevel(user.getUserLevel()) * 60;
 })
 
 /*admin room settings*/
@@ -437,27 +420,12 @@ if(user.getUserLogged() === "admin"){
   document.getElementById("settingsBtn").style.visibility = "unset"
   document.getElementById("hintBtnADMIN").style.visibility = "unset"
 
-  function updatePistasAdmin(){
-    var modalHintAdmin = document.getElementById("modalHintAdmin");
-    modalHintAdmin.innerHTML = ""
-    modalHintAdmin.innerHTML = `<button id="closeHintAdmin" data-close-Adminbutton class = 'close-button'><ion-icon name="close-outline"></ion-icon></button>
-    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
-        <div class="carousel-inner" id="carousel-hints">
-                
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-        <div id = 'btnSettingsAdmin' class = 'btnsAdminHintAdmin'>
-            <button id = 'editBtnAdmin'>Editar</button>
-            <button id = 'saveBtnAdmin'>Guardar</button>
-        </div></div>`
+  document.getElementById("hintBtnADMIN").addEventListener('click', () => {
+    const modal = document.querySelector('.modalHintAdmin')
+    openModal(modal)
+  })
 
+  function updatePistasAdmin(){
 
 
     var pistasDiv = document.getElementsByClassName("carousel-inner")[0];
@@ -518,30 +486,40 @@ if(user.getUserLogged() === "admin"){
     });
   }
 
-  
+ 
 updatePistasAdmin()
 
 
-var footerOptions = document.getElementById("footerOptions");
-footerOptions.innerHTML += `<button id = 'settingsBtn' data-modal-target="#settingsModal"><ion-icon name="cog-outline"></ion-icon></button>`
 
-const openSettingBtn = document.querySelectorAll('[data-modal-target]');
-const closeSettingBtn = document.querySelectorAll('[data-close-button]');
-
-openSettingBtn.forEach(button => {
-    button.addEventListener('click', () =>{
-        const modal = document.querySelector(button.dataset.modalTarget);
-        openModal(modal)
+    document.getElementById("settingsBtn").addEventListener('click', () => {
+      const modal = document.querySelector('.modalSettings')
+      openModal(modal)
     })
 
-});
 
-closeSettingBtn.forEach(button => {
-    button.addEventListener('click', () => {
+    document.getElementById("closeSettings").addEventListener('click', () => {
       const modal = document.querySelector('.modalSettings')
       closeModal(modal)
     })
-  });
+
+
+    document.getElementById("editBtn").addEventListener("click", ()=>{
+      var inputs = document.querySelectorAll("#timeLvl");
+      for(const input of inputs){
+        input.readOnly= false;
+      }
+    });
+    
+    document.getElementById("saveBtn").addEventListener("click", ()=>{
+      var inputs = document.querySelectorAll("#timeLvl");
+      var index = 0
+      for(const input of inputs){
+        input.readOnly= true;
+        niveis.updateTimes(index,input.value)
+        index += 1
+      }
+    });
+
 }
 
 const inputs = document.querySelector(".inputs"),
@@ -656,3 +634,64 @@ else{
     muteBtn.innerHTML = '<ion-icon name="volume-mute-outline"></ion-icon>'
 }
 });
+
+
+
+
+
+
+var countdownDuration = parseInt(niveis.getTimeLevel(user.getUserLevel())) * 60;
+
+var countdownElement = document.getElementById('countdown');
+
+var countdown = setInterval(function() {
+
+  var minutes = Math.floor(countdownDuration / 60);
+  var seconds = countdownDuration % 60;
+
+  var formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+  var formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+
+
+  countdownElement.textContent = formattedMinutes + ":" + formattedSeconds;
+
+
+  if (countdownDuration <= 0) {
+    clearInterval(countdown);
+    document.getElementsByClassName("modal-headMoney")[0].children[0].textContent = "A Vila ficou enfeitiçada para sempre"
+    document.getElementsByClassName("modal-bodyMoney")[0].children[0].textContent = "Não resolveu os desafios a tempo :( "
+    var modal = document.getElementById("modalNoMoney");
+    openModal(modal);
+    setTimeout(function() {
+      location.reload()
+    }, 5000);
+  }
+
+  countdownDuration--;
+}, 1000);
+
+
+var inputMinutes = document.querySelectorAll("#timeLvl");
+var index = 0
+  for(const input of inputMinutes){
+    input.value = niveis.getTimeIndex(index)
+    index += 1
+  }
+
+
+var muteBtn = document.getElementById('sound');
+var myTrack = document.getElementById('bgTrack');
+
+myTrack.volume = 0.1;
+muteBtn.addEventListener('click', ()=>{
+  if (!myTrack.muted){
+    myTrack.muted = false;
+    muteBtn.innerHTML = '<ion-icon name="volume-high-outline"></ion-icon>'
+}
+else{
+    myTrack.muted = true;
+    muteBtn.innerHTML = '<ion-icon name="volume-mute-outline"></ion-icon>'
+}
+});
+
+

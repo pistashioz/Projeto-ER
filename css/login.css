@@ -138,10 +138,11 @@ ion-icon {
   }
 #sound{
     background: none;
-    border: 0;
+    border: none;
+    position: fixed;
+    right: 0%;
     margin-right: 2vw;
-    float: right;
-    padding-top: 85vh;
+    bottom: 0%;
 }
 /*Alert necessary for the usage of a custom alert*/
 #alert-container {

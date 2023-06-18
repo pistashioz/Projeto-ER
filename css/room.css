@@ -96,6 +96,16 @@ button:focus{
     color: whitesmoke;
 }
 
+#countdown{
+    font-size: 4vw;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    left: 2%;
+    top: 17%;
+}
+
+
 /*hint button*/
 #hintBtn{
     position: fixed;
@@ -143,8 +153,10 @@ ion-icon {
 #settingsBtn{
     position: fixed;
     left: 0%;
+    background: none;
+    border: none;
     margin-left: 2vw;
-    margin-top: -15vh;
+    margin-top: 70vh;
 }
 #sound{
     position: fixed;
@@ -1347,4 +1359,8 @@ ion-icon {
     z-index: 11;
     right: 2%;
     top: 1%;
+}
+
+#timeLvl{
+    text-align: center;
 }
