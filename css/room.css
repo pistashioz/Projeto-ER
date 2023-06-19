@@ -1379,3 +1379,34 @@ ion-icon {
 #timeLvl{
     text-align: center;
 }
+
+
+/*Media query*/
+
+/*phone*/
+
+/*Level 1*/
+@media only screen and (max-width: 900px) {
+    options h3{
+        position: fixed;
+        font-size: 4vw;
+        background-color: red;
+        width: 22vh;
+        height: 10vh;
+        text-align: center;
+        border-radius: 1rem;
+        padding-top: 1vh;
+        cursor: pointer;
+    }
+    #step1{
+        bottom: -9.2vh;
+        z-index: 40;
+    }
+
+    #step3{
+        bottom: 2vh;
+    }
+    #piece2{
+        z-index: 40;
+    }
+}
