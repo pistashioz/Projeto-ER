@@ -202,9 +202,9 @@ area{
     background-color: rgba(114, 105, 98, 0.4);
     backdrop-filter: blur(5rem);
     height: 7vh;
-    width: 50vw;
+    width: 40vw;
     text-align: center;
-    max-width: 50vw;
+    max-width: 40vw;
     border-radius: 2rem;
     bottom: 0;
     left: 50%;
@@ -594,14 +594,15 @@ body{
     color: whitesmoke;
     font-size: 2.3vw;
 	padding: 0em 1em;
-    height:8vh;
+    height:12vh;
     box-shadow: inset;
-	border-radius: 2.5em;
+	border-radius: 1em;
     background-color: #16680F;
     border: none;
     position: fixed;
-    left: 30vw;
-    top: 14vh;
+    
+    right: 12vw;
+    top: 11vh;
 
 }
 #answlvl3 input{
@@ -613,8 +614,8 @@ body{
     border-radius:3rem;
     padding-left: 2vw;
     position: fixed;
-    left: 12vw;
-    top: 12vh;
+    right: 28vw;
+    top: 11vh;
     width: 15vw;
 }
 #percentagemPiano:focus{
@@ -1386,16 +1387,8 @@ ion-icon {
 /*phone*/
 
 @media only screen and (max-width: 900px) {
-    options h3{
-        position: fixed;
-        font-size: 4vw;
-        background-color: #5b5654;
-        width: 22vh;
-        height: 10vh;
-        text-align: center;
+    #options h3{
         border-radius: 1rem;
-        padding-top: 1vh;
-        cursor: pointer;
     }
     #step1{
         bottom: -9.2vh;
@@ -1435,4 +1428,9 @@ ion-icon {
         top: 55%;
         transform: translate(-50%, -50%);
       }
+      .percentage {
+        left: 90%;
+        top: 25%;
+        font-size: clamp(1.8rem, 3.2vw, 2rem);
+    }
 }
