@@ -611,12 +611,12 @@ body{
     border: 0;
     color: whitesmoke;
     font-size: 3.5vw;
+    text-align: center;
     border-radius:3rem;
-    padding-left: 2vw;
     position: fixed;
     right: 28vw;
-    top: 11vh;
-    width: 15vw;
+    top: 12vh;
+    width: 12vw;
 }
 #percentagemPiano:focus{
     outline: none;
