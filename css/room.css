@@ -935,6 +935,7 @@ ion-icon {
     justify-content: space-around;
     align-items: center;
     font-size: 2vw;
+    resize: none;
 
 }
 .pista{
