@@ -200,3 +200,27 @@ ion-icon {
     opacity: 0;
  }
 }
+
+/*media query*/
+/*phone*/
+@media only screen and (max-width: 900px) {
+    #container{
+        width: 50vw;
+        max-width: 50vw;
+        height: 75vh;
+    }
+    #title{
+        margin-top: 2vh;
+    }
+    fieldset{
+        margin-top: -10vh;
+    }
+    #forgotpw{
+        position: fixed;
+        bottom: 30vh;
+        font-size: 1vw;
+    }
+    
+    
+
+}

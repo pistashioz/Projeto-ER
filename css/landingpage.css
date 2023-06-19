@@ -96,3 +96,18 @@ ion-icon {
     top: 2vh;
 }
 
+/*media query*/
+/*phone*/
+@media only screen and (max-width: 900px) {
+    #sound{
+        margin-top: 8vh;
+    }
+    #buttons button{
+        height: 11vh;
+        font-size: 1.8vw;
+        padding: 0.25em 1em;
+        width: 11vw;
+    
+    }
+
+}
