@@ -1433,4 +1433,10 @@ ion-icon {
         top: 25%;
         font-size: clamp(1.8rem, 3.2vw, 2rem);
     }
+    #inventory{
+        border-radius: 2rem;
+    }
+    #containerPiano{
+        border-radius: 1rem;
+    }
 }
