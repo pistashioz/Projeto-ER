@@ -41,7 +41,6 @@ closeModalButton.forEach((x) => x.addEventListener('click',[rModal,modal].forEac
 document.querySelector('#open-modalRules').addEventListener('click', function(){
   if (rModal.classList.contains('hide') && modal.classList.contains('hide')){
     [rModal,modal].forEach((x) => x.classList.remove('hide'))
-    console.log(cbtn)
     cbtn.style.zIndex = 13;
     modal.style.zIndex=10;
     rModal.style.zIndex=13;

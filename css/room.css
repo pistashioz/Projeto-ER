@@ -1385,12 +1385,11 @@ ion-icon {
 
 /*phone*/
 
-/*Level 1*/
 @media only screen and (max-width: 900px) {
     options h3{
         position: fixed;
         font-size: 4vw;
-        background-color: red;
+        background-color: #5b5654;
         width: 22vh;
         height: 10vh;
         text-align: center;
@@ -1401,6 +1400,14 @@ ion-icon {
     #step1{
         bottom: -9.2vh;
         z-index: 40;
+        width: 15vw;
+    }
+    #stairs{
+        width: 25vw;
+        position: absolute;
+        bottom: 0.5vw;
+        right: 20vw;
+        z-index: 41;
     }
 
     #step3{
@@ -1409,4 +1416,23 @@ ion-icon {
     #piece2{
         z-index: 40;
     }
+    .modalSettings{
+        z-index: 41;
+    }
+    .modalNoMoney{
+        z-index: 42;
+    }
+    .bar-wrap {
+        z-index: 50;
+    }
+    #fixedStep{
+        bottom: 35vh;
+        z-index: 41;
+    }
+    .wrapper{
+        width: 80vw;
+        left: 50%;
+        top: 55%;
+        transform: translate(-50%, -50%);
+      }
 }

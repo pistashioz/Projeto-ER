@@ -150,6 +150,7 @@ document.getElementById("step1").addEventListener("click",()=>{
     var image = document.getElementById('step1');
     image.style.bottom = '17.5vw';
     image.style.right = '25vw';
+
     solvedChall()
 });
 document.getElementById("step2").addEventListener("click",()=>{
@@ -341,9 +342,15 @@ function randomChallengeLvl2(){
 
 function changePosition(){
   var stepFixed = document.getElementById('stepFixed');
-  stepFixed.style.bottom = '35vw';
-  stepFixed.style.left = '14vw';
-
+  var x = window.matchMedia("(max-width: 900px)")
+  if (x.matches){
+    stepFixed.style.bottom = '33vw';
+    stepFixed.style.left = '14vw';
+  }
+  else{
+    stepFixed.style.bottom = '35vw';
+    stepFixed.style.left = '14vw';
+  }
   solvedChall()
 
 }

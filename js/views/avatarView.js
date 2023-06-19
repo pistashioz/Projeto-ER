@@ -60,15 +60,19 @@ updateAvatar()
             buyAvatar(button,price,avatarName);
             updateShop()
         })
-        const closeModalButtons = document.querySelectorAll('.btnExit');
+        const closeModalButtons = document.querySelectorAll('#btnExit');
+        console.log(closeModalButtons)
             closeModalButtons.forEach(button => {
                 button.addEventListener('click', () => {
                   divBuyModal.innerHTML = "";
                 })
             });
+
     }
 
-/*buy button*/
+
+
+    /*buy button*/
 
 function buyAvatar(button,price,avatarName){
     divBuyModal.innerHTML = "";
