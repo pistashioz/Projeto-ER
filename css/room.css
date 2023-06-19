@@ -1038,7 +1038,7 @@ ion-icon {
     border-radius: 3rem;
     height: 75vh;
     transition: 200ms ease-in-out;
-    z-index: 6;
+    z-index: 20;
 }
 .modalSettings.active{
     transform: translate(-45%, -50%) scale(1);
@@ -1363,4 +1363,22 @@ ion-icon {
 
 #timeLvl{
     text-align: center;
+}
+/*Media query*/
+
+/*phone*/
+
+/*Level 1*/
+@media only screen and (max-width: 900px) {
+    options h3{
+        position: fixed;
+        font-size: 4vw;
+        background-color: red;
+        width: 22vh;
+        height: 10vh;
+        text-align: center;
+        border-radius: 1rem;
+        padding-top: 1vh;
+        cursor: pointer;
+    }
 }
