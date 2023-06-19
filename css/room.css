@@ -774,7 +774,6 @@ ion-icon {
 /*hint modal*/
 
 .modalHint{
-
     background-color: #657D55;
     position: fixed;
     left: 50%;
@@ -901,6 +900,17 @@ ion-icon {
     display: block;
     transform: translate(-45%, -50%) scale(1);
 }
+.modalHintAdmin .carousel-control-prev-icon {
+    position: absolute;
+    bottom: 35vh;
+    left: -1vw;
+}
+.modalHintAdmin .carousel-control-next-icon {
+    position: absolute;
+    bottom: 35vh;
+    right: -1vw;
+}
+
 .modalHintAdmin{
     position: fixed;
     display: none;
@@ -953,7 +963,7 @@ ion-icon {
     display: flex;
     position: fixed;
     left: 10%;
-    bottom: 7vh;
+    bottom: 5vh;
 }
 #btnSettingsAdmin button{
 	color: whitesmoke;
@@ -1423,11 +1433,13 @@ ion-icon {
         z-index: 41;
     }
     .wrapper{
-        width: 80vw;
+        width: 70vw;
+        height: 80vh;
         left: 50%;
         top: 55%;
         transform: translate(-50%, -50%);
       }
+
       .percentage {
         left: 90%;
         top: 25%;
@@ -1439,4 +1451,24 @@ ion-icon {
     #containerPiano{
         border-radius: 1rem;
     }
+    .modalHint{
+        background-color: #657D55;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-45%, -50%) scale(1);
+        width: 40vw;
+        max-width: 40vw;
+        padding: 1.2rem;
+        border-radius: 3rem;
+        height: 50vh;
+        transition: 200ms ease-in-out;
+        z-index: 51;
+    }
+    .inputs input{
+        height: 4.5vw;
+        width: 10vh;
+        margin: 4px;
+      }
+    
 }

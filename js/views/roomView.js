@@ -83,7 +83,7 @@ updateCoins()
                   <h1>Pista</h1>
                   <button id="closeHint"><ion-icon name="close-outline"></ion-icon></button>
               </div>
-              <div class = 'modalHint-body'><h3 id = 'hintText'>as pistas devem aparecer aqui!!!</h3></div> 
+              <div class = 'modalHint-body'><h3 id = 'hintText'></h3></div> 
               </div>
           </div>`
           const modalHint = document.getElementById("hintModal");
