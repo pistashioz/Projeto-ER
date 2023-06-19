@@ -36,6 +36,18 @@ button:focus{
 .container{
     width: 100%;
 }
+.carousel-control-prev-icon {
+    position: absolute;
+    bottom: 55vh;
+    left: -2vw;
+}
+.carousel-control-next-icon {
+    position: absolute;
+    bottom: 55vh;
+    right: -2vw;
+}
+
+
 .bar-wrap {
   padding: 0.4vw;
   margin-top: 2vh;
@@ -623,6 +635,7 @@ body{
 
 .modalBuy {
     background-color: #657D55;
+    backdrop-filter: blur(5rem);
     position: fixed;
     left: 50%;
     top: 50%;
@@ -834,6 +847,7 @@ ion-icon {
     border-radius: 3rem;
     height: 50%;
     transition: 200ms ease-in-out;
+    z-index: 20;
 }
 
 .modal-headMoney h1{
@@ -853,13 +867,13 @@ ion-icon {
     cursor: pointer;
     z-index: 11;
     left: 90%;
-    top: 2%;
+    top: 5%;
 }
 
 .modal-bodyMoney{
     position: fixed;
-    left: 55%;
-    top: 85%;
+    left: 53%;
+    top: 100%;
     transform: translate(-50%, -50%);
     width: 100%;
     height: 50%;
@@ -1032,13 +1046,13 @@ ion-icon {
     left: 50%;
     top: 50%;
     transform: translate(-45%, -50%) scale(0);
-    width: 60vw;
-    max-width: 60vw;
+    width: 50vw;
+    max-width: 50vw;
     padding: 1.2rem;
     border-radius: 3rem;
-    height: 75vh;
+    height: 50vh;
     transition: 200ms ease-in-out;
-    z-index: 6;
+    z-index: 20;
 }
 .modalSettings.active{
     transform: translate(-45%, -50%) scale(1);
@@ -1049,14 +1063,15 @@ ion-icon {
     font-size: 4.3vw;
     position: fixed;
     left: 50%;
-    top: 4%;
+    top: 8%;
     transform: translate(-50%, -10%);
+    z-index: 10;
 }
 
 .modalSettings-body{
     position: fixed;
     left: 50%;
-    top: 55%;
+    top: 60%;
     transform: translate(-50%, -50%);
     width: 90%;
     height: 80%;
@@ -1085,11 +1100,11 @@ ion-icon {
     background-color: #CFB265;
     border: 0;
     color: whitesmoke;
-    padding-left: 1vw;
     font-size: 2vw;
     border-radius:3rem;
     margin-left: 1vw;
     margin-right: 1vw;
+    text-align: center;
     margin-top: -1vh;
 }
 #time {
@@ -1127,8 +1142,8 @@ ion-icon {
     justify-content: space-around;
     display: flex;
     position: fixed;
-    left: 15%;
-    bottom: 3vh;
+    left: 5%;
+    bottom: 8vh;
 }
 #btnSettings button{
 	color: whitesmoke;
