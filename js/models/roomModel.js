@@ -1,6 +1,6 @@
 let niveis = []
 
-function init(){
+export function init(){
     if(localStorage.desafiosFlor) {
         niveis = JSON.parse(localStorage.desafiosFlor)
     }else{
@@ -13,8 +13,9 @@ function init(){
 function updateLocalStrorage(){
     localStorage.setItem("desafiosFlor", JSON.stringify(niveis));
 }
-
 init()
+
+
 export function updateTimes(index,minutos){
     niveis[index] = parseInt(minutos)
     updateLocalStrorage()

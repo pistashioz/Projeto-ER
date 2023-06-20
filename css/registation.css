@@ -40,21 +40,21 @@ button{
   font-size: 18px;
   color: whitesmoke;
   margin-top: -10px;
-  margin-left: 450px;
+  margin-left: 3%;
   position:fixed;
 }
  #mail p{
   font-size: 18px;
   color: whitesmoke;
   margin-top: -10px;
-  margin-left: 250px;
+  margin-left: 3%;
   position:fixed;
 }
 #confPw p{
   font-size: 18px;
   color: whitesmoke;
   margin-top: -10px;
-  margin-left: 360px;
+  margin-left: 3%;
   position:fixed;
 }
 

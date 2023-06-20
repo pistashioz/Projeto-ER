@@ -681,7 +681,7 @@ var countdown = setInterval(function() {
 var inputMinutes = document.querySelectorAll("#timeLvl");
 var index = 0
   for(const input of inputMinutes){
-    input.value = niveis.getTimeIndex(index)
+    input.value = niveis.getTimeIndex(index);
     index += 1
   }
 

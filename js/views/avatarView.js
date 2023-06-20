@@ -49,8 +49,9 @@ function updateAvatar(){
     imagemAvatarDiv.innerHTML= `<img src="../src/img/avatares/${avatar.name}.svg" alt="avatar" id = 'defaultAvatar'>`
 
 }
-updateShop()
 updateAvatar()
+updateShop()
+
 
 
     function buyModal(button,price,avatarName){
