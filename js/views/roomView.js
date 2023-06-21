@@ -436,6 +436,7 @@ if(user.getUserLogged() === "admin"){
 
 
     var pistasDiv = document.getElementsByClassName("carousel-inner")[0];
+    pistasDiv.innerHTML=""
     for (const pista of pistas.getPistas()){
       const divpistas = document.createElement("div");
       divpistas.innerHTML += `<h3>Pistas nivel ${pistas.getPistas().indexOf(pista) + 1}</h3>`;
